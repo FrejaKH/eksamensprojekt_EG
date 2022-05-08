@@ -29,6 +29,11 @@ id_user BIGINT NOT NULL,
 PRIMARY KEY (kundenummer),
 foreign key(id_user) references user_table(id_user)
 );
+INSERT INTO `user_table` (`email`, `navn`, `kundenummer`, `adresse`, `postnummer`, `_by`, `telefonnummer`, `password`) VALUES
+('reneseer@gmail.com', 'René Seebach', '435342653345', 'Lærkevej 3', '6200', 'Kliplev', '27147831', '1234' );
+
+INSERT INTO `user_privat` (`kundenummer`, `id_user`) VALUES
+('435342653345', '1' );
 
 CREATE TABLE ordre(
 ordrenummer BIGINT,
