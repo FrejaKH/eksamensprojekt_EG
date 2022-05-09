@@ -1,39 +1,18 @@
 // Load passport strategy - https://www.passportjs.org/packages/passport-local/
 const LocalStrategy = require("passport-local").Strategy;
-const mysql = require("mysql2");
 const bcrypt = require("bcrypt");
-const dbconfig = require("./db");
-
-const connection = mysql.createConnection(dbconfig.passport.connection);
-connection.query("USE " + dbconfig.passport.database);
+const { pool } = require("./db");
 
 // Exporting this function to be used in app.js
 module.exports = function (passport) {
   /* PASSPORT SESSION SETUP */
   // Serialize the user for the session
   passport.serializeUser(function (user, done) {
-    done(null, user.id_user);
+    done(null, user);
   });
-
-  // Deserialize the user
-  passport.deserializeUser(function (id, done) {
-    connection.query(
-      "SELECT * FROM user_table WHERE id_user = ? ",
-      [id],
-      function (err, rows) {
-        done(err, rows[0]);
-      }
-    );
-  });
-
-  passport.serializeUser(function (user, done) {
-    done(null, user.id);
-  });
-
-  passport.deserializeUser(function (id, done) {
-    User.findById(id, function (err, user) {
-      done(err, user);
-    });
+  // Deserialize
+  passport.deserializeUser(function (user, done) {
+    done(null, user);
   });
 
   /* LOCAL STRATEGY SIGNUP */
@@ -46,7 +25,7 @@ module.exports = function (passport) {
         passReqToCallback: true,
       },
       function (req, username, password, done) {
-        connection.query(
+        pool.query(
           "SELECT * FROM user_table WHERE navn = ?",
           [username],
           function (err, rows) {
@@ -67,7 +46,7 @@ module.exports = function (passport) {
               };
               const insertQuery =
                 "INSERT INTO user_table ( navn, password, email, telefonnummer ) values (?,?,?,?)";
-              connection.query(
+              pool.query(
                 insertQuery,
                 [
                   newUserMysql.username,
@@ -77,7 +56,6 @@ module.exports = function (passport) {
                 ],
                 function (err, rows) {
                   newUserMysql.id = rows.insertId;
-
                   return done(null, newUserMysql);
                 }
               );
@@ -98,7 +76,7 @@ module.exports = function (passport) {
         passReqToCallback: true,
       },
       function (req, username, password, done) {
-        connection.query(
+        pool.query(
           "SELECT * FROM user_table WHERE navn = ?",
           [username],
           function (err, rows) {
@@ -117,7 +95,7 @@ module.exports = function (passport) {
                 false,
                 req.flash("loginMessage", "Wrong password.")
               );
-            // All is well, return successful user
+            // Return successful user
             return done(null, rows[0]);
           }
         );

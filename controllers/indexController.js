@@ -65,7 +65,7 @@ exports.updateProduct = async (req, res) => {
     const { varenummer } = req.params;
     const { description } = req.body;
     const updateProduct = await pool.query(
-      "UPDATE testtable SET description = ? WHERE varenummer = ?",
+      "UPDATE vare SET description = ? WHERE varenummer = ?",
       [description, varenummer]
     );
     console.log("Product updated!");
@@ -80,7 +80,7 @@ exports.deleteProduct = async (req, res) => {
   try {
     const { varenummer } = req.params;
     const deleteProduct = await pool.query(
-      "DELETE FROM testtable WHERE varenummer = ?",
+      "DELETE FROM vare WHERE varenummer = ?",
       [varenummer]
     );
     console.log("Product deleted!");
