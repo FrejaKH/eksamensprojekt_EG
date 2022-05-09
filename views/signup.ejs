@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="../public/stylesheets/style.css" />
+    <link
+      rel="stylesheet"
+      href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css"
+    />
+    <title>test</title>
+  </head>
+  <body>
+    <div class="login-page">
+      <div class="form">
+        <div class="login">
+          <div class="login-header">
+            <h3>LOGO</h3>
+            <p>Please enter your credentials to signup.</p>
+          </div>
+        </div>
+        <% if (message.length > 0) { %>
+        <div class="alert alert-danger"><%= message %></div>
+        <% } %>
+        <form class="login-form" action="/signup" method="post">
+          <input type="text" placeholder="Name" name="username" />
+          <input type="password" placeholder="Password" name="password" />
+          <input type="password" placeholder="test1" name="test1" />
+          <input type="password" placeholder="test2" name="test2" />
+          <button type="submit">signup</button>
+          <p class="message">
+            Already have an account? <a href="/login">Login</a>
+          </p>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>

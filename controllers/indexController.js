@@ -1,4 +1,12 @@
-const pool = require("../models/db");
+const { pool } = require("../models/db");
+
+// ====================== /* MISC. */ ====================== //
+
+/* CHECK IF LOGGED IN - Use indexController.isLoggedIn FIRST, on relevant routes, to force login */
+exports.isLoggedIn = (req, res, next) => {
+  if (req.isAuthenticated()) return next(); // If user is authenticated in the session, carry on
+  res.redirect("/login"); // if false, redirect to login
+};
 
 /* GET INDEX PAGE */
 exports.index = (req, res) => {
@@ -6,6 +14,8 @@ exports.index = (req, res) => {
     title: "test",
   });
 };
+
+// ====================== /* PRODUCTS */ ====================== //
 
 /* CREATE A PRODUCT */
 exports.createProduct = async (req, res) => {
@@ -77,4 +87,38 @@ exports.deleteProduct = async (req, res) => {
   } catch (err) {
     console.error(err.message);
   }
+};
+
+// ====================== /* PASSPORT */ ====================== //
+
+/* LOGIN */
+exports.login = (req, res) => {
+  res.render("login", { message: req.flash("loginMessage") });
+};
+
+exports.loginSuccess = (req, res) => {
+  if (req.body.remember) {
+    req.session.cookie.maxAge = 60 * 60 * 24; // 86400 seconds = 1 day
+  } else {
+    req.session.cookie.expires = false;
+  }
+  res.redirect("/");
+};
+
+/* SIGNUP */
+exports.signup = (req, res) => {
+  res.render("signup", { message: req.flash("signupMessage") });
+};
+
+/* PROFILE */
+exports.profile = (req, res) => {
+  res.render("profile", {
+    user: req.user,
+  });
+};
+
+/* LOGOUT */
+exports.logout = (req, res) => {
+  req.logout();
+  res.redirect("/");
 };
