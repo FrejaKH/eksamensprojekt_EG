@@ -6,7 +6,7 @@ const pool = mysql.createPool({
   host: "127.0.0.1",
   user: "root",
   password: "",
-  database: "testDB",
+  database: "dbbyggemarked",
 });
 
 /* PASSPORT */
@@ -16,8 +16,8 @@ const passport = {
     user: "root",
     password: "",
   },
-  database: "testDB",
-  users_table: "users",
+  database: "dbbyggemarked",
+  users_table: "user_table",
 };
 
 module.exports = { passport, pool };

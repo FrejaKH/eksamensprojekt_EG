@@ -12,13 +12,13 @@ module.exports = function (passport) {
   /* PASSPORT SESSION SETUP */
   // Serialize the user for the session
   passport.serializeUser(function (user, done) {
-    done(null, user.id);
+    done(null, user.id_user);
   });
 
   // Deserialize the user
   passport.deserializeUser(function (id, done) {
     connection.query(
-      "SELECT * FROM users WHERE id = ? ",
+      "SELECT * FROM user_table WHERE id_user = ? ",
       [id],
       function (err, rows) {
         done(err, rows[0]);
@@ -37,7 +37,7 @@ module.exports = function (passport) {
       },
       function (req, username, password, done) {
         connection.query(
-          "SELECT * FROM users WHERE username = ?",
+          "SELECT * FROM user_table WHERE navn = ?",
           [username],
           function (err, rows) {
             if (err) return done(err);
@@ -52,18 +52,18 @@ module.exports = function (passport) {
               const newUserMysql = {
                 username: username,
                 password: bcrypt.hashSync(password, 10),
-                test1: req.body.test1,
-                test2: req.body.test2,
+                email: req.body.email,
+                telefon: req.body.telefon,
               };
               const insertQuery =
-                "INSERT INTO users ( username, password, test1, test2 ) values (?,?,?,?)";
+                "INSERT INTO user_table ( navn, password, email, telefonnummer ) values (?,?,?,?)";
               connection.query(
                 insertQuery,
                 [
                   newUserMysql.username,
                   newUserMysql.password,
-                  newUserMysql.test1,
-                  newUserMysql.test2,
+                  newUserMysql.email,
+                  newUserMysql.telefon,
                 ],
                 function (err, rows) {
                   newUserMysql.id = rows.insertId;
@@ -89,7 +89,7 @@ module.exports = function (passport) {
       },
       function (req, username, password, done) {
         connection.query(
-          "SELECT * FROM users WHERE username = ?",
+          "SELECT * FROM user_table WHERE navn = ?",
           [username],
           function (err, rows) {
             if (err) return done(err);
