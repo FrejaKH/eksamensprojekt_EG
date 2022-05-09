@@ -43,9 +43,13 @@ module.exports = function (passport) {
                 password: bcrypt.hashSync(password, 10),
                 email: req.body.email,
                 telefon: req.body.telefon,
+                kundenummer: req.body.kundenummer,
+                adresse: req.body.adresse,
+                _by: req.body._by,
+                postnummer: req.body.postnummer,
               };
               const insertQuery =
-                "INSERT INTO user_table ( navn, password, email, telefonnummer ) values (?,?,?,?)";
+                "INSERT INTO user_table ( navn, password, email, telefonnummer, kundenummer, adresse, _by, postnummer ) values (?,?,?,?,?,?,?,?)";
               pool.query(
                 insertQuery,
                 [
@@ -53,9 +57,13 @@ module.exports = function (passport) {
                   newUserMysql.password,
                   newUserMysql.email,
                   newUserMysql.telefon,
+                  newUserMysql.kundenummer,
+                  newUserMysql.adresse,
+                  newUserMysql._by,
+                  newUserMysql.postnummer,
                 ],
                 function (err, rows) {
-                  newUserMysql.id = rows.insertId;
+                  // newUserMysql.id = rows.insertId;
                   return done(null, newUserMysql);
                 }
               );
