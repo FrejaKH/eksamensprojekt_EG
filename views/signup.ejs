@@ -21,14 +21,29 @@
         <div class="alert alert-danger"><%= message %></div>
         <% } %>
         <form class="login-form" action="/signup" method="post">
-          <input type="text" placeholder="Name" name="username" />
-          <input type="password" placeholder="Password" name="password" />
-          <input type="text" placeholder="Email" name="email" />
-          <input type="number" placeholder="Telefon" name="telefon" />
-          <input type="number" placeholder="Kundenummer" name="kundenummer" />
-          <input type="text" placeholder="Adresse" name="adresse" />
+          <input type="text" placeholder="Name" name="username" required />
+          <input
+            type="password"
+            placeholder="Password"
+            name="password"
+            required
+          />
+          <input type="text" placeholder="Email" name="email" required />
+          <input type="number" placeholder="Telefon" name="telefon" required />
+          <input
+            type="number"
+            placeholder="Kundenummer"
+            name="kundenummer"
+            required
+          />
+          <input type="text" placeholder="Adresse" name="adresse" required />
           <input type="text" placeholder="By" name="_by" />
-          <input type="number" placeholder="Postnummer" name="postnummer" />
+          <input
+            type="number"
+            placeholder="Postnummer"
+            name="postnummer"
+            required
+          />
           <button type="submit">signup</button>
           <p class="message">
             Already have an account? <a href="/login">Login</a>
