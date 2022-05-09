@@ -55,6 +55,4 @@ router
 /* LOGOUT ROUTES */
 router.route("/logout").get(indexController.logout); // Drop session
 
-router.route("/abekat").get(indexController.isLoggedIn); // Drop session
-
 module.exports = router;
