@@ -2,7 +2,7 @@ DROP DATABASE IF EXISTS dbbyggemarked;
 CREATE DATABASE dbbyggemarked;
 USE dbbyggemarked;
 
-CREATE TABLE user_table(
+CREATE TABLE brugere(
   kundenummer BIGINT NOT NULL AUTO_INCREMENT,
   email VARCHAR(100) UNIQUE NOT NULL,
   navn VARCHAR(100) NOT NULL,
@@ -11,38 +11,35 @@ CREATE TABLE user_table(
   _by VARCHAR(100) NOT NULL,
   telefonnummer INT(20) NOT NULL,
   password VARCHAR(100) NOT NULL,
+  rolle VARCHAR(10),
   PRIMARY KEY (kundenummer)
 );
 
-CREATE TABLE user_privat(
+CREATE TABLE brugere_erhverv(
 kundenummer BIGINT NOT NULL,
+kontonummer INT NOT NULL,
+cvr INT NOT NULL,
 PRIMARY KEY (kundenummer),
-foreign key(kundenummer) references user_table(kundenummer)
+foreign key(kundenummer) references brugere(kundenummer)
 );
-
-CREATE TABLE user_erhverv(
-kundenummer BIGINT NOT NULL,
-cvr bigint(100),
-PRIMARY KEY (kundenummer),
-foreign key(kundenummer) references user_table(kundenummer)
-);
-INSERT INTO `user_table` (`email`, `navn`, `kundenummer`, `adresse`, `postnummer`, `_by`, `telefonnummer`, `password`) VALUES
-('reneseer@gmail.com', 'René Seebach', '435342653345', 'Lærkevej 3', '6200', 'Kliplev', '27147831', '1234' );
-
-INSERT INTO `user_privat` (`kundenummer`) VALUES
-('435342653345' );
 
 CREATE TABLE ordre(
 ordrenummer BIGINT,
 dato DATETIME NOT NULL,
-betalt FLOAT NOT NULL,
+betalt BOOLEAN NOT NULL,
 kundenummer BIGINT NOT NULL,
 PRIMARY KEY (ordrenummer),
-foreign key(kundenummer) references user_table(kundenummer)
+foreign key(kundenummer) references brugere(kundenummer)
 );
 
-CREATE TABLE varegruppe(
-varegruppenummer BIGINT,
+CREATE TABLE varehovedgruppe(
+varehovedgruppe BIGINT,
+beskrivelse VARCHAR(300),
+PRIMARY KEY (varehovedgruppe)
+);
+
+CREATE TABLE vareundergruppe(
+vareundergruppe BIGINT,
 beskrivelse VARCHAR(300),
 PRIMARY KEY (varegruppenummer)
 );
@@ -55,9 +52,9 @@ enhedsbetegnelse VARCHAR(5) NOT NULL,
 indkøbspris FLOAT NOT NULL,
 billede blob NOT NULL,
 EAN INT NOT NULL,
-varegruppenummer BIGINT,
+vareundergruppe BIGINT,
 PRIMARY KEY (varenummer),
-foreign key(varegruppenummer) references varegruppe(varegruppenummer)
+foreign key(vareundergruppe) references vareundergruppe(vareundergruppe)
 );
 
 CREATE TABLE ordrelinje(
@@ -70,6 +67,7 @@ foreign key(varenummer) references vare(varenummer),
 foreign key(ordrenummer) references ordre(ordrenummer)
 );
 
+
 CREATE TABLE varehus(
 id_varehus INT,
 navn VARCHAR(300) NOT NULL,
@@ -81,6 +79,7 @@ CREATE TABLE lagerbeholdning(
 id INT auto_increment,
 id_varehus INT NOT NULL,
 varenummer BIGINT NOT NULL,
+antal INT NOT NULL,
 PRIMARY KEY (id),
 foreign key(id_varehus) references varehus(id_varehus),
 foreign key(varenummer) references vare(varenummer)
@@ -88,8 +87,8 @@ foreign key(varenummer) references vare(varenummer)
 
 CREATE TABLE varehuslokation(
 id_varehuslokation INT AUTO_INCREMENT,
-gang VARCHAR(300) NOT NULL,
 id_varehus INT NOT NULL,
+gang VARCHAR(300) NOT NULL,
 PRIMARY KEY (id_varehuslokation),
 foreign key(id_varehus) references varehus(id_varehus)
 );
@@ -105,11 +104,3 @@ foreign key(varenummer) references vare(varenummer),
 foreign key(id_varehuslokation) references varehuslokation(id_varehuslokation)
 );
 
-CREATE TABLE varerelation(
-id_varerelation INT AUTO_INCREMENT,
-varenummer BIGINT NOT NULL,
-varegruppenummer BIGINT,
-PRIMARY KEY (id_varerelation),
-foreign key(varenummer) references vare(varenummer),
-foreign key(varegruppenummer) references varegruppe(varegruppenummer)
-);

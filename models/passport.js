@@ -26,7 +26,7 @@ module.exports = function (passport) {
       },
       function (req, username, password, done) {
         pool.query(
-          "SELECT * FROM user_table WHERE navn = ?",
+          "SELECT * FROM brugere WHERE navn = ?",
           [username],
           function (err, rows) {
             if (err) return done(err);
@@ -48,7 +48,7 @@ module.exports = function (passport) {
                 postnummer: req.body.postnummer,
               };
               const insertQuery =
-                "INSERT INTO user_table ( navn, password, email, telefonnummer, adresse, _by, postnummer ) values (?,?,?,?,?,?,?)";
+                "INSERT INTO brugere ( navn, password, email, telefonnummer, adresse, _by, postnummer ) values (?,?,?,?,?,?,?)";
               pool.query(
                 insertQuery,
                 [
@@ -83,7 +83,7 @@ module.exports = function (passport) {
       },
       function (req, username, password, done) {
         pool.query(
-          "SELECT * FROM user_table WHERE navn = ?",
+          "SELECT * FROM brugere WHERE navn = ?",
           [username],
           function (err, rows) {
             if (err) return done(err);
