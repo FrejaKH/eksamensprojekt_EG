@@ -43,7 +43,7 @@ module.exports = function (passport) {
                 password: bcrypt.hashSync(password, 10),
                 email: req.body.email,
                 telefon: req.body.telefon,
-                kundenummer: req.body.kundenummer,
+                kundenummer: "random number generator",
                 adresse: req.body.adresse,
                 _by: req.body._by,
                 postnummer: req.body.postnummer,
