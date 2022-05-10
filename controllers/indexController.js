@@ -1,4 +1,5 @@
 const pool = require("../models/db");
+const product = require("../models/products");
 
 // ====================== /* MISC. */ ====================== //
 
@@ -35,7 +36,7 @@ exports.createProduct = async (req, res) => {
 /* GET ALL PRODUCTS */
 exports.getAllProducts = async (req, res) => {
   try {
-    const products = await pool.query("SELECT * FROM vare");
+    const products = await product.getAllproduct(req, res);
     console.log(products[0]);
     res.json(products[0]);
     // res.render("index", { products: products[0] });
@@ -43,17 +44,36 @@ exports.getAllProducts = async (req, res) => {
     console.error(err.message);
   }
 };
-
 /* GET A PRODUCT */
+// exports.getProduct = async (req, res) => {
+//   try {
+//     // console.log(req.params.id);
+//     const { varenummer } = req.params;
+//     const product = await pool.query(
+//       "SELECT * FROM vare WHERE varenummer = ?",
+//       [varenummer]
+//     );
+//     console.log(product[0]);
+//     res.json(product[0]);
+//   } catch (err) {
+//     console.error(err.message);
+//   }
+// };
+
+// /* GET A PRODUCT */
 exports.getProduct = async (req, res) => {
   try {
-    const { varenummer } = req.params;
-    const product = await pool.query(
-      "SELECT * FROM vare WHERE varenummer = ?",
-      [varenummer]
-    );
-    console.log(product[0]);
-    res.json(product[0]);
+    const varenummer = req.params.id;
+    console.log(varenummer);
+    const getproduct = await product.getproduct(req, res);
+    // const varenummer = req.params;
+    // console.log(varenummer);
+    // const product = await pool.query(
+    //   "SELECT * FROM vare WHERE varenummer = ?",
+    //   [varenummer]
+    // );
+    console.log(getproduct[0]);
+    res.json(getproduct[0]);
   } catch (err) {
     console.error(err.message);
   }

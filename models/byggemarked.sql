@@ -23,6 +23,9 @@ PRIMARY KEY (kundenummer),
 foreign key(kundenummer) references brugere(kundenummer)
 );
 
+INSERT INTO `brugere` (`kundenummer`, `email`, `navn`, `adresse`, `postnummer`, `_by`, `telefonnummer`, `password`, `rolle`) VALUES
+(1, 'test@gmail.com', 'test', 'Lærkevej 3', 6200, 'kliplev', 20913871, '$2b$10$xrHb1jXOEwFMfXbbSUX8U.c1G6bPWUjMxpLayoXv2t76PFRGCAKiC', NULL);
+
 CREATE TABLE ordre(
 ordrenummer BIGINT,
 dato DATETIME NOT NULL,
@@ -41,7 +44,7 @@ PRIMARY KEY (varehovedgruppe)
 CREATE TABLE vareundergruppe(
 vareundergruppe BIGINT,
 beskrivelse VARCHAR(300),
-PRIMARY KEY (varegruppenummer)
+PRIMARY KEY (vareundergruppe)
 );
 
 CREATE TABLE vare(
@@ -51,7 +54,7 @@ beskrivelse VARCHAR(500) NOT NULL,
 enhedsbetegnelse VARCHAR(5) NOT NULL,
 indkøbspris FLOAT NOT NULL,
 billede blob NOT NULL,
-EAN INT NOT NULL,
+EAN BIGINT NOT NULL,
 vareundergruppe BIGINT,
 PRIMARY KEY (varenummer),
 foreign key(vareundergruppe) references vareundergruppe(vareundergruppe)
