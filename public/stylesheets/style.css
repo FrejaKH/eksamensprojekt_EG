@@ -1,5 +1,17 @@
+:root {
+  --color-white: #FFF;
+  --color-black: #000;
+  --color-grey: hsl(240, 4%, 85%);
+  --color-light: hsl(192, 15%, 94%);
+  --color-dark: hsl(209, 96%, 9%);
+  --color-primary: hsl(204, 100%, 16%);
+  --color-accent: hsl(13, 87%, 57%);
+
+  color:var(--color-black);
+}
+
 body {
-  padding: 50px;
+  padding: 2.5em;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
