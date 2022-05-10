@@ -15,28 +15,30 @@ CREATE TABLE user_table(
 );
 
 CREATE TABLE user_privat(
-kundenummer BIGINT unsigned,
-id_user BIGINT NOT NULL,
+kundenummer BIGINT NOT NULL,
 PRIMARY KEY (kundenummer),
-foreign key(id_user) references user_table(id_user)
+foreign key(kundenummer) references user_table(kundenummer)
 );
 
 CREATE TABLE user_erhverv(
-kundenummer BIGINT unsigned,
+kundenummer BIGINT NOT NULL,
 cvr bigint(100),
-id_user BIGINT NOT NULL,
 PRIMARY KEY (kundenummer),
-foreign key(id_user) references user_table(id_user)
+foreign key(kundenummer) references user_table(kundenummer)
 );
+INSERT INTO `user_table` (`email`, `navn`, `kundenummer`, `adresse`, `postnummer`, `_by`, `telefonnummer`, `password`) VALUES
+('reneseer@gmail.com', 'René Seebach', '435342653345', 'Lærkevej 3', '6200', 'Kliplev', '27147831', '1234' );
 
+INSERT INTO `user_privat` (`kundenummer`) VALUES
+('435342653345' );
 
 CREATE TABLE ordre(
 ordrenummer BIGINT,
 dato DATETIME NOT NULL,
 betalt FLOAT NOT NULL,
-id_user BIGINT NOT NULL,
+kundenummer BIGINT NOT NULL,
 PRIMARY KEY (ordrenummer),
-foreign key(id_user) references user_table(id_user)
+foreign key(kundenummer) references user_table(kundenummer)
 );
 
 CREATE TABLE varegruppe(
@@ -59,7 +61,7 @@ foreign key(varegruppenummer) references varegruppe(varegruppenummer)
 );
 
 CREATE TABLE ordrelinje(
-id BIGINT auto_increment,
+id INT auto_increment,
 antal INT NOT NULL,
 varenummer BIGINT,
 ordrenummer BIGINT,
@@ -69,14 +71,14 @@ foreign key(ordrenummer) references ordre(ordrenummer)
 );
 
 CREATE TABLE varehus(
-id_varehus BIGINT,
+id_varehus INT,
 navn VARCHAR(300) NOT NULL,
 adresse VARCHAR(300) NOT NULL,
 PRIMARY KEY (id_varehus)
 );
 
 CREATE TABLE lagerbeholdning(
-id BIGINT auto_increment,
+id INT auto_increment,
 id_varehus INT NOT NULL,
 varenummer BIGINT NOT NULL,
 PRIMARY KEY (id),
@@ -85,7 +87,7 @@ foreign key(varenummer) references vare(varenummer)
 );
 
 CREATE TABLE varehuslokation(
-id_varehuslokation BIGINT AUTO_INCREMENT,
+id_varehuslokation INT AUTO_INCREMENT,
 gang VARCHAR(300) NOT NULL,
 id_varehus INT NOT NULL,
 PRIMARY KEY (id_varehuslokation),
@@ -93,7 +95,7 @@ foreign key(id_varehus) references varehus(id_varehus)
 );
 
 CREATE TABLE lokation(
-id_lokation BIGINT AUTO_INCREMENT,
+id_lokation INT AUTO_INCREMENT,
 lokationsnummer VARCHAR(300) NOT NULL,
 sekvensnummer VARCHAR(300) NOT NULL,
 varenummer BIGINT NOT NULL,
@@ -104,19 +106,10 @@ foreign key(id_varehuslokation) references varehuslokation(id_varehuslokation)
 );
 
 CREATE TABLE varerelation(
-id_varerelation BIGINT AUTO_INCREMENT,
+id_varerelation INT AUTO_INCREMENT,
 varenummer BIGINT NOT NULL,
 varegruppenummer BIGINT,
 PRIMARY KEY (id_varerelation),
 foreign key(varenummer) references vare(varenummer),
 foreign key(varegruppenummer) references varegruppe(varegruppenummer)
 );
-
-
-
-
-
-
-
-
-
