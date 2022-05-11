@@ -66,6 +66,7 @@ exports.getProduct = async (req, res) => {
     const varenummer = req.params.id;
     console.log(varenummer);
     const getproduct = await product.getproduct(req, res);
+    /***Dennis version? */
     // const varenummer = req.params;
     // console.log(varenummer);
     // const product = await pool.query(
@@ -135,6 +136,12 @@ exports.signup = (req, res) => {
 exports.profile = (req, res) => {
   res.render("profile", {
     user: req.user,
+  });
+};
+/* skabelon */
+exports.skabelon = (req, res) => {
+  res.render("skabelon",  {
+    title: "test",
   });
 };
 

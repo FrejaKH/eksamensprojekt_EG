@@ -55,4 +55,9 @@ router
 /* LOGOUT ROUTES */
 router.route("/logout").get(indexController.logout); // Drop session
 
+/* skabelon ROUTES */
+router
+  .route("/skabelon")
+  .get(indexController.skabelon); // indexController.isLoggedIn FIRST, to check if logged i
+
 module.exports = router;
