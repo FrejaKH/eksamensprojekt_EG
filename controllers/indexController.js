@@ -16,6 +16,13 @@ exports.index = (req, res) => {
   });
 };
 
+// ====================== /* skabelon test */ ====================== //
+/* skabelon */
+exports.skabelon = (req, res) => {
+  res.render("skabelon",  {
+    title: "skabelon",
+  });
+};
 // ====================== /* PRODUCTS */ ====================== //
 
 /* CREATE A PRODUCT */
@@ -136,12 +143,6 @@ exports.signup = (req, res) => {
 exports.profile = (req, res) => {
   res.render("profile", {
     user: req.user,
-  });
-};
-/* skabelon */
-exports.skabelon = (req, res) => {
-  res.render("skabelon",  {
-    title: "test",
   });
 };
 
