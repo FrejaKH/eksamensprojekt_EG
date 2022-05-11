@@ -27,95 +27,40 @@ exports.skabelon = (req, res) => {
 
 /* CREATE A PRODUCT */
 exports.createProduct = async (req, res) => {
-  try {
-    const { beskrivelse } = req.body;
-    const newProduct = await pool.query(
-      "INSERT INTO vare (beskrivelse) VALUES (?)",
-      [beskrivelse]
-    );
-    console.log(req.body);
+  const newProduct = await product.createAProduct(req, res);
     res.json(newProduct);
-  } catch (err) {
-    console.error(err.message);
-  }
 };
 
 /* GET ALL PRODUCTS */
 exports.getAllProducts = async (req, res) => {
-  try {
     const products = await product.getAllproduct(req, res);
     console.log(products[0]);
     res.json(products[0]);
-    // res.render("index", { products: products[0] });
-  } catch (err) {
-    console.error(err.message);
-  }
 };
-/* GET A PRODUCT */
-// exports.getProduct = async (req, res) => {
-//   try {
-//     // console.log(req.params.id);
-//     const { varenummer } = req.params;
-//     const product = await pool.query(
-//       "SELECT * FROM vare WHERE varenummer = ?",
-//       [varenummer]
-//     );
-//     console.log(product[0]);
-//     res.json(product[0]);
-//   } catch (err) {
-//     console.error(err.message);
-//   }
-// };
 
 // /* GET A PRODUCT */
 exports.getProduct = async (req, res) => {
-  try {
-    const varenummer = req.params.id;
-    console.log(varenummer);
     const getproduct = await product.getproduct(req, res);
-    /***Dennis version? */
-    // const varenummer = req.params;
-    // console.log(varenummer);
-    // const product = await pool.query(
-    //   "SELECT * FROM vare WHERE varenummer = ?",
-    //   [varenummer]
-    // );
     console.log(getproduct[0]);
     res.json(getproduct[0]);
-  } catch (err) {
-    console.error(err.message);
-  }
 };
 
 /* UPDATE A PRODUCT */
 exports.updateProduct = async (req, res) => {
-  try {
-    const { varenummer } = req.params;
-    const { description } = req.body;
-    const updateProduct = await pool.query(
-      "UPDATE vare SET description = ? WHERE varenummer = ?",
-      [description, varenummer]
-    );
-    console.log("Product updated!");
-    res.json("Product updated!");
-  } catch (err) {
-    console.error(err.message);
-  }
+  const updateProduct = await product.updateAProduct(req, res);
+  res.json(updateProduct);
 };
 
 /* DELETE A PRODUCT */
 exports.deleteProduct = async (req, res) => {
-  try {
-    const { varenummer } = req.params;
-    const deleteProduct = await pool.query(
-      "DELETE FROM vare WHERE varenummer = ?",
-      [varenummer]
-    );
-    console.log("Product deleted!");
-    res.json("Product deleted!");
-  } catch (err) {
-    console.error(err.message);
-  }
+    const deleteproduct = await product.deleteAProduct(req, res);
+    if(deleteproduct){
+      console.log("Product deleted!");
+      res.json("Product deleted!");
+    }else{
+      console.log("Product not deleted!");
+      res.json("product not deleted!");
+    }
 };
 
 // ====================== /* PASSPORT */ ====================== //
