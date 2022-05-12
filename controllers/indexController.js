@@ -37,18 +37,24 @@ exports.maling = (req, res) => {
   })
 }
 
-/* GET PENSLER PAGE */
+/* GET VÆGMALING PAGE */
 exports.vaegmaling = (req, res) => {
   res.render("vaegmaling", {
     title: "Vægmaling",
   })
 }
 
-
 /* GET VEJLEDNING PAGE */
 exports.vejledning = (req,res) => {
   res.render("vejledning", {
     title: "Vejledning",
+  })
+}
+
+/* GET HAR DU HUSKET PAGE */
+exports.harduhusket = (req,res) => {
+  res.render("harduhusket", {
+    title: "Har du husket?",
   })
 }
 

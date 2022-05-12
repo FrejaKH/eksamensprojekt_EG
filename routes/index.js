@@ -70,6 +70,9 @@ router.route("/vaegmaling").get(indexController.vaegmaling);
 /* VEJLEDNING */
 router.route("/vejledning").get(indexController.vejledning);
 
+/* HAR DU HUSKET */
+router.route("/harduhusket").get(indexController.harduhusket);
+
 /* skabelon ROUTES */
 router
   .route("/skabelon")
