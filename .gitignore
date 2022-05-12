@@ -61,4 +61,4 @@ typings/
 .next
 
 # db.js to avoid settings to local changes
-db.js
+.db
