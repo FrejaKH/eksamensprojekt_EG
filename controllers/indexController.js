@@ -16,6 +16,42 @@ exports.index = (req, res) => {
   });
 };
 
+/* GET VELKOMMEN PAGE */
+exports.velkommen = (req, res) => {
+  res.render("velkommen", {
+    title: "Velkommen",
+  })
+}
+
+/* GET KATEGORIER PAGE */
+exports.kategorier = (req, res) => {
+  res.render("kategorier", {
+    title: "Kategorier",
+  })
+}
+
+/* GET MALING PAGE */
+exports.maling = (req, res) => {
+  res.render("maling", {
+    title: "Maling",
+  })
+}
+
+/* GET PENSLER PAGE */
+exports.vaegmaling = (req, res) => {
+  res.render("vaegmaling", {
+    title: "Vægmaling",
+  })
+}
+
+
+/* GET VEJLEDNING PAGE */
+exports.vejledning = (req,res) => {
+  res.render("vejledning", {
+    title: "Vejledning",
+  })
+}
+
 // ====================== /* PRODUCTS */ ====================== //
 
 /* CREATE A PRODUCT */

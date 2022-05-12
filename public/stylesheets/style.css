@@ -12,7 +12,13 @@
 
 body {
   padding: 2.5em;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font-family: 'Barlow', sans-serif;
+}
+
+h1 {
+  font-family: 'Poppins', sans-serif;
+  font-size: 24px;
+  margin:1em 0;
 }
 
 a {
@@ -100,3 +106,109 @@ header a img {
   max-width: 300px;
   margin: 0 auto;
 }
+
+/* ---------------------------- VELKOMMEN OG VEJLEDNING --------------------------------------------*/
+
+#main_velkommen, #main_vejledning{
+  width:100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.btn_stor{
+  width:20em;
+  height:4em;
+  background-color: var(--color-primary);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 700;
+  margin: 1em 0;
+}
+
+.btn_stor p{
+  font-size: 16px;
+  color: var(--color-white);
+  margin:0;
+}
+
+/* ---------------------------- Kategorier --------------------------------------------*/
+
+#main_kategorier{
+  width:100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+#searchbar{
+  width:22em;
+  height: 3em;
+  border-radius: 10em;
+  background-color: var(--color-grey);
+  padding: 1em;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+}
+.searchbar_text p{
+  margin: 0;
+}
+
+.searchbar_img img{
+  width:20px;
+}
+
+.grid{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  grid-gap: 0.5em;
+}
+
+.grid-item{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.grid-item img{
+  width:8em;
+  position: relative;
+}
+
+.grid-item a{
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.grid-item p{
+  color: var(--color-white);
+  font-size: 16px;
+  font-weight: 700;
+  margin: 0;
+  position: absolute;
+  text-transform: uppercase;
+}
+
+.text_wrap{
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+}
+
+
+
+
+
+
+

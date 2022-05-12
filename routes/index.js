@@ -55,4 +55,20 @@ router
 /* LOGOUT ROUTES */
 router.route("/logout").get(indexController.logout); // Drop session
 
+/* VELKOMMEN */
+router.route("/velkommen").get(indexController.velkommen);
+
+/* KATEGORIER */
+router.route("/kategorier").get(indexController.kategorier);
+
+/* MALING */
+router.route("/maling").get(indexController.maling);
+
+/* PENSLER */
+router.route("/vaegmaling").get(indexController.vaegmaling);
+
+/* VEJLEDNING */
+router.route("/vejledning").get(indexController.vejledning);
+
+
 module.exports = router;
