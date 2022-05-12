@@ -70,5 +70,9 @@ router.route("/vaegmaling").get(indexController.vaegmaling);
 /* VEJLEDNING */
 router.route("/vejledning").get(indexController.vejledning);
 
+/* skabelon ROUTES */
+router
+  .route("/skabelon")
+  .get(indexController.skabelon); // indexController.isLoggedIn FIRST, to check if logged i
 
 module.exports = router;
