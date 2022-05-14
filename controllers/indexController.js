@@ -58,6 +58,15 @@ exports.harduhusket = (req,res) => {
   })
 }
 
+/* GET INDKØBSKURV PAGE */
+exports.kurv = (req,res) => {
+  res.render("kurv", {
+    title: "Indkøbskurv",
+  })
+}
+
+
+
 // ====================== /* skabelon test */ ====================== //
 /* skabelon */
 exports.skabelon = (req, res) => {

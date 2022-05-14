@@ -73,6 +73,9 @@ router.route("/vejledning").get(indexController.vejledning);
 /* HAR DU HUSKET */
 router.route("/harduhusket").get(indexController.harduhusket);
 
+/* INDKØBSKURV */
+router.route("/kurv").get(indexController.kurv);
+
 /* skabelon ROUTES */
 router
   .route("/skabelon")
