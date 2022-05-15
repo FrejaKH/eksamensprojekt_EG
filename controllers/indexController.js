@@ -12,7 +12,7 @@ exports.isLoggedIn = (req, res, next) => {
 /* GET INDEX PAGE */
 exports.index = (req, res) => {
   res.render("index", {
-    title: "test",
+    title: "Velkommen",
   });
 };
 
@@ -20,57 +20,55 @@ exports.index = (req, res) => {
 exports.velkommen = (req, res) => {
   res.render("velkommen", {
     title: "Velkommen",
-  })
-}
+  });
+};
 
 /* GET KATEGORIER PAGE */
 exports.kategorier = (req, res) => {
   res.render("kategorier", {
     title: "Kategorier",
-  })
-}
+  });
+};
 
 /* GET MALING PAGE */
 exports.maling = (req, res) => {
   res.render("maling", {
     title: "Maling",
-  })
-}
+  });
+};
 
 /* GET VÆGMALING PAGE */
 exports.vaegmaling = (req, res) => {
   res.render("vaegmaling", {
     title: "Vægmaling",
-  })
-}
+  });
+};
 
 /* GET VEJLEDNING PAGE */
-exports.vejledning = (req,res) => {
+exports.vejledning = (req, res) => {
   res.render("vejledning", {
     title: "Vejledning",
-  })
-}
+  });
+};
 
 /* GET HAR DU HUSKET PAGE */
-exports.harduhusket = (req,res) => {
+exports.harduhusket = (req, res) => {
   res.render("harduhusket", {
     title: "Har du husket?",
-  })
-}
+  });
+};
 
 /* GET INDKØBSKURV PAGE */
-exports.kurv = (req,res) => {
+exports.kurv = (req, res) => {
   res.render("kurv", {
     title: "Indkøbskurv",
-  })
-}
-
-
+  });
+};
 
 // ====================== /* skabelon test */ ====================== //
 /* skabelon */
 exports.skabelon = (req, res) => {
-  res.render("skabelon",  {
+  res.render("skabelon", {
     title: "skabelon",
   });
 };
@@ -79,21 +77,21 @@ exports.skabelon = (req, res) => {
 /* CREATE A PRODUCT */
 exports.createProduct = async (req, res) => {
   const newProduct = await product.createAProduct(req, res);
-    res.json(newProduct);
+  res.json(newProduct);
 };
 
 /* GET ALL PRODUCTS */
 exports.getAllProducts = async (req, res) => {
-    const products = await product.getAllproduct(req, res);
-    console.log(products[0]);
-    res.json(products[0]);
+  const products = await product.getAllproduct(req, res);
+  console.log(products[0]);
+  res.json(products[0]);
 };
 
 // /* GET A PRODUCT */
 exports.getProduct = async (req, res) => {
-    const getproduct = await product.getproduct(req, res);
-    console.log(getproduct[0]);
-    res.json(getproduct[0]);
+  const getproduct = await product.getproduct(req, res);
+  console.log(getproduct[0]);
+  res.json(getproduct[0]);
 };
 
 /* UPDATE A PRODUCT */
@@ -104,21 +102,21 @@ exports.updateProduct = async (req, res) => {
 
 /* DELETE A PRODUCT */
 exports.deleteProduct = async (req, res) => {
-    const deleteproduct = await product.deleteAProduct(req, res);
-    if(deleteproduct){
-      console.log("Product deleted!");
-      res.json("Product deleted!");
-    }else{
-      console.log("Product not deleted!");
-      res.json("product not deleted!");
-    }
+  const deleteproduct = await product.deleteAProduct(req, res);
+  if (deleteproduct) {
+    console.log("Product deleted!");
+    res.json("Product deleted!");
+  } else {
+    console.log("Product not deleted!");
+    res.json("product not deleted!");
+  }
 };
 
 // ====================== /* PASSPORT */ ====================== //
 
 /* LOGIN */
 exports.login = (req, res) => {
-  res.render("login", { message: req.flash("loginMessage") });
+  res.render("login", { message: req.flash("loginMessage"), title: "Login" });
 };
 
 exports.loginSuccess = (req, res) => {
@@ -132,7 +130,10 @@ exports.loginSuccess = (req, res) => {
 
 /* SIGNUP */
 exports.signup = (req, res) => {
-  res.render("signup", { message: req.flash("signupMessage") });
+  res.render("signup", {
+    message: req.flash("signupMessage"),
+    title: "Opret bruger",
+  });
 };
 
 /* PROFILE */

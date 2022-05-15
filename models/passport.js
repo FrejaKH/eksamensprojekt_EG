@@ -26,7 +26,7 @@ module.exports = function (passport) {
       },
       function (req, username, password, done) {
         pool.query(
-          "SELECT * FROM brugere WHERE navn = ?",
+          "SELECT * FROM brugere WHERE email = ?",
           [username],
           function (err, rows) {
             if (err) return done(err);
@@ -34,7 +34,7 @@ module.exports = function (passport) {
               return done(
                 null,
                 false,
-                req.flash("signupMessage", "That username is already taken.")
+                req.flash("signupMessage", "Denne bruger er allerede taget")
               );
             } else {
               // If there is no user with that username, create the user
@@ -83,7 +83,7 @@ module.exports = function (passport) {
       },
       function (req, username, password, done) {
         pool.query(
-          "SELECT * FROM brugere WHERE navn = ?",
+          "SELECT * FROM brugere WHERE email = ?",
           [username],
           function (err, rows) {
             if (err) return done(err);
@@ -91,7 +91,7 @@ module.exports = function (passport) {
               return done(
                 null,
                 false,
-                req.flash("loginMessage", "This user does not exist.")
+                req.flash("loginMessage", "Denne bruger eksisterer ikke")
               );
             }
             // If the user is found but the password is wrong
@@ -99,7 +99,7 @@ module.exports = function (passport) {
               return done(
                 null,
                 false,
-                req.flash("loginMessage", "Wrong password.")
+                req.flash("loginMessage", "Forkert kodeord")
               );
             // Return successful user
             return done(null, rows[0]);

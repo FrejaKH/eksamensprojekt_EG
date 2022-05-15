@@ -1,49 +1,54 @@
-<!DOCTYPE html>
 <html>
   <head>
-    <link rel="stylesheet" href="../public/stylesheets/style.css" />
-    <link
-      rel="stylesheet"
-      href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css"
-    />
-    <title>test</title>
+    <%- include head_includes %>
   </head>
   <body>
-    <div class="login-page">
-      <div class="form">
-        <div class="login">
-          <div class="login-header">
-            <h3>LOGO</h3>
-            <p>Please enter your credentials to signup.</p>
+    <main id="main_velkommen" class="login">
+      <div class="heading">
+        <a href="/"><img src="../public/images/arrow_left.png" /></a>
+        <h1><%= title %></h1>
+      </div>
+      <% if (message.length > 0) { %>
+      <div class="btn_stor alert alert-danger"><%= message %></div>
+      <% } %>
+      <form class="login-form" action="/signup" method="post">
+        <div class="content">
+          <div class="btn_stor">
+            <input type="text" placeholder="Navn" name="username" required />
+          </div>
+          <div class="btn_stor">
+            <input type="email" placeholder="E-mail" name="email" required />
+          </div>
+          <div class="btn_stor">
+            <input type="text" placeholder="Telefon" name="telefon" required />
+          </div>
+          <div class="btn_stor">
+            <input type="text" placeholder="Adresse" name="adresse" required />
+          </div>
+          <div class="btn_stor">
+            <input type="text" placeholder="By" name="_by" required />
+          </div>
+          <div class="btn_stor">
+            <input
+              type="text"
+              placeholder="Postnummer"
+              name="postnummer"
+              required
+            />
+          </div>
+          <div class="btn_stor">
+            <input
+              type="password"
+              placeholder="Kodeord"
+              name="password"
+              required
+            />
+          </div>
+          <div class="btn_stor">
+            <button type="submit">Opret</button>
           </div>
         </div>
-        <% if (message.length > 0) { %>
-        <div class="alert alert-danger"><%= message %></div>
-        <% } %>
-        <form class="login-form" action="/signup" method="post">
-          <input type="text" placeholder="Name" name="username" required />
-          <input
-            type="password"
-            placeholder="Password"
-            name="password"
-            required
-          />
-          <input type="text" placeholder="Email" name="email" required />
-          <input type="number" placeholder="Telefon" name="telefon" required />
-          <input type="text" placeholder="Adresse" name="adresse" required />
-          <input type="text" placeholder="By" name="_by" />
-          <input
-            type="number"
-            placeholder="Postnummer"
-            name="postnummer"
-            required
-          />
-          <button type="submit">signup</button>
-          <p class="message">
-            Already have an account? <a href="/login">Login</a>
-          </p>
-        </form>
-      </div>
-    </div>
+      </form>
+    </main>
   </body>
 </html>
