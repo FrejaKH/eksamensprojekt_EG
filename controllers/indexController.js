@@ -72,7 +72,19 @@ exports.skabelon = (req, res) => {
     title: "skabelon",
   });
 };
-
+// ====================== /* kvitteringer  */ ====================== //
+exports.kvitteringer = (req, res) => {
+  res.render("kvitteringer", {
+    title: "Alle kvitteringer",
+  });
+};
+// ====================== /* produkt indformationer  */ ====================== //
+exports.produkt = (req, res) => {
+  res.render("produkt", {
+    title: "produktbeskrivelse",
+  });
+};
+// ====================== /* Navigering til produkt */ ====================== //
 /* GET navigering til produkt PAGE */
 exports.produkt_navigering = (req, res) => {
   res.render("produkt_navigering", {

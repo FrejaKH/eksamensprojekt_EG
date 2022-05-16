@@ -78,6 +78,10 @@ router.route("/kurv").get(indexController.kurv);
 
 /* NAVIGERING */
 router.route("/produkt_navigering").get(indexController.produkt_navigering);
+/* KVITTERINGER */
+router.route("/kvitteringer").get(indexController.kvitteringer);
+/* PRODUKT */
+router.route("/produkt").get(indexController.produkt);
 
 
 /* skabelon ROUTES */

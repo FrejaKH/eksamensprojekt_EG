@@ -118,105 +118,76 @@ main {
 .main_produktnavigering{
   width:100%;
   display: flex;
-  /* justify-content: center; */
   align-items: center;
   flex-direction: column;
 }
 .produkt_oversigt img{
   width: 98%;
 }
-.arrow_left_img img{
+.arrow_left_img a img{
   width:2em;
-  margin-left: 15%;
+  /* margin-left: 15%; */
 }
-/* @media screen and (max-width:400px){
-  .user_kurv img{
-    margin:0 0.5em;
-  }
-} */
+.arrow_left_img a {
+  /* width:2em; */
+  margin-left: 25%;
+}
+
+/******************************************************Produkt-informationer side*******************************************************/
+
+.produkt_item_img{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.produkt_item_img img{
+  width: 8em;
+
+}
+.produkt_btn {
+  width: 12em;
+  height: 2.5em;
+  background-color: var(--color-accent);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 700;
+  border: none;
+  color: var(--color-white);
+  margin-top: 2em;
+}
+.produkt_kort_btn {
+  width: 8em;
+  height: 2.5em;
+  background-color: var(--color-accent);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 700;
+  border: none;
+  color: var(--color-white);
+  margin-top: 2em;
+  margin-right: 3em;
+}
+.produkt_pris_btn {
+  width: 6em;
+  height: 2.5em;
+  background-color: var(--color-primary);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 700;
+  border: none;
+  color: var(--color-white);
+  margin-top: 2em;
+}
+
 
 /**********************************************************************************************************************************/
 
-/* header .header {
-  background-color: #fff;
-  height: 45px;
-}
-header a img {
-  width: 134px;
-  margin-top: 4px;
-}
-.login-page {
-  width: 360px;
-  padding: 8% 0 0;
-  margin: auto;
-}
-.login-page .form .login {
-  margin-top: -31px;
-  margin-bottom: 26px;
-}
-.form {
-  position: relative;
-  z-index: 1;
-  background: #ffffff;
-  max-width: 360px;
-  margin: 0 auto 100px;
-  padding: 45px;
-  text-align: center;
-  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
-}
-.index {
-  box-shadow: none;
-  text-align: start;
-}
 
-.index button a {
-  color: #fff;
-  text-decoration: none;
-}
-
-.index button {
-  margin-bottom: 15px;
-}
-
-.form input {
-  outline: 0;
-  background: #f2f2f2;
-  width: 100%;
-  border: 0;
-  margin: 0 0 15px;
-  padding: 15px;
-  box-sizing: border-box;
-  font-size: 16px;
-}
-.form button {
-  text-transform: uppercase;
-  outline: 0;
-  background-color: #328f8a;
-  width: 100%;
-  border: 0;
-  padding: 15px;
-  color: #ffffff;
-  font-size: 16px;
-  -webkit-transition: all 0.3 ease;
-  transition: all 0.3 ease;
-  cursor: pointer;
-}
-.form .message {
-  margin: 15px 0 0;
-  color: #b3b3b3;
-  font-size: 12 px;
-}
-.form .message a {
-  color: #4caf50;
-  text-decoration: none;
-}
-
-.container {
-  position: relative;
-  z-index: 1;
-  max-width: 300px;
-  margin: 0 auto;
-}
 
 /* ---------------------------- VELKOMMEN OG VEJLEDNING --------------------------------------------*/
 
