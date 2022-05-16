@@ -76,7 +76,7 @@ exports.skabelon = (req, res) => {
 /* GET navigering til produkt PAGE */
 exports.produkt_navigering = (req, res) => {
   res.render("produkt_navigering", {
-    title: "Produkt oversigt",
+    title: "Navigering",
   })
 }
 // ====================== /* PRODUCTS */ ====================== //

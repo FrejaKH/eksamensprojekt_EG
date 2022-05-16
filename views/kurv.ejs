@@ -1,32 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;700&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css"/>
-        <link rel="stylesheet" href="../public/stylesheets/style.css" />
-        <title><%= title %></title>
-    </head>
+    <%- include head_includes %>
     <body>
-      <header id="header">
-        <div class="burgermenu">
-          <img src="../public/images/menu.png" alt="burgermenu">
-        </div>
-        <div class="logo_header_bar">
-          <a href="./velkommen">
-            <img src="../public/images/logo_header_bar.png" alt="Silvan logo">
-          </a>
-        </div>
-        <div class="user_kurv">
-          <img src="../public/images/user.png" alt="user ikon">
-          <img src="../public/images/kurv.png" alt="kurv ikon">
-        </div>
-      </header>
+        <%- include('header_bar.ejs'); -%>
         <main id="main_velkommen">
             <div class="heading">
                 <h1><%= title %></h1>
@@ -94,25 +70,9 @@
 
                 </div>
             </div>
-
+            <%- include('popup.ejs'); -%>
         </main>
-        <footer id="footer">
-            <div class="logo_scan_vare">
-              <img src="../public/images/scan.png" alt="scan vare">
-              <p class="footer_text">Scan vare</p>
-            </div>
-            <div class="logo_indkøbsliste">
-              <img src="../public/images/liste.png" alt="indkøbsliste">
-              <p class="footer_text">Indkøbsliste</p>
-            </div>
-            <div class="logo_vejledning">
-              <img src="../public/images/raadgivning.png" alt="rådgivning">
-              <p class="footer_text">Vejledning</p>
-            </div>
-            <div class="logo_husket">
-              <img src="../public/images/info.png" alt="Har du husket">
-              <p class="footer_text">Har du husket?</p>
-            </div>
-        </footer>
+        <%- include('footer_bar.ejs'); -%>
+        <script src="../public/javascripts/popup.js"></script>
     </body>
 </html>
