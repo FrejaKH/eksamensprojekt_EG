@@ -324,8 +324,8 @@ header a img {
   z-index: 10;
   display: none;
   position: absolute;
-  right:0;
-  bottom:5em;
+  right: 0;
+  bottom: 5em;
 }
 
 #popup_header_btn {
@@ -373,17 +373,15 @@ header a img {
   font-size: 22px;
 }
 
-#svg{
+#svg {
   position: absolute;
-  right:0.5em;
-  bottom:0;
+  right: 0.5em;
+  bottom: 0;
 }
 
-
-#popup_btn{
+#popup_btn {
   position: relative;
 }
-
 
 /********************************INDKØBSKURV***********************************************/
 
@@ -612,5 +610,87 @@ body .login button {
 }
 
 body .login .alert-danger {
+  background-color: #f2dede;
+}
+
+/********************************SIGNUP PAGE***********************************************/
+
+body .signup {
+  background-color: var(--color-white);
+  height: 100%;
+  justify-content: unset !important;
+}
+
+body .signup #main_velkommen {
+  margin-top: 5%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+body .signup .heading {
+  color: var(--color-dark);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20em;
+  position: relative;
+  margin-top: 5%;
+}
+
+body .signup .heading a {
+  display: contents;
+}
+
+body .signup img {
+  height: 20px;
+  position: absolute;
+  left: 0;
+}
+
+body .signup input {
+  height: 100%;
+  width: 100%;
+  margin-left: 20px;
+  background-color: var(--color-primary);
+  color: var(--color-white);
+  border: none;
+  font-weight: 700;
+  font-size: 16px;
+}
+
+body .signup input::placeholder {
+  color: var(--color-white);
+  font-weight: 700;
+  font-size: 16px;
+}
+
+body .signup .message {
+  text-align: center;
+}
+
+body .signup .message a {
+  color: var(--color-dark);
+  text-decoration: underline;
+}
+
+body .signup p {
+  width: 20em;
+  text-align: inherit;
+}
+
+body .signup button {
+  height: 100%;
+  width: 100%;
+  text-align: center;
+  background-color: var(--color-accent);
+  color: var(--color-white);
+  border: none;
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 16px;
+}
+
+body .signup .alert-danger {
   background-color: #f2dede;
 }
