@@ -107,19 +107,24 @@ main {
   margin:0.5em;
 }
 
-
-
-
-/* @media screen and (max-width:400px){
-  .user_kurv img{
-    margin:0 0.5em;
-  }
-} */
-
-
-
-
 /**********************************************************************************************************************************/
+
+/******************************************************navigering til produkt*******************************************************/
+
+.main_produktnavigering{
+  width:100%;
+  display: flex;
+  /* justify-content: center; */
+  align-items: center;
+  flex-direction: column;
+}
+.produkt_oversigt img{
+  width: 98%;
+}
+.arrow_left_img img{
+  width:2em;
+  margin-left: 15%;
+}
 
 /* header .header {
   background-color: #fff;
