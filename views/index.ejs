@@ -1,19 +1,25 @@
-<!DOCTYPE html>
 <html>
   <head>
-    <link rel="stylesheet" href="../public/stylesheets/style.css" />
-    <link
-      rel="stylesheet"
-      href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css"
-    />
-    <title>test</title>
+    <%- include head_includes %>
   </head>
   <body>
-    <div class="login-page">
-      <div class="form index">
-        <button><a href="/login">Login</a></button>
-        <button><a href="/signup">Register</a></button>
+    <main id="main_velkommen" class="index">
+      <img class="btn_stor" src="../public/images/logo_frontpage.jpg" />
+      <div class="heading">
+        <h1><%= title %></h1>
       </div>
-    </div>
+      <div class="content">
+        <a href="/login">
+          <div class="btn_stor">
+            <p>Login</p>
+          </div>
+        </a>
+        <a href="/signup">
+          <div class="btn_stor">
+            <p>Opret Bruger</p>
+          </div>
+        </a>
+      </div>
+    </main>
   </body>
 </html>
