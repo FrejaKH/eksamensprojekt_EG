@@ -72,6 +72,13 @@ exports.skabelon = (req, res) => {
     title: "skabelon",
   });
 };
+
+/* GET navigering til produkt PAGE */
+exports.produkt_navigering = (req, res) => {
+  res.render("produkt_navigering", {
+    title: "Produkt oversigt",
+  })
+}
 // ====================== /* PRODUCTS */ ====================== //
 
 /* CREATE A PRODUCT */

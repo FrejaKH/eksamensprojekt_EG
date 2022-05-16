@@ -75,6 +75,9 @@ router.route("/harduhusket").get(indexController.harduhusket);
 
 /* INDKØBSKURV */
 router.route("/kurv").get(indexController.kurv);
+/* INDKØBSKURV */
+router.route("/produkt_navigering").get(indexController.produkt_navigering);
+
 
 /* skabelon ROUTES */
 router
