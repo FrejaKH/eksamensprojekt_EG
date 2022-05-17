@@ -85,6 +85,15 @@ exports.kvitteringer = (req, res) => {
 
   });
 };
+// ====================== /* kvitteringer udvidet */ ====================== //
+exports.kvitteringer_udvidet = (req, res) => {
+  res.render("kvitteringer_udvidet", {
+    title: "kvitteringer",
+    title_bar: "Kvitteringer",
+    arrrow_back: "href=" + "/Kvitteringer",
+
+  });
+};
 // ====================== /* produkt indformationer  */ ====================== //
 exports.produkt = (req, res) => {
   res.render("produkt", {

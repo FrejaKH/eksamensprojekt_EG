@@ -80,6 +80,8 @@ router.route("/kurv").get(indexController.kurv);
 router.route("/produkt_navigering").get(indexController.produkt_navigering);
 /* KVITTERINGER */
 router.route("/kvitteringer").get(indexController.kvitteringer);
+/* KVITTERINGER UDVIDET */
+router.route("/kvitteringer_udvidet").get(indexController.kvitteringer_udvidet);
 /* PRODUKT */
 router.route("/produkt").get(indexController.produkt);
 /* BILLEDE */
