@@ -6,5 +6,4 @@ module.exports = mysql.createPool({
   user: "root",
   password: "",
   database: "dbbyggemarked",
-  multipleStatements: true,
 });

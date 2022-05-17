@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+  <%- include('head_includes.ejs'); -%>
+  <body>
+    <%- include('header_bar.ejs'); -%>
+   <main class="main_produkt_informationer">
+    <%- include('title_bar.ejs'); -%>
+       <div class="produkt_item_img">
+        <img src="index/image/" + <%= %> alt="malerbøtte">
+        </div>
+        <div class="produkt_div_text">
+        <div>
+            <h3>Dyrup, Loft- og vægmaling, ekstra spærrende, glans 2</h3>
+        </div>
+        <div>
+            <p>Ekstra spærrende loft- og vægmaling fra Dyrup – god dækkeevne</p>
+            <br>
+            <p>Glans 2 – 2-i-1-spærregrunder og færdig maling – undgå at skulle grunde
+                Mat – rækkeevnen er ca. 8-10 m² pr. ltr. – overmalbar efter 4 timer
+                </p>
+            <br>
+            <p>Fortyndes med vand – meget spærrende og god kvalitet – kan tones</p>
+        </div>
+    </div>
+
+        <div class="div_button">
+            <div class="div_innerdiv_button">
+                <button class="produkt_btn">Føj til indkøbsliste</button>
+            </div>
+            <div class="div_innerdiv_button">
+                <button class="produkt_pris_btn">649,99</button>
+            </div>
+        </div>
+        <div class="div_information_text">
+            <h3>Lokation</h3>
+            <p>Lokationsnummer: 10</p>
+            <p>Kig efter skiltning som siger: Maling.</p>
+            <p>Hylden er imellem hylderne med: Værktøj og VVS</p>
+        </div>
+        <div class="div_kort_button">
+            <div class="inner_div_kort__button">
+            <button class="produkt_kort_btn">Vis på kort</button>
+            </div>
+        </div>
+
+        <div class="harduhusket_item_text">
+            <p>Anbefalet tilbehør</p>
+        </div>
+        <div class="harduhusket_item harduhusket_item1">
+            <div class="harduhusket_item_img">
+                <img src="../public/images/malerrulle.jpg" alt="malerrulle">
+            </div>
+            <div class="harduhusket_item_text">
+                <p>Malerruller</p>
+            </div>
+            <div class="harduhusket_item_arrow">
+                <img src="../public/images/arrow_right2.png" alt="pil">
+            </div>
+        </div>
+        <div class="harduhusket_item harduhusket_item2">
+            <div class="harduhusket_item_img">
+                <img src="../public/images/malertape.jpg" alt="malertape">
+            </div>
+            <div class="harduhusket_item_text">
+                <p>Malertape</p>
+            </div>
+            <div class="harduhusket_item_arrow">
+                <img src="../public/images/arrow_right2.png" alt="pil">
+            </div>
+            <%- include('popup.ejs'); -%>
+    </main>
+    <footer>
+      <%- include('footer_bar.ejs'); -%>
+    </footer>
+  </body>
+</html>

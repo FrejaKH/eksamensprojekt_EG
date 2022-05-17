@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  <%- include('head_includes.ejs'); -%>
+  <body>
+    <%- include('header_bar.ejs'); -%>
+   <main class="main_kvitteringer_udvidet">
+    <%- include('title_bar.ejs'); -%>
+   <div>
+       <p>10. marts 2022</p>
+   </div>
+   <div>
+    <p>Ordrenummer: #12548965</p>
+    </div>
+    <div class="kvitteringer_item">
+        <div class="kvitteringer_item_img">
+            <img src="../public/images/malerbøtte.png" alt="malerbøtte">
+        </div>
+        <div class="kvitteringer_item_text">
+            <div class="kvitteringer_item_heading"><strong>Dyrup, Loft- og vægmaling, ekstra spærrende, glans 2</strong></div>
+            <div class="kvitteringer_item_total">
+                <div>Antal: 2</div>
+                <div>1299,9 kr.</div>
+            </div>
+        </div>
+    </div>
+    <div class="kvitteringer_item">
+        <div class="kvitteringer_item_img">
+            <img src="../public/images/pensel.png" alt="Pensel">
+        </div>
+        <div class="kvitteringer_item_text">
+            <div class="kvitteringer_item_heading"><strong>Flad pensel, B: 50 mm</strong></div>
+            <div class="kvitteringer_item_total">
+                <div>Antal: 1</div>
+                <div>19,95 kr.</div>
+            </div>
+        </div>
+    </div>
+    <div class="div_kvitteringer_udvidet">
+        <div class="div_kvitteringer_left">
+          <p class="p_kvitteringer">Total</p>
+        </div>
+        <div class="div_kvitteringer_right">
+          <p>1319,85 kr.</p>
+        </div>
+      </div>
+
+      <%- include('popup.ejs'); -%>
+    </main>
+    <footer>
+      <%- include('footer_bar.ejs'); -%>
+    </footer>
+  </body>
+</html>

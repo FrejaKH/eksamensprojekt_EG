@@ -78,11 +78,13 @@ router.route("/kurv").get(indexController.kurv);
 
 /* NAVIGERING */
 router.route("/produkt_navigering").get(indexController.produkt_navigering);
-
-
-/* skabelon ROUTES */
-router
-  .route("/skabelon")
-  .get(indexController.skabelon); // indexController.isLoggedIn FIRST, to check if logged i
+/* KVITTERINGER */
+router.route("/kvitteringer").get(indexController.kvitteringer);
+/* KVITTERINGER UDVIDET */
+router.route("/kvitteringer_udvidet").get(indexController.kvitteringer_udvidet);
+/* PRODUKT */
+router.route("/produkt").get(indexController.produkt);
+/* BILLEDE */
+router.route("/image/:varenummer").get(indexController.getImage);
 
 module.exports = router;

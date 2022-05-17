@@ -24,6 +24,12 @@ h1 {
   margin: 1em 0;
 }
 
+h3{
+  font-family: "Barlow", sans-serif;
+  font-size:18px;
+  font-weight: 700;
+}
+
 a {
   color: #00b7ff;
   text-decoration: none;
@@ -37,6 +43,35 @@ main {
   width: 100%;
   min-height: 81vh;
   /* overflow-y: scroll; ------------------------------------------------------------    why? */
+}
+/******************************************TITLE BAR**************************************************************************/
+.div_title_bar{
+  display: flex;
+  align-items: center;
+  width: 100%;
+  justify-content: space-between;
+}
+.div_title{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 33%;
+}
+.div_empty_div{
+  display: flex;
+   align-items: center; width: 33%;
+}
+.arrow_left_img {
+  display: flex;
+  align-items: center;
+  width: 33%;
+  justify-content: space-between;
+}
+.arrow_left_img a img{
+  width:1.5em;
+}
+.arrow_left_img a {
+  margin-left: 25%;
 }
 
 /******************************************HEADER_BAR**************************************************************************/
@@ -118,28 +153,184 @@ main {
 }
 
 /**********************************************************************************************************************************/
-
-/******************************************************navigering til produkt*******************************************************/
+/******************************************************kvitteringer****************************************************************/
+.main_kvitteringer{
+  width:100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+.div_kvitteringer{
+  background-color: var(--color-light);
+  width: 100%;
+  height: 30%;
+  display: flex;
+}
+.p_kvitteringer{
+  margin-left: 5%;
+}
+.kvitteringer_item_arrow {
+  width: 10%;
+}
+.kvitteringer_item_arrow {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.kvitteringer_item_arrow img {
+  width: 1em;
+}
+.div_kvitteringer_right{
+  width: 70%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+.div_kvitteringer_left{
+  width: 30%;
+}
+.main_div_kvitteringer{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.p_kvittering_date{
+  margin-left: 1.5%;
+}
+/******************************************************kvitteringer udvidet****************************************************************/
+.main_kvitteringer_udvidet{
+  width:100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+.kvitteringer_item {
+  width: 100%;
+  background-color: var(--color-light);
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 1em;
+  margin: 0.5em 0;
+  font-size: 0.8em;
+  min-height: 111px;
+}
+.div_kvitteringer_udvidet{
+  background-color: var(--color-light);
+  width: 100%;
+  height: 30%;
+  display: flex;
+  font-size: 0.9em;
+}
+/******************************************************navigering til produkt******************************************************/
 
 .main_produktnavigering {
   width: 100%;
   display: flex;
-  /* justify-content: center; */
   align-items: center;
   flex-direction: column;
 }
 .produkt_oversigt img {
   width: 98%;
+  background-color: #ECF0F1;
 }
-.arrow_left_img img {
-  width: 2em;
-  margin-left: 15%;
+
+/******************************************************Produkt-informationer side*******************************************************/
+.main_produkt_informationer{
+  width:100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
 }
-/* @media screen and (max-width:400px){
-  .user_kurv img{
-    margin:0 0.5em;
-  }
-} */
+.produkt_item_img{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.produkt_item_img img{
+  width: 8em;
+
+}
+.produkt_btn {
+  width: 12em;
+  height: 2.5em;
+  background-color: var(--color-accent);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 700;
+  border: none;
+  color: var(--color-white);
+  margin-top: 2em;
+}
+.produkt_kort_btn {
+  width: 8em;
+  height: 2.5em;
+  background-color: var(--color-accent);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 700;
+  border: none;
+  color: var(--color-white);
+  margin-top: 2em;
+  margin-right: 3em;
+}
+.produkt_pris_btn {
+  width: 6em;
+  height: 2.5em;
+  background-color: var(--color-primary);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 700;
+  border: none;
+  color: var(--color-white);
+  margin-top: 2em;
+}
+.produkt_div_text{
+  width: 70%;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.produkt_div_text p{
+  margin: 0;
+}
+.div_button{
+  width: 100%;
+  justify-content: space-around;
+  align-items: center;
+  display: flex;
+  padding-bottom: 5%;
+  border-bottom: 1px solid black;
+}
+.div_innerdiv_button{
+  width: 20%;
+}
+.div_information_text{
+  width: 70%;
+}
+.div_kort_button{
+  width: 100%;
+  justify-content: flex-end;
+  align-items: center;
+  display: flex;
+  padding-bottom: 5%;
+  border-bottom: 1px solid black;
+}
+.inner_div_kort__button{
+  width: 37%
+}
+
+
+
+/**********************************************************************************************************************************/
+
+
 
 /* ---------------------------- VELKOMMEN OG VEJLEDNING --------------------------------------------*/
 
@@ -168,6 +359,7 @@ main {
   color: var(--color-white);
   margin: 0;
 }
+
 
 /* --------------------------------------------------- Kategorier --------------------------------------------*/
 
