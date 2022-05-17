@@ -181,13 +181,3 @@ exports.logout = (req, res) => {
   res.redirect("/");
 };
 
-
-let fs = require('fs');
-
-fs.writeFile('./test.txt', "Hello World", function (err) {
-    if (err) {
-      console.log(err)
-    }
-    console.log('File has been written');
-});
-
