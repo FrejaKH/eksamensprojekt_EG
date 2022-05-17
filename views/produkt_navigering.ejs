@@ -1,22 +1,11 @@
 <!DOCTYPE html>
 <html>
   <%- include('head_includes.ejs'); -%>
-
   <body>
     <%- include('header_bar.ejs'); -%>
-
    <main class="main_produktnavigering">
-    <div style="display: flex; align-items: center; width: 100%; justify-content: space-between;">
-       <div class="arrow_left_img" style="display: flex; align-items: center; width: 33%; justify-content: space-between;">
-        <img src="../public/images/arrow_left.png" alt="tilbage til indkøbsliste">
-       </div>
-       <div  style="display: flex; justify-content: center; align-items: center; width: 33%;">
-        <h1>Oversigt</h1>
-       </div>
-       <div  style="display: flex; align-items: center; width: 33%;">
-       </div>
-      </div>
-    <div class="produkt_oversigt" style="background-color: #ECF0F1">
+    <%- include('title_bar.ejs'); -%>
+    <div class="produkt_oversigt">
       <img src="../public/images/lager_oversigt.png" alt="oversigt over produkt">
     </div>
       <div>
@@ -30,6 +19,9 @@
     <footer>
       <%- include('footer_bar.ejs'); -%>
     </footer>
+<<<<<<< HEAD
     <script src="../public/javascripts/popup.js"></script>
+=======
+>>>>>>> e69968a52709d9c9e63438d358df73dbaed5c2bb
   </body>
 </html>

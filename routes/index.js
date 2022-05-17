@@ -78,11 +78,9 @@ router.route("/kurv").get(indexController.kurv);
 
 /* NAVIGERING */
 router.route("/produkt_navigering").get(indexController.produkt_navigering);
-
-
-/* skabelon ROUTES */
-router
-  .route("/skabelon")
-  .get(indexController.skabelon); // indexController.isLoggedIn FIRST, to check if logged i
+/* KVITTERINGER */
+router.route("/kvitteringer").get(indexController.kvitteringer);
+/* PRODUKT */
+router.route("/produkt").get(indexController.produkt);
 
 module.exports = router;

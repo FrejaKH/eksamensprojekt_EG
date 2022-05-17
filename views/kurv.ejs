@@ -1,12 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
-    <%- include head_includes %>
+    <%- include('head_includes.ejs'); -%>
     <body>
         <%- include('header_bar.ejs'); -%>
         <main id="main_velkommen">
-            <div class="heading">
-                <h1><%= title %></h1>
-            </div>
+            <%- include('title_bar.ejs'); -%>
             <div id="kurv_items">
                 <div class="kurv_item_1">
                     <div class="kurv_item_img">
@@ -73,6 +71,5 @@
             <%- include('popup.ejs'); -%>
         </main>
         <%- include('footer_bar.ejs'); -%>
-        <script src="../public/javascripts/popup.js"></script>
     </body>
 </html>
