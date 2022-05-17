@@ -32,6 +32,35 @@ main {
   min-height: 81vh;
   overflow-y: scroll;
 }
+/******************************************TITLE BAR**************************************************************************/
+.div_title_bar{
+  display: flex;
+  align-items: center;
+  width: 100%;
+  justify-content: space-between;
+}
+.div_title{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 33%;
+}
+.div_empty_div{
+  display: flex;
+   align-items: center; width: 33%;
+}
+.arrow_left_img {
+  display: flex;
+  align-items: center;
+  width: 33%;
+  justify-content: space-between;
+}
+.arrow_left_img a img{
+  width:2em;
+}
+.arrow_left_img a {
+  margin-left: 25%;
+}
 
 /******************************************HEADER_BAR**************************************************************************/
 #header {
@@ -123,18 +152,16 @@ main {
 }
 .produkt_oversigt img{
   width: 98%;
-}
-.arrow_left_img a img{
-  width:2em;
-  /* margin-left: 15%; */
-}
-.arrow_left_img a {
-  /* width:2em; */
-  margin-left: 25%;
+  background-color: #ECF0F1;
 }
 
 /******************************************************Produkt-informationer side*******************************************************/
-
+.main_produkt_informationer{
+  width:100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
 .produkt_item_img{
   width: 100%;
   display: flex;
@@ -183,6 +210,38 @@ main {
   color: var(--color-white);
   margin-top: 2em;
 }
+.produkt_div_text{
+  width: 70%;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.div_button{
+  width: 100%;
+  justify-content: space-around;
+  align-items: center;
+  display: flex;
+  padding-bottom: 5%;
+  border-bottom: 1px solid black;
+}
+.div_innerdiv_button{
+  width: 20%;
+}
+.div_information_text{
+  width: 70%;
+}
+.div_kort_button{
+  width: 100%;
+  justify-content: flex-end;
+  align-items: center;
+  display: flex;
+  padding-bottom: 5%;
+  border-bottom: 1px solid black;
+}
+.inner_div_kort__button{
+  width: 37%
+}
+
 
 
 /**********************************************************************************************************************************/

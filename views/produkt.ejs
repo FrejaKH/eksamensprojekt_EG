@@ -1,27 +1,14 @@
 <!DOCTYPE html>
 <html>
   <%- include('head_includes.ejs'); -%>
-
   <body>
     <%- include('header_bar.ejs'); -%>
-
-   <main class="main_produktnavigering">
-    <div style="display: flex; align-items: center; width: 100%; justify-content: space-between;">
-        <div class="arrow_left_img" style="display: flex; align-items: center; width: 33%; justify-content: space-between;">
-         <a href="/"><img src="../public/images/arrow_left.png" /></a>
-         <!-- <img src="../public/images/arrow_left.png" alt="tilbage til indkøbsliste"> -->
-        </div>
-        <div  style="display: flex; justify-content: center; align-items: center; width: 33%;">
-         <h1>Produkt</h1>
-        </div>
-        <div  style="display: flex; align-items: center; width: 33%;">
-        </div>
-       </div>
+   <main class="main_produkt_informationer">
+    <%- include('title_bar.ejs'); -%>
        <div class="produkt_item_img">
         <img src="../public/images/malerbøtte.png" alt="malerbøtte">
         </div>
-        <div style="width: 70%; justify-content: center; align-items: center; flex-direction: column;">
-     
+        <div class="produkt_div_text">
         <div>
             <h3>Dyrup, Loft- og vægmaling, ekstra spærrende, glans 2</h3>
         </div>
@@ -36,23 +23,22 @@
         </div>
     </div>
 
-
-        <div style="width: 100%; justify-content: space-around; align-items: center; display: flex; padding-bottom: 5%; border-bottom: 1px solid black;">
-            <div style="width: 20%">
+        <div class="div_button">
+            <div class="div_innerdiv_button">
                 <button class="produkt_btn">Føj til indkøbsliste</button>
             </div>
-            <div style="width: 20%">
+            <div class="div_innerdiv_button">
                 <button class="produkt_pris_btn">649,99</button>
             </div>
         </div>
-        <div style="width: 70%;">
+        <div class="div_information_text">
             <h3>Lokation</h3>
             <p>Lokationsnummer: 10</p>
             <p>Kig efter skiltning som siger: Maling.</p>
             <p>Hylden er imellem hylderne med: Værktøj og VVS</p>
         </div>
-        <div style="width: 100%; justify-content: flex-end; align-items: center; display: flex; padding-bottom: 5%; border-bottom: 1px solid black;">
-            <div style="width: 37%">
+        <div class="div_kort_button">
+            <div class="inner_div_kort__button">
             <button class="produkt_kort_btn">Vis på kort</button>
             </div>
         </div>
@@ -86,7 +72,5 @@
     <footer>
       <%- include('footer_bar.ejs'); -%>
     </footer>
-
-   
   </body>
 </html>

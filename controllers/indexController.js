@@ -27,6 +27,8 @@ exports.velkommen = (req, res) => {
 exports.kategorier = (req, res) => {
   res.render("kategorier", {
     title: "Kategorier",
+    title_bar: "Kategorier",
+    arrrow_back: "href=" + "/velkommen",
   });
 };
 
@@ -34,6 +36,8 @@ exports.kategorier = (req, res) => {
 exports.maling = (req, res) => {
   res.render("maling", {
     title: "Maling",
+    title_bar: "Kategorier",
+    arrrow_back: "href=" + "/Kategorier",
   });
 };
 
@@ -41,6 +45,8 @@ exports.maling = (req, res) => {
 exports.vaegmaling = (req, res) => {
   res.render("vaegmaling", {
     title: "Vægmaling",
+    title_bar: "Vægmaling",
+    arrrow_back: "href=" + "/maling",
   });
 };
 
@@ -48,6 +54,8 @@ exports.vaegmaling = (req, res) => {
 exports.vejledning = (req, res) => {
   res.render("vejledning", {
     title: "Vejledning",
+    title_bar: "Vægmaling",
+    arrrow_back: "href=" + "/velkommen",
   });
 };
 
@@ -62,26 +70,26 @@ exports.harduhusket = (req, res) => {
 exports.kurv = (req, res) => {
   res.render("kurv", {
     title: "Indkøbskurv",
+    title_bar: "Indkøbskurv",
+    arrrow_back: "href=" + "/produkt",
+
   });
 };
 
-// ====================== /* skabelon test */ ====================== //
-/* skabelon */
-exports.skabelon = (req, res) => {
-  res.render("skabelon", {
-    title: "skabelon",
-  });
-};
 // ====================== /* kvitteringer  */ ====================== //
 exports.kvitteringer = (req, res) => {
   res.render("kvitteringer", {
     title: "Alle kvitteringer",
+    title_bar: "hello",
   });
 };
 // ====================== /* produkt indformationer  */ ====================== //
 exports.produkt = (req, res) => {
   res.render("produkt", {
     title: "produktbeskrivelse",
+    title_bar: "Produkt",
+    arrrow_back: "href=" + "/vaegmaling",
+
   });
 };
 // ====================== /* Navigering til produkt */ ====================== //
@@ -89,6 +97,9 @@ exports.produkt = (req, res) => {
 exports.produkt_navigering = (req, res) => {
   res.render("produkt_navigering", {
     title: "Navigering",
+    title_bar: "Oversigt",
+    arrrow_back: "href=" + "/produkt",
+
   })
 }
 // ====================== /* PRODUCTS */ ====================== //
@@ -152,6 +163,8 @@ exports.signup = (req, res) => {
   res.render("signup", {
     message: req.flash("signupMessage"),
     title: "Opret bruger",
+    title_bar: "Opret bruger",
+    arrrow_back: "href=" + "/login",
   });
 };
 

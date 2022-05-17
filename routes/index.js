@@ -83,10 +83,4 @@ router.route("/kvitteringer").get(indexController.kvitteringer);
 /* PRODUKT */
 router.route("/produkt").get(indexController.produkt);
 
-
-/* skabelon ROUTES */
-router
-  .route("/skabelon")
-  .get(indexController.skabelon); // indexController.isLoggedIn FIRST, to check if logged i
-
 module.exports = router;

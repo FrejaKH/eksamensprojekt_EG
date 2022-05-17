@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-  <%- include head_includes %>
+  <%- include('head_includes.ejs'); -%>
     <body>
       <%- include('header_bar.ejs'); -%>
         <main id="main_velkommen">
@@ -21,10 +21,7 @@
                 <polyline points='2 2 300 2 300 400 280 400 260 450 240 400 2 400 2 2'
                         stroke='black' fill='white' stroke-width='1'/>
             </svg>
-
-
         </main>
         <%- include('footer_bar.ejs'); -%>
-        <script src="../public/javascripts/popup.js"></script>
     </body>
 </html>
