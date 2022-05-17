@@ -51,7 +51,7 @@ INSERT INTO `vareundergruppe` (`vareundergruppe`, `beskrivelse`) VALUES ("3640",
 
 CREATE TABLE vare(
 varenummer INT UNSIGNED NOT NULL,
-varenavn VARCHAR(50) NOT NULL,
+varenavn VARCHAR(500) NOT NULL,
 varebeskrivelse VARCHAR(500) NOT NULL,
 pris FLOAT NOT NULL,
 enhedsbetegnelse VARCHAR(5) NOT NULL,
