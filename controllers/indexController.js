@@ -81,6 +81,8 @@ exports.kvitteringer = (req, res) => {
   res.render("kvitteringer", {
     title: "Alle kvitteringer",
     title_bar: "hello",
+    arrrow_back: "href=" + "/produkt",
+
   });
 };
 // ====================== /* produkt indformationer  */ ====================== //
