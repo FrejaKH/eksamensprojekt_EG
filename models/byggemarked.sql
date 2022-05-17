@@ -47,13 +47,15 @@ beskrivelse VARCHAR(300),
 PRIMARY KEY (vareundergruppe)
 );
 
+INSERT INTO `vareundergruppe` (`vareundergruppe`, `beskrivelse`) VALUES ("3640", "Vægmaling" );
+
 CREATE TABLE vare(
 varenummer BIGINT,
-prisenhed FLOAT NOT NULL,
+pris FLOAT NOT NULL,
 beskrivelse VARCHAR(500) NOT NULL,
 enhedsbetegnelse VARCHAR(5) NOT NULL,
 indkøbspris FLOAT NOT NULL,
-billede blob NOT NULL,
+billede MEDIUMBLOB NOT NULL,
 EAN BIGINT NOT NULL,
 vareundergruppe BIGINT,
 PRIMARY KEY (varenummer),
