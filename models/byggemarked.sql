@@ -50,14 +50,15 @@ PRIMARY KEY (vareundergruppe)
 INSERT INTO `vareundergruppe` (`vareundergruppe`, `beskrivelse`) VALUES ("3640", "Vægmaling" );
 
 CREATE TABLE vare(
-varenummer BIGINT,
+varenummer INT UNSIGNED NOT NULL,
+varenavn VARCHAR(50) NOT NULL,
+varebeskrivelse VARCHAR(500) NOT NULL,
 pris FLOAT NOT NULL,
-beskrivelse VARCHAR(500) NOT NULL,
 enhedsbetegnelse VARCHAR(5) NOT NULL,
 indkøbspris FLOAT NOT NULL,
 billede MEDIUMBLOB NOT NULL,
 contenttype VARCHAR(32) NOT NULL,
-EAN BIGINT NOT NULL,
+EAN VARCHAR(20) NOT NULL,
 vareundergruppe BIGINT,
 PRIMARY KEY (varenummer),
 foreign key(vareundergruppe) references vareundergruppe(vareundergruppe)
