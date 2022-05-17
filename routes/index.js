@@ -82,5 +82,7 @@ router.route("/produkt_navigering").get(indexController.produkt_navigering);
 router.route("/kvitteringer").get(indexController.kvitteringer);
 /* PRODUKT */
 router.route("/produkt").get(indexController.produkt);
+/* BILLEDE */
+router.route("/image/:varenummer").get(indexController.getImage);
 
 module.exports = router;

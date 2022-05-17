@@ -102,6 +102,31 @@ exports.produkt_navigering = (req, res) => {
 
   })
 }
+
+// ======================= BILLEDE ======================================= //
+// exports.getImage = async function (req, res) {
+//   try {
+//   let query = {varenummerId: req.params.varenummer};
+//   let sql = "select * from vare where varenummer = ?";
+//   let data = await pool.query(sql, query);
+//   console.log(data);
+//   res.json(data);
+//   // res.contentType(data.contenttype);
+//   // res.send(data.billede);
+//   } catch (e) {
+//     console.error(e.message);
+//   }
+// };
+
+exports.getImage = async (req, res) => {
+  const getproduct = await product.getImageproduct(req, res);
+  console.log(getproduct[0]);
+  res.json(getproduct[0]);
+};
+
+
+
+
 // ====================== /* PRODUCTS */ ====================== //
 
 /* CREATE A PRODUCT */

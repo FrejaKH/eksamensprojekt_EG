@@ -19,6 +19,17 @@ module.exports = {
             console.error(e.message);
         }
     },
+    async getImageproduct(req, res) {
+        try {
+            const { varenummer } = req.params;
+            let sql = `SELECT billede FROM vare WHERE varenummer = ?`
+            let vareId = [varenummer];
+            let row = await pool.query(sql, vareId);
+            return row;
+        } catch (e) {
+            console.error(e.message);
+        }
+    },
     // get all products.
     async getAllproduct(req, res) {
         try {
