@@ -23,6 +23,12 @@ h1 {
   margin: 1em 0;
 }
 
+h3{
+  font-family: "Barlow", sans-serif;
+  font-size:18px;
+  font-weight: 700;
+}
+
 a {
   color: #00b7ff;
   text-decoration: none;
@@ -215,6 +221,10 @@ main {
   justify-content: center;
   align-items: center;
   flex-direction: column;
+}
+
+.produkt_div_text p{
+  margin: 0;
 }
 .div_button{
   width: 100%;
