@@ -80,8 +80,8 @@ exports.kurv = (req, res) => {
 exports.kvitteringer = (req, res) => {
   res.render("kvitteringer", {
     title: "Alle kvitteringer",
-    title_bar: "hello",
-    arrrow_back: "href=" + "/produkt",
+    title_bar: "Kvitteringer",
+    arrrow_back: "href=" + "/profile",
 
   });
 };
