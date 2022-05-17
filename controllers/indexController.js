@@ -77,8 +77,8 @@ exports.skabelon = (req, res) => {
 exports.produkt_navigering = (req, res) => {
   res.render("produkt_navigering", {
     title: "Navigering",
-  })
-}
+  });
+};
 // ====================== /* PRODUCTS */ ====================== //
 
 /* CREATE A PRODUCT */
@@ -147,6 +147,7 @@ exports.signup = (req, res) => {
 exports.profile = (req, res) => {
   res.render("profile", {
     user: req.user,
+    title: "Profil",
   });
 };
 
