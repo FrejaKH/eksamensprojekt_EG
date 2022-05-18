@@ -165,7 +165,7 @@ exports.createProduct = async (req, res) => {
 
 /* GET ALL PRODUCTS */
 exports.getAllProducts = async (req, res) => {
-  const products = await product.getAllproduct(req, res);
+  const products = await product.getAllproducts(req, res);
   console.log(products[0]);
   res.json(products[0]);
 };
