@@ -1,21 +1,57 @@
 <!DOCTYPE html>
 <html>
   <%- include('head_includes.ejs'); -%>
-
   <body>
     <%- include('header_bar.ejs'); -%>
-
-   <main class="main_produktnavigering">
+   <main class="main_kvitteringer">
     <%- include('title_bar.ejs'); -%>
-    <div class="produkt_oversigt" style="background-color: #ECF0F1">
-      <img src="../public/images/lager_oversigt.png" alt="oversigt over produkt">
-    </div>
+    <div class="main_div_kvitteringer">
       <div>
-        <h4>Lokation</h4>
-        <p>Lokationsnummer: 10</p>
-        <p>Kig efter skiltning som siger: Maling.</p>
-        <p>Hylden er imellem hylderne med: Værktøj og VVS </p>
+        <p class="p_kvittering_date">April 2022</p>
       </div>
+      <div class="div_kvitteringer">
+        <div class="div_kvitteringer_left">
+          <p class="p_kvitteringer">5. April</p>
+          <p class="p_kvitteringer">Silvan Kolding</p>
+        </div>
+        <div class="div_kvitteringer_right">
+          <p>200 kr.</p>
+          <div class="kvitteringer_item_arrow">
+            <img src="../public/images/arrow_right2.png" alt="pil">
+        </div>
+        </div>
+      </div>
+      <br>
+      <div>
+        <p class="p_kvittering_date">Marts 2022</p>
+      </div>
+      <div class="div_kvitteringer">
+        <div class="div_kvitteringer_left">
+          <p class="p_kvitteringer">5. Marts</p>
+          <p class="p_kvitteringer">Silvan Vejle</p>
+        </div>
+        <div class="div_kvitteringer_right">
+          <p>100 kr.</p>
+          <div class="kvitteringer_item_arrow">
+            <img src="../public/images/arrow_right2.png" alt="pil">
+        </div>
+        </div>
+      </div>
+    </div>
+    <br>
+    </div>
+    <div class="div_kvitteringer">
+      <div class="div_kvitteringer_left">
+        <p class="p_kvitteringer">10. Marts</p>
+        <p class="p_kvitteringer">Silvan Vejle</p>
+      </div>
+      <div class="div_kvitteringer_right">
+        <p>1390,90 kr.</p>
+        <div class="kvitteringer_item_arrow">
+          <img src="../public/images/arrow_right2.png" alt="pil">
+      </div>
+      </div>
+      <%- include('popup.ejs'); -%>  
     </main>
     <footer>
       <%- include('footer_bar.ejs'); -%>

@@ -81,8 +81,17 @@ exports.kurv = (req, res) => {
 exports.kvitteringer = (req, res) => {
   res.render("kvitteringer", {
     title: "Alle kvitteringer",
-    title_bar: "hello",
-    arrrow_back: "href=" + "/produkt",
+    title_bar: "Kvitteringer",
+    arrrow_back: "href=" + "/profile",
+
+  });
+};
+// ====================== /* kvitteringer udvidet */ ====================== //
+exports.kvitteringer_udvidet = (req, res) => {
+  res.render("kvitteringer_udvidet", {
+    title: "kvitteringer",
+    title_bar: "Kvitteringer",
+    arrrow_back: "href=" + "/Kvitteringer",
 
   });
 };
@@ -216,6 +225,7 @@ exports.signup = (req, res) => {
 exports.profile = (req, res) => {
   res.render("profile", {
     user: req.user,
+    title: "Profil",
   });
 };
 

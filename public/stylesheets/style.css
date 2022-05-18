@@ -1,3 +1,4 @@
+@import url("//use.fontawesome.com/releases/v5.15.3/css/all.css");
 :root {
   --color-white: #fff;
   --color-black: #000;
@@ -33,6 +34,11 @@ a {
   color: #00b7ff;
   text-decoration: none;
 }
+
+a:hover {
+  text-decoration: none;
+}
+
 main {
   width: 100%;
   min-height: 81vh;
@@ -147,17 +153,86 @@ main {
 }
 
 /**********************************************************************************************************************************/
-
-/******************************************************navigering til produkt*******************************************************/
-
-.main_produktnavigering{
+/******************************************************kvitteringer****************************************************************/
+.main_kvitteringer{
   width:100%;
   display: flex;
   align-items: center;
   flex-direction: column;
 }
-.produkt_oversigt{
+.div_kvitteringer{
+  background-color: var(--color-light);
   width: 100%;
+  height: 30%;
+  display: flex;
+}
+.p_kvitteringer{
+  margin-left: 5%;
+}
+.kvitteringer_item_arrow {
+  width: 10%;
+}
+.kvitteringer_item_arrow {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.kvitteringer_item_arrow img {
+  width: 1em;
+}
+.div_kvitteringer_right{
+  width: 70%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+.div_kvitteringer_left{
+  width: 30%;
+}
+.main_div_kvitteringer{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.p_kvittering_date{
+  margin-left: 1.5%;
+}
+/******************************************************kvitteringer udvidet****************************************************************/
+.main_kvitteringer_udvidet{
+  width:100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.kvitteringer_item {
+  width: 100%;
+  background-color: var(--color-light);
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 1em;
+  margin: 0.5em 0;
+  font-size: 0.8em;
+  min-height: 111px;
+}
+.div_kvitteringer_udvidet{
+  background-color: var(--color-light);
+  width: 100%;
+  height: 30%;
+  display: flex;
+  font-size: 0.9em;
+}
+/******************************************************navigering til produkt******************************************************/
+
+.main_produktnavigering {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+.produkt_oversigt img {
+  width: 98%;
   background-color: #ECF0F1;
   padding: 1em;
   display: flex;
@@ -627,7 +702,7 @@ body .login .heading a {
   display: contents;
 }
 
-body .login img {
+body .login i {
   height: 20px;
   position: absolute;
   left: 0;
@@ -680,6 +755,14 @@ body .login .alert-danger {
   background-color: #f2dede;
 }
 
+/* LOGIN PAGE MEDIA QUERIES*/
+
+@media screen and (max-width: 600px) {
+  body .login .heading {
+    margin-top: 10%;
+  }
+}
+
 /********************************SIGNUP PAGE***********************************************/
 
 body .signup {
@@ -709,7 +792,7 @@ body .signup .heading a {
   display: contents;
 }
 
-body .signup img {
+body .signup i {
   height: 20px;
   position: absolute;
   left: 0;
@@ -718,7 +801,7 @@ body .signup img {
 body .signup input {
   height: 100%;
   width: 100%;
-  margin-left: 20px;
+  padding-left: 20px;
   background-color: var(--color-primary);
   color: var(--color-white);
   border: none;
@@ -760,4 +843,112 @@ body .signup button {
 
 body .signup .alert-danger {
   background-color: #f2dede;
+}
+
+/* SIGNUP PAGE MEDIA QUERIES*/
+
+@media screen and (max-width: 600px) {
+  body .signup .heading {
+    margin-top: 10%;
+  }
+
+  body .content {
+    margin-bottom: 25%;
+  }
+}
+
+/********************************PROFILE PAGE***********************************************/
+
+.profile {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 20em;
+  margin: 10% auto 10%;
+}
+
+.profile h1 {
+  margin: 0;
+}
+
+.profile p {
+  margin: 10px 0 30px;
+}
+
+.profileHeader {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  position: relative;
+}
+
+.profileHeader .fa-arrow-left {
+  position: absolute;
+  left: 0;
+}
+
+.profileInfo {
+  height: 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid var(--color-black);
+}
+
+.profileInfo p {
+  margin: 0;
+}
+
+.profileContent li {
+  list-style: none;
+}
+
+.profileContent li:last-child {
+  border-bottom: 1px solid var(--color-black);
+}
+
+.profileContent a {
+  color: var(--color-black);
+}
+
+.profileContent a:hover {
+  text-decoration: none;
+}
+
+/* PROFILE PAGE MEDIA QUERIES*/
+
+@media screen and (max-width: 600px) {
+  .profile {
+    width: 100%;
+  }
+
+  .profileInfo {
+    padding: 0px 20px 0px 20px;
+  }
+
+  .profileHeader .fa-arrow-left {
+    margin-left: 20px;
+  }
+}
+
+/********************************FONT AWESOME STYLES***********************************************/
+
+.fa-user-circle {
+  font-size: 10rem;
+  color: var(--color-black);
+}
+
+.fa-arrow-left {
+  font-size: 2rem;
+  color: var(--color-black);
+}
+
+.fa-arrow-right {
+  font-size: 2rem;
+  color: var(--color-black);
+}
+
+.fa-toggle-on {
+  font-size: 2rem;
+  color: var(--color-black);
 }
