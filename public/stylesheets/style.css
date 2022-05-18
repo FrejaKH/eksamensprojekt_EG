@@ -36,7 +36,7 @@ a {
 main {
   width: 100%;
   min-height: 81vh;
-  overflow-y: scroll;
+  /* overflow-y: scroll; */
 }
 /******************************************TITLE BAR**************************************************************************/
 .div_title_bar{
@@ -156,9 +156,17 @@ main {
   align-items: center;
   flex-direction: column;
 }
-.produkt_oversigt img{
-  width: 98%;
+.produkt_oversigt{
+  width: 100%;
   background-color: #ECF0F1;
+  padding: 1em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.produkt_oversigt img{
+  width: 100%;
+
 }
 
 /******************************************************Produkt-informationer side*******************************************************/
@@ -550,7 +558,7 @@ main {
 }
 
 .harduhusket_item_text {
-  width: 35%;
+  width: 70%;
 }
 
 .harduhusket_item_arrow {

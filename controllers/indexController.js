@@ -1,4 +1,5 @@
 const pool = require("../models/db");
+const products = require("../models/products");
 const product = require("../models/products");
 
 // ====================== /* MISC. */ ====================== //
@@ -86,14 +87,29 @@ exports.kvitteringer = (req, res) => {
   });
 };
 // ====================== /* produkt indformationer  */ ====================== //
-exports.produkt = (req, res) => {
-  res.render("produkt", {
-    title: "produktbeskrivelse",
-    title_bar: "Produkt",
-    arrrow_back: "href=" + "/vaegmaling",
+exports.produkt = async (req, res) => {
+  try {
+    let vare = await products.getVare(req,res);
 
-  });
-};
+    res.render("produkt", {
+      title: "Produktbeskrivelse",
+      title_bar: "Produkt",
+      arrrow_back: "href=" + "/vaegmaling",
+      varenavn: vare[0][0].varenavn,
+      varebeskrivelse: vare[0][0].varebeskrivelse,
+      pris: vare[0][0].pris,
+      billede: vare[0][0].billede.toString(),
+    });
+
+  } catch (e) {
+      console.log(e);
+  }
+}
+
+
+exports.getVarenavn = async function (res) {
+  
+}
 // ====================== /* Navigering til produkt */ ====================== //
 /* GET navigering til produkt PAGE */
 exports.produkt_navigering = (req, res) => {
@@ -124,8 +140,9 @@ exports.getImage = async (req, res) => {
   const getproduct = await product.getImageproduct(req, res);
   console.log(getproduct[0]);
   res.json(getproduct[0]);
+  res.contentType(getproduct[0].contenttype);
+  res.send(getproduct[0].billede);
 };
-
 
 
 
@@ -207,4 +224,6 @@ exports.logout = (req, res) => {
   req.logout();
   res.redirect("/");
 };
+
+
 

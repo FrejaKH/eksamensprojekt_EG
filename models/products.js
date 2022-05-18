@@ -19,10 +19,20 @@ module.exports = {
             console.error(e.message);
         }
     },
+    async getVare(req, res) {
+        try {
+            let sql = `SELECT * FROM vare WHERE varenummer = "12345678"`
+            let row = await pool.query(sql);
+            console.log(row);
+            return row;
+        } catch (e) { 
+            console.error(e.message);
+        }
+    },
     async getImageproduct(req, res) {
         try {
             const { varenummer } = req.params;
-            let sql = `SELECT billede FROM vare WHERE varenummer = ?`
+            let sql = `SELECT * FROM vare WHERE varenummer = ?`
             let vareId = [varenummer];
             let row = await pool.query(sql, vareId);
             return row;
