@@ -116,7 +116,7 @@ main {
   }
 }
 
-/******************************************MENU**************************************************************************/
+/******************************************Menu**************************************************************************/
 
 #menuToggle
 {
@@ -306,33 +306,6 @@ main {
   height: 1em;
   position: relative;
   padding-right:2em;
-}
-
-
-
-#menu
-{
-  position: absolute;
-  min-width: (fit-content, 300px);
-  margin: -100px 0 0 -50px;
-  padding: 50px;
-  padding-top: 125px;
-  
-  background: var(--color-grey);
-  list-style-type: none;
-  -webkit-font-smoothing: antialiased;
-  /* to stop flickering of text in safari */
-  
-  transform-origin: 0% 0%;
-  transform: translate(-100%, 0);
-  
-  transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0);
-}
-
-#menu li
-{
-  padding: 10px 0;
-  font-size: 22px;
 }
 
 /*
@@ -561,6 +534,53 @@ main {
 }
 
 /**********************************************************************************************************************************/
+/* ---------------------------- Scan vare --------------------------------------------*/
+
+.main_scanning {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color:var(--color-grey);
+  
+}
+
+.scan-border{
+  background-color: var(--color-grey);
+  width: 70%;
+  height: 40em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  /**Making a cornered border**/
+  --b:0.8em;   /* thickness of the border */
+  --c:var(--color-white);   /* color of the border */
+  --w:3em;  /* width of border */
+  
+
+  border:var(--b) solid transparent; /* space for the border */
+  --g:#0000 90deg,var(--c) 0;
+  background:
+    conic-gradient(from 90deg  at top    var(--b) left  var(--b),var(--g)) 0    0,
+    conic-gradient(from 180deg at top    var(--b) right var(--b),var(--g)) 100% 0,
+    conic-gradient(from 0deg   at bottom var(--b) left  var(--b),var(--g)) 0    100%,
+    conic-gradient(from -90deg at bottom var(--b) right var(--b),var(--g)) 100% 100%;
+  background-size:var(--w) var(--w);
+  background-origin:border-box;
+  background-repeat:no-repeat;
+}
+
+.scan-border::after{
+  content: '';
+  background-image: url('../images/scan.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  position: relative;
+  height: 4em;
+  width: 4em;
+}
 
 /* ---------------------------- VELKOMMEN OG VEJLEDNING --------------------------------------------*/
 
