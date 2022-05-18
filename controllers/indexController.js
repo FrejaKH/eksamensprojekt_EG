@@ -1,6 +1,5 @@
-const pool = require("../models/db");
-const products = require("../models/products");
-const product = require("../models/products");
+const model = require("../models/products");
+
 
 // ====================== /* MISC. */ ====================== //
 
@@ -95,7 +94,7 @@ exports.kvitteringer_udvidet = (req, res) => {
 // ====================== /* produkt indformationer  */ ====================== //
 exports.produkt = async (req, res) => {
   try {
-    let vare = await products.getVare(req, res);
+    let vare = await model.getVare(req,res);
     // res.contentType(vare[0][0].contenttype);
     // res.send(vare[0][0].billede);
     res.render("produkt", {
@@ -114,7 +113,6 @@ exports.produkt = async (req, res) => {
   }
 };
 
-exports.getVarenavn = async function (res) {};
 // ====================== /* Navigering til produkt */ ====================== //
 /* GET navigering til produkt PAGE */
 exports.produkt_navigering = (req, res) => {
@@ -125,58 +123,37 @@ exports.produkt_navigering = (req, res) => {
   });
 };
 
-// ======================= BILLEDE ======================================= //
-// exports.getImage = async function (req, res) {
-//   try {
-//   let query = {varenummerId: req.params.varenummer};
-//   let sql = "select * from vare where varenummer = ?";
-//   let data = await pool.query(sql, query);
-//   console.log(data);
-//   res.json(data);
-//   // res.contentType(data.contenttype);
-//   // res.send(data.billede);
-//   } catch (e) {
-//     console.error(e.message);
-//   }
-// };
-
-exports.getImage = async (req, res) => {
-  const getproduct = await product.getImageproduct(req, res);
-  console.log(getproduct[0]);
-  res.json(getproduct[0]);
-};
-
 // ====================== /* PRODUCTS */ ====================== //
 
 /* CREATE A PRODUCT */
 exports.createProduct = async (req, res) => {
-  const newProduct = await product.createAProduct(req, res);
+  const newProduct = await model.createAProduct(req, res);
   res.json(newProduct);
 };
 
 /* GET ALL PRODUCTS */
 exports.getAllProducts = async (req, res) => {
-  const products = await product.getAllproducts(req, res);
+  const products = await model.getAllproducts(req, res);
   console.log(products[0]);
   res.json(products[0]);
 };
 
 // /* GET A PRODUCT */
 exports.getProduct = async (req, res) => {
-  const getproduct = await product.getproduct(req, res);
+  const getproduct = await model.getproduct(req, res);
   console.log(getproduct[0]);
   res.json(getproduct[0]);
 };
 
 /* UPDATE A PRODUCT */
 exports.updateProduct = async (req, res) => {
-  const updateProduct = await product.updateAProduct(req, res);
+  const updateProduct = await model.updateAProduct(req, res);
   res.json(updateProduct);
 };
 
 /* DELETE A PRODUCT */
 exports.deleteProduct = async (req, res) => {
-  const deleteproduct = await product.deleteAProduct(req, res);
+  const deleteproduct = await model.deleteAProduct(req, res);
   if (deleteproduct) {
     console.log("Product deleted!");
     res.json("Product deleted!");

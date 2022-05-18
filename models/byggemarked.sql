@@ -48,6 +48,7 @@ PRIMARY KEY (vareundergruppe)
 );
 
 INSERT INTO `vareundergruppe` (`vareundergruppe`, `beskrivelse`) VALUES ("3640", "Vægmaling" );
+INSERT INTO `vareundergruppe` (`vareundergruppe`, `beskrivelse`) VALUES ("3641", "Pensler" );
 
 CREATE TABLE vare(
 varenummer INT UNSIGNED NOT NULL,
