@@ -72,7 +72,6 @@ exports.kurv = (req, res) => {
     title: "Indkøbskurv",
     title_bar: "Indkøbskurv",
     arrrow_back: "href=" + "/produkt",
-
   });
 };
 
@@ -82,7 +81,6 @@ exports.kvitteringer = (req, res) => {
     title: "Alle kvitteringer",
     title_bar: "Kvitteringer",
     arrrow_back: "href=" + "/profile",
-
   });
 };
 // ====================== /* kvitteringer udvidet */ ====================== //
@@ -91,7 +89,6 @@ exports.kvitteringer_udvidet = (req, res) => {
     title: "kvitteringer",
     title_bar: "Kvitteringer",
     arrrow_back: "href=" + "/Kvitteringer",
-
   });
 };
 // ====================== /* produkt indformationer  */ ====================== //
@@ -108,16 +105,13 @@ exports.produkt = async (req, res) => {
       varenavn: vare[0][0].varenavn,
       varebeskrivelse: vare[0][0].varebeskrivelse,
       pris: vare[0][0].pris,
-      billede: vare[0][0].billede.toString('base64'),
+      billede: vare[0][0].billede.toString("base64"),
       contenttype: vare[0][0].contenttype,
     });
-
   } catch (e) {
-      console.log(e);
+    console.log(e);
   }
-}
-
-
+};
 
 // ====================== /* Navigering til produkt */ ====================== //
 /* GET navigering til produkt PAGE */
@@ -126,9 +120,8 @@ exports.produkt_navigering = (req, res) => {
     title: "Navigering",
     title_bar: "Oversigt",
     arrrow_back: "href=" + "/produkt",
-
-  })
-}
+  });
+};
 
 // ====================== /* PRODUCTS */ ====================== //
 
@@ -209,6 +202,3 @@ exports.logout = (req, res) => {
   req.logout();
   res.redirect("/");
 };
-
-
-
