@@ -94,7 +94,7 @@ exports.kvitteringer_udvidet = (req, res) => {
 // ====================== /* produkt indformationer  */ ====================== //
 exports.produkt = async (req, res) => {
   try {
-    let vare = await model.getVare(req,res);
+    let vare = await model.getproduct(req,res);
     // res.contentType(vare[0][0].contenttype);
     // res.send(vare[0][0].billede);
     res.render("produkt", {
