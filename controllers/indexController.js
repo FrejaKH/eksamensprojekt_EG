@@ -96,15 +96,18 @@ exports.kvitteringer_udvidet = (req, res) => {
 exports.produkt = async (req, res) => {
   try {
     let vare = await products.getVare(req, res);
-
+    // res.contentType(vare[0][0].contenttype);
+    // res.send(vare[0][0].billede);
     res.render("produkt", {
       title: "Produktbeskrivelse",
       title_bar: "Produkt",
       arrrow_back: "href=" + "/vaegmaling",
+      varenummer: vare[0][0].varenummer,
       varenavn: vare[0][0].varenavn,
       varebeskrivelse: vare[0][0].varebeskrivelse,
       pris: vare[0][0].pris,
-      billede: vare[0][0].billede.toString(),
+      billede: vare[0][0].billede.toString("base64"),
+      contenttype: vare[0][0].contenttype,
     });
   } catch (e) {
     console.log(e);
@@ -141,8 +144,6 @@ exports.getImage = async (req, res) => {
   const getproduct = await product.getImageproduct(req, res);
   console.log(getproduct[0]);
   res.json(getproduct[0]);
-  res.contentType(getproduct[0].contenttype);
-  res.send(getproduct[0].billede);
 };
 
 // ====================== /* PRODUCTS */ ====================== //
