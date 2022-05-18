@@ -73,7 +73,6 @@ exports.kurv = (req, res) => {
     title: "Indkøbskurv",
     title_bar: "Indkøbskurv",
     arrrow_back: "href=" + "/produkt",
-
   });
 };
 
@@ -83,7 +82,6 @@ exports.kvitteringer = (req, res) => {
     title: "Alle kvitteringer",
     title_bar: "Kvitteringer",
     arrrow_back: "href=" + "/profile",
-
   });
 };
 // ====================== /* kvitteringer udvidet */ ====================== //
@@ -92,33 +90,31 @@ exports.kvitteringer_udvidet = (req, res) => {
     title: "kvitteringer",
     title_bar: "Kvitteringer",
     arrrow_back: "href=" + "/Kvitteringer",
-
   });
 };
 // ====================== /* produkt indformationer  */ ====================== //
 exports.produkt = async (req, res) => {
   try {
-    let vare = await products.getVare(req,res);
-
+    let vare = await products.getVare(req, res);
+    // res.contentType(vare[0][0].contenttype);
+    // res.send(vare[0][0].billede);
     res.render("produkt", {
       title: "Produktbeskrivelse",
       title_bar: "Produkt",
       arrrow_back: "href=" + "/vaegmaling",
+      varenummer: vare[0][0].varenummer,
       varenavn: vare[0][0].varenavn,
       varebeskrivelse: vare[0][0].varebeskrivelse,
       pris: vare[0][0].pris,
-      billede: vare[0][0].billede.toString(),
+      billede: vare[0][0].billede.toString("base64"),
+      contenttype: vare[0][0].contenttype,
     });
-
   } catch (e) {
-      console.log(e);
+    console.log(e);
   }
-}
+};
 
-
-exports.getVarenavn = async function (res) {
-  
-}
+exports.getVarenavn = async function (res) {};
 // ====================== /* Navigering til produkt */ ====================== //
 /* GET navigering til produkt PAGE */
 exports.produkt_navigering = (req, res) => {
@@ -126,9 +122,8 @@ exports.produkt_navigering = (req, res) => {
     title: "Navigering",
     title_bar: "Oversigt",
     arrrow_back: "href=" + "/produkt",
-
-  })
-}
+  });
+};
 
 // ======================= BILLEDE ======================================= //
 // exports.getImage = async function (req, res) {
@@ -149,11 +144,7 @@ exports.getImage = async (req, res) => {
   const getproduct = await product.getImageproduct(req, res);
   console.log(getproduct[0]);
   res.json(getproduct[0]);
-  res.contentType(getproduct[0].contenttype);
-  res.send(getproduct[0].billede);
 };
-
-
 
 // ====================== /* PRODUCTS */ ====================== //
 
@@ -165,7 +156,7 @@ exports.createProduct = async (req, res) => {
 
 /* GET ALL PRODUCTS */
 exports.getAllProducts = async (req, res) => {
-  const products = await product.getAllproducts(req, res);
+  const products = await product.getAllproduct(req, res);
   console.log(products[0]);
   res.json(products[0]);
 };
@@ -234,6 +225,3 @@ exports.logout = (req, res) => {
   req.logout();
   res.redirect("/");
 };
-
-
-
