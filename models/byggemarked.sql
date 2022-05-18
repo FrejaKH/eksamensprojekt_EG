@@ -47,8 +47,10 @@ beskrivelse VARCHAR(300),
 PRIMARY KEY (vareundergruppe)
 );
 
-INSERT INTO `vareundergruppe` (`vareundergruppe`, `beskrivelse`) VALUES ("3640", "Vægmaling" );
-INSERT INTO `vareundergruppe` (`vareundergruppe`, `beskrivelse`) VALUES ("3641", "Pensler" );
+INSERT INTO `vareundergruppe` (`vareundergruppe`, `beskrivelse`) VALUES ("3640", "Vægmaling");
+INSERT INTO `vareundergruppe` (`vareundergruppe`, `beskrivelse`) VALUES ("3641", "Pensler");
+INSERT INTO `vareundergruppe` (`vareundergruppe`, `beskrivelse`) VALUES ("3642", "Malerruler");
+INSERT INTO `vareundergruppe` (`vareundergruppe`, `beskrivelse`) VALUES ("3643", "Malertape");
 
 CREATE TABLE vare(
 varenummer INT UNSIGNED NOT NULL,

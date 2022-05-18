@@ -10,10 +10,10 @@ module.exports = {
   // get a specific product.
   async getproduct(req, res) {
     try {
-      const { id } = req.params;
+      const { varenummer } = req.params;
       let sql = `SELECT * FROM vare WHERE varenummer = ?`;
-      let varenummer = [id];
-      let row = await pool.query(sql, varenummer);
+      let varenummerId = [varenummer];
+      let row = await pool.query(sql, varenummerId);
       return row;
     } catch (e) {
       console.error(e.message);

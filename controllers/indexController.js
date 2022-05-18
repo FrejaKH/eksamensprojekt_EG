@@ -42,11 +42,14 @@ exports.maling = (req, res) => {
 };
 
 /* GET VÆGMALING PAGE */
-exports.vaegmaling = (req, res) => {
+exports.vaegmaling = async (req, res) => {
+  let vare = await model.getVare(req,res);
+  console.log(vare);
   res.render("vaegmaling", {
     title: "Vægmaling",
     title_bar: "Vægmaling",
     arrrow_back: "href=" + "/maling",
+    vare: vare[0][0],
   });
 };
 
@@ -94,19 +97,12 @@ exports.kvitteringer_udvidet = (req, res) => {
 // ====================== /* produkt indformationer  */ ====================== //
 exports.produkt = async (req, res) => {
   try {
-    let vare = await model.getVare(req,res);
-    // res.contentType(vare[0][0].contenttype);
-    // res.send(vare[0][0].billede);
+    let vare = await model.getproduct(req,res);
     res.render("produkt", {
       title: "Produktbeskrivelse",
       title_bar: "Produkt",
       arrrow_back: "href=" + "/vaegmaling",
-      varenummer: vare[0][0].varenummer,
-      varenavn: vare[0][0].varenavn,
-      varebeskrivelse: vare[0][0].varebeskrivelse,
-      pris: vare[0][0].pris,
-      billede: vare[0][0].billede.toString("base64"),
-      contenttype: vare[0][0].contenttype,
+      vare: vare[0][0],
     });
   } catch (e) {
     console.log(e);

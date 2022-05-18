@@ -83,8 +83,7 @@ router.route("/kvitteringer").get(indexController.kvitteringer);
 /* KVITTERINGER UDVIDET */
 router.route("/kvitteringer_udvidet").get(indexController.kvitteringer_udvidet);
 /* PRODUKT */
-router.route("/produkt").get(indexController.produkt);
-/* BILLEDE */
-router.route("/image/:varenummer").get(indexController.produkt);
+router.route("/produkt/:varenummer").get(indexController.produkt);
+
 
 module.exports = router;

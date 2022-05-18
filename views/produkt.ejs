@@ -6,21 +6,14 @@
    <main class="main_produkt_informationer">
     <%- include('title_bar.ejs'); -%>
        <div class="produkt_item_img">
-        <img src="data:<%= contenttype %>;base64,<%= billede %>" alt="malerbøtte">
+        <img src="data:<%= vare.contenttype %>;base64,<%= vare.billede.toString('base64') %>" alt="malerbøtte">
         </div>
         <div class="produkt_div_text">
         <div>
-            <h3><%= varenavn %></h3>
+            <h3><%= vare.varenavn %></h3>
         </div>
         <div>
-            <p><%= varebeskrivelse %></p>
-            <!-- <p>Ekstra spærrende loft- og vægmaling fra Dyrup – god dækkeevne</p>
-            <br>
-            <p>Glans 2 – 2-i-1-spærregrunder og færdig maling – undgå at skulle grunde
-                Mat – rækkeevnen er ca. 8-10 m² pr. ltr. – overmalbar efter 4 timer
-                </p>
-            <br>
-            <p>Fortyndes med vand – meget spærrende og god kvalitet – kan tones</p> -->
+            <p><%= vare.varebeskrivelse %></p>
         </div>
     </div>
 
@@ -29,7 +22,7 @@
                 <button class="produkt_btn">Føj til indkøbsliste</button>
             </div>
             <div class="div_innerdiv_button">
-                <button class="produkt_pris_btn"><%= pris %> kr</button>
+                <button class="produkt_pris_btn"><%= vare.pris %> kr</button>
             </div>
         </div>
         <div class="div_information_text">
