@@ -1,9 +1,9 @@
 <html>
   <head>
-    <%- include head_includes %>
+    <%- include ('head_includes.ejs') -%>
   </head>
   <body>
-    <%- include header_bar %>
+    <%- include ('header_bar.ejs') -%>
     <main class="profile">
       <div class="profileHeader">
         <a href="#"><i class="fas fa-arrow-left"></i></a>
@@ -49,6 +49,6 @@
         </li>
       </section>
     </main>
-    <%- include footer_bar %> <%- include('popup.ejs'); -%>
+    <%- include ('footer_bar.ejs') -%> <%- include('popup.ejs'); -%>
   </body>
 </html>
