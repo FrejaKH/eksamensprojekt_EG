@@ -1,0 +1,68 @@
+<html>
+  <head>
+    <%- include head_includes %>
+  </head>
+  <body>
+    <%- include header_bar %>
+    <main class="profile indstillinger">
+      <div class="profileHeader">
+        <a href="/profile"><i class="fas fa-arrow-left"></i></a>
+        <h1><%= title %></h1>
+      </div>
+      <section class="profileContent">
+        <li>
+          <div class="profileInfo">
+            <p><b>Navn</b></p>
+            <p><%= user.navn %></p>
+          </div>
+        </li>
+        <li>
+          <div class="profileInfo">
+            <p><b>Email</b></p>
+            <p><%= user.email %></p>
+          </div>
+        </li>
+        <li>
+          <div class="profileInfo">
+            <p><b>Kundenummer</b></p>
+            <p><%= user.kundenummer %></p>
+          </div>
+        </li>
+        <li>
+          <div class="profileInfo">
+            <p><b>Adresse</b></p>
+            <p><%= user.adresse %></p>
+          </div>
+        </li>
+        <li>
+          <div class="profileInfo">
+            <p><b>Postnummer</b></p>
+            <p><%= user.postnummer %></p>
+          </div>
+        </li>
+        <li>
+          <div class="profileInfo">
+            <p><b>By</b></p>
+            <p><%= user._by %></p>
+          </div>
+        </li>
+        <li>
+          <div class="profileInfo">
+            <p><b>Telefonnummer</b></p>
+            <p><%= user.telefonnummer %></p>
+          </div>
+        </li>
+        <li>
+          <div class="profileInfo">
+            <p><b>Skift adgangskode</b></p>
+            <p>******</p>
+          </div>
+        </li>
+      </section>
+      <div class="indstillingerbtn">
+        <button type="submit">Rediger</button>
+      </div>
+    </main>
+    <%- include footer_bar %> <%- include('popup.ejs'); -%>
+  </body>
+</html>

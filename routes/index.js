@@ -55,6 +55,11 @@ router
 /* LOGOUT ROUTES */
 router.route("/logout").get(indexController.logout); // Drop session
 
+/* INDSTILLINGER */
+router
+  .route("/indstillinger")
+  .get(indexController.isLoggedIn, indexController.indstillinger);
+
 /* VELKOMMEN */
 router.route("/velkommen").get(indexController.velkommen);
 
@@ -78,12 +83,14 @@ router.route("/kurv").get(indexController.kurv);
 
 /* NAVIGERING */
 router.route("/produkt_navigering").get(indexController.produkt_navigering);
+
 /* KVITTERINGER */
 router.route("/kvitteringer").get(indexController.kvitteringer);
+
 /* KVITTERINGER UDVIDET */
 router.route("/kvitteringer_udvidet").get(indexController.kvitteringer_udvidet);
+
 /* PRODUKT */
 router.route("/produkt/:varenummer").get(indexController.produkt);
-
 
 module.exports = router;

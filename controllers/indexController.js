@@ -1,6 +1,5 @@
 const model = require("../models/products");
 
-
 // ====================== /* MISC. */ ====================== //
 
 /* CHECK IF LOGGED IN - Use indexController.isLoggedIn FIRST, on relevant routes, to force login */
@@ -13,6 +12,14 @@ exports.isLoggedIn = (req, res, next) => {
 exports.index = (req, res) => {
   res.render("index", {
     title: "Velkommen",
+  });
+};
+
+/* GET INDSTILLINGER PAGE */
+exports.indstillinger = (req, res) => {
+  res.render("Indstillinger", {
+    title: "Indstillinger",
+    user: req.user,
   });
 };
 
@@ -43,7 +50,7 @@ exports.maling = (req, res) => {
 
 /* GET VÆGMALING PAGE */
 exports.vaegmaling = async (req, res) => {
-  let vare = await model.getVare(req,res);
+  let vare = await model.getVare(req, res);
   console.log(vare);
   res.render("vaegmaling", {
     title: "Vægmaling",
@@ -97,7 +104,7 @@ exports.kvitteringer_udvidet = (req, res) => {
 // ====================== /* produkt indformationer  */ ====================== //
 exports.produkt = async (req, res) => {
   try {
-    let vare = await model.getproduct(req,res);
+    let vare = await model.getproduct(req, res);
     res.render("produkt", {
       title: "Produktbeskrivelse",
       title_bar: "Produkt",
