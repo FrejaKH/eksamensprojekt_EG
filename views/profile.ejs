@@ -1,27 +1,55 @@
-<!DOCTYPE html>
 <html>
   <head>
-    <link rel="stylesheet" href="../public/stylesheets/style.css" />
-    <link
-      rel="stylesheet"
-      href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css"
-    />
-    <title>test</title>
+    <%- include head_includes %>
   </head>
   <body>
-    <%- include('header_bar.ejs'); -%>
-    <div class="login-page">
-      <div class="form index">
-        <h1>Profile Page</h1>
-        <p>
-          <strong>id</strong>: <%= user.id_user %><br />
-          <strong>username</strong>: <%= user.navn %><br />
-          <strong>email</strong>: <%= user.email %><br />
-          <strong>kundenummer</strong>: <%= user.kundenummer %><br />
-          <strong>password</strong>: <%= user.password %><br />
-        </p>
-        <button><a href="/logout">Logout</a></button>
+    <%- include header_bar %>
+    <main class="profile">
+      <div class="profileHeader">
+        <a href="#"><i class="fas fa-arrow-left"></i></a>
+        <i class="fas fa-user-circle"></i>
+        <h1><b><%= user.navn %></b></h1>
+        <p><%= user.email %></p>
       </div>
+      <section class="profileContent">
+        <li>
+          <a href="#">
+            <div class="profileInfo">
+              <p>Tilføj Betalingskort</p>
+              <i class="fas fa-arrow-right"></i></div
+          ></a>
+        </li>
+        <li>
+          <a href="#">
+            <div class="profileInfo">
+              <p>Slå "Har du husket" til/fra</p>
+              <i class="fa fa-toggle-on" aria-hidden="true"></i></div
+          ></a>
+        </li>
+        <li>
+          <a href="#">
+            <div class="profileInfo">
+              <p>Kvitteringer</p>
+              <i class="fas fa-arrow-right"></i></div
+          ></a>
+        </li>
+        <li>
+          <a href="#">
+            <div class="profileInfo">
+              <p>Indstillinger</p>
+              <i class="fas fa-arrow-right"></i></div
+          ></a>
+        </li>
+        <li>
+          <a href="/logout">
+            <div class="profileInfo">
+              <p>Logud</p>
+              <i class="fas fa-arrow-right"></i></div
+          ></a>
+        </li>
+      </section>
+    </main>
+    <%- include footer_bar %>
     </div>
     <%- include('popup.ejs'); -%>
   </body>

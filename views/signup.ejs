@@ -6,7 +6,7 @@
     <main id="main_velkommen" class="signup">
       <!-- <%- include('title_bar.ejs'); -%> -->
       <div class="heading">
-        <a href="/"><img src="../public/images/arrow_left.png" /></a>
+        <a href="/"><i class="fas fa-arrow-left"></i></a>
         <h1><%= title %></h1>
       </div>
       <% if (message.length > 0) { %>
@@ -44,6 +44,14 @@
               name="password"
               required
             />
+          </div>
+          <p>
+            <b>OBS!</b><br />
+            Nedenstående felt skal kun udfyldes, hvis du skal oprette en
+            erhvervskonto.
+          </p>
+          <div class="btn_stor">
+            <input type="text" placeholder="CVR" name="cvr" />
           </div>
           <div class="btn_stor">
             <button type="submit">Opret</button>
