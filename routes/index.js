@@ -63,6 +63,9 @@ router
 /* VELKOMMEN */
 router.route("/velkommen").get(indexController.velkommen);
 
+/* SCAN VARE */
+router.route("/scanvare").get(indexController.scanvare);
+
 /* KATEGORIER */
 router.route("/kategorier").get(indexController.kategorier);
 
@@ -92,5 +95,7 @@ router.route("/kvitteringer_udvidet").get(indexController.kvitteringer_udvidet);
 
 /* PRODUKT */
 router.route("/produkt/:varenummer").get(indexController.produkt);
+
+
 
 module.exports = router;

@@ -30,6 +30,13 @@ exports.velkommen = (req, res) => {
   });
 };
 
+/* GET SCAN PAGE */
+exports.scanvare = (req, res) => {
+  res.render("scanvare", {
+    title: "Scan en vare",
+  });
+};
+
 /* GET KATEGORIER PAGE */
 exports.kategorier = (req, res) => {
   res.render("kategorier", {
