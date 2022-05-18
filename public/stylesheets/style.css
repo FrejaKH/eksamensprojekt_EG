@@ -216,6 +216,30 @@ main {
   display: flex;
   font-size: 0.9em;
 }
+.kvitteringer_item_img {
+  width: 40%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.kvitteringer_item_img img {
+  width: 8em;
+}
+.kvitteringer_item_text {
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+}
+
+.kvitteringer_item_heading {
+  margin: 0.5em;
+}
+.kvitteringer_item_total {
+  display: flex;
+  justify-content: space-between;
+  margin: 0.5em;
+}
 /******************************************************navigering til produkt******************************************************/
 
 .main_produktnavigering{
@@ -229,7 +253,7 @@ main {
   background-color: #ECF0F1;
 }
 
-/******************************************************Produkt-informationer side*******************************************************/
+/******************************************************Produkt-informationer*******************************************************/
 .main_produkt_informationer{
   width:100%;
   display: flex;
