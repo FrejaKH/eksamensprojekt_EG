@@ -1,9 +1,9 @@
 <html>
   <head>
-    <%- include head_includes %>
+    <%- include ('head_includes.ejs') -%>
   </head>
   <body>
-    <%- include header_bar %>
+    <%- include ('header_bar.ejs') -%>
     <main class="profile indstillinger">
       <div class="profileHeader">
         <a href="/profile"><i class="fas fa-arrow-left"></i></a>
@@ -63,6 +63,6 @@
         <button type="submit">Rediger</button>
       </div>
     </main>
-    <%- include footer_bar %> <%- include('popup.ejs'); -%>
+    <%- include ('footer_bar.ejs') -%> <%- include('popup.ejs'); -%>
   </body>
 </html>
