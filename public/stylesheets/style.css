@@ -42,7 +42,7 @@ a:hover {
 main {
   width: 100%;
   min-height: 81vh;
-  /* overflow-y: scroll; ------------------------------------------------------------    why? */
+  /* overflow-y: scroll; */
 }
 /******************************************TITLE BAR**************************************************************************/
 .div_title_bar{
@@ -204,6 +204,7 @@ main {
   align-items: center;
   flex-direction: column;
 }
+
 .kvitteringer_item {
   width: 100%;
   background-color: var(--color-light);
@@ -257,6 +258,14 @@ main {
 .produkt_oversigt img {
   width: 98%;
   background-color: #ECF0F1;
+  padding: 1em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.produkt_oversigt img{
+  width: 100%;
+
 }
 
 /******************************************************Produkt-informationer*******************************************************/
@@ -648,7 +657,7 @@ main {
 }
 
 .harduhusket_item_text {
-  width: 35%;
+  width: 70%;
 }
 
 .harduhusket_item_arrow {
