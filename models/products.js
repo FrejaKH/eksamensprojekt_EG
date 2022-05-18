@@ -86,8 +86,7 @@ module.exports = {
         } catch (e) {
             console.error(e.message);
         }
-    }
-  },
+    },
   async getImageproduct(req, res) {
     try {
       const { varenummer } = req.params;
