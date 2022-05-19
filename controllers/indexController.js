@@ -84,11 +84,14 @@ exports.harduhusket = (req, res) => {
 };
 
 /* GET INDKØBSKURV PAGE */
-exports.kurv = (req, res) => {
+exports.kurv = async (req, res) => {
+  let produkter = await model.getAllproducts(req, res);
+  console.log(produkter);
   res.render("kurv", {
     title: "Indkøbskurv",
     title_bar: "Indkøbskurv",
     arrrow_back: "href=" + "/produkt",
+    produkter: produkter[0]
   });
 };
 /* GET INDKØBSLISTE PAGE */

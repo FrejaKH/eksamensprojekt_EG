@@ -11,11 +11,11 @@
                         <img src="../public/images/malerbøtte.png" alt="malerbøtte">
                     </div>
                     <div class="kurv_item_text">
-                        <div class="kurv_item_heading"><strong>Dyrup, Loft- og vægmaling, ekstra spærrende, glans 2</strong></div>
+                        <div class="kurv_item_heading"><strong><%= produkter[0][0].varenavn %></strong></div>
                         <div class="kurv_item_quantity">Antal: 2</div>
                         <div class="kurv_item_total">
                             <div>I alt:</div>
-                            <div>1299,9 kr.</div>
+                            <div><%= (produkter[0][0].pris)*2 %> kr.</div>
                         </div>
                     </div>
                 </div>
@@ -24,11 +24,11 @@
                         <img src="../public/images/pensel.png" alt="malerbøtte">
                     </div>
                     <div class="kurv_item_text">
-                        <div class="kurv_item_heading"><strong>Flad pensel, B: 50 mm</strong></div>
+                        <div class="kurv_item_heading"><strong><%= produkter[0][1].varenavn %></strong></div>
                         <div class="kurv_item_quantity">Antal: 1</div>
                         <div class="kurv_item_total">
                             <div>I alt:</div>
-                            <div>19,95 kr.</div>
+                            <div><%= produkter[0][1].pris %> kr.</div>
                         </div>
                     </div>
                 </div>
@@ -36,7 +36,7 @@
             <div id="subtotal">
                 <div class="subtotal">
                     <div>Subtotal</div>
-                    <div>1319,85 kr.</div>
+                    <div><%= (((produkter[0][0].pris)*2)+(produkter[0][1].pris)).toFixed(2)%> kr.</div>
                 </div>
             </div>
             <button class="kurv_btn">Fortsæt til betaling</button>
