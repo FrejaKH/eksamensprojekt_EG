@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <%- include('head_includes.ejs'); -%>
+  <body>
+    <%- include('header_bar.ejs'); -%>
+   <main class="main_kvitteringer">
+    <!-- <%- include('title_bar.ejs'); -%> -->
+    <div id="searchbar">
+      <div class="searchbar_text">
+          <p>Søg efter produkt</p>
+      </div>
+      <div class="searchbar_img">
+          <img src="../public/images/loop.png" alt="forstørrelseglas">
+      </div>
+  </div>
+  <div class="liste_item">
+    <div class="liste_item_img">
+        <img src="../public/images/malerbøtte.png" alt="malerbøtte">
+    </div>
+    <div class="liste_item_text">
+        <div class="liste_item_heading"><strong>Dyrup, Loft- og vægmaling, ekstra spærrende, glans 2</strong></div>
+        <div class="liste_item_total">
+            <div>Antal: 2</div>
+            <div>1299,9 kr.</div>
+        </div>
+    </div>
+</div>
+      <%- include('popup.ejs'); -%>  
+    </main>
+    <footer>
+      <%- include('footer_bar.ejs'); -%>
+    </footer>
+  </body>
+</html>

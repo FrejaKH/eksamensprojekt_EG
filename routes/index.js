@@ -99,6 +99,9 @@ router.route("/produkt/:varenummer").get(indexController.produkt);
 /* PRODUKT REDIRECT */
 router.route("/produkt").get(indexController.produkt_redirect);
 
+/* INDKØBSLISTE REDIRECT */
+router.route("/liste").get(indexController.liste);
+
 
 
 module.exports = router;
