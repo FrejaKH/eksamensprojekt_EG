@@ -91,6 +91,15 @@ exports.kurv = (req, res) => {
     arrrow_back: "href=" + "/produkt",
   });
 };
+/* GET INDKØBSLISTE PAGE */
+exports.liste = (req, res) => {
+  res.render("liste", {
+    title: "indkøbsliste",
+    title_bar: "indkøbsliste",
+    arrrow_back: "href=" + "/produkt",
+  });
+};
+
 
 // ====================== /* kvitteringer  */ ====================== //
 exports.kvitteringer = (req, res) => {
