@@ -50,7 +50,7 @@ exports.kategorier = (req, res) => {
 exports.maling = (req, res) => {
   res.render("maling", {
     title: "Maling",
-    title_bar: "Kategorier",
+    title_bar: "Maling",
     arrrow_back: "href=" + "/Kategorier",
   });
 };
@@ -121,6 +121,10 @@ exports.produkt = async (req, res) => {
   } catch (e) {
     console.log(e);
   }
+};
+
+exports.produkt_redirect = async (req, res) => {
+  res.redirect("kategorier");
 };
 
 // ====================== /* Navigering til produkt */ ====================== //

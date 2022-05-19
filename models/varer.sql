@@ -13,7 +13,7 @@ INSERT INTO
     )
 VALUES
     (
-        '123',
+        '1',
         'Dyrup, Loft- og vægmaling, ekstra spærrende, glans 2',
         'Ekstra spærrende loft- og vægmaling fra Dyrup – god dækkeevne\r\n\r\nGlans 2 – 2-i-1-spærregrunder og færdig maling – undgå at skulle grunde\r\nMat – rækkeevnen er ca. 8-10 m² pr. ltr. – overmalbar efter 4 timer\r\n\r\nFortyndes med vand – meget spærrende og god kvalitet – kan tones',
         '649.95',
@@ -25,7 +25,7 @@ VALUES
         '3640'
     ),
     (
-        '234',
+        '2',
         'Flad pensel, B: 50 mm',
         'Flad pensel til indendørs brug\r\nMateriale: syntetbørste\r\nMåler B: 50 mm\r\nTil enkle maleopgaver – til alle typer maling',
         '19.95',
@@ -37,7 +37,7 @@ VALUES
         '3641'
     ),
     (
-        '345',
+        '3',
         'Malerrullesæt, 25 cm, inkl. rulle og bakke',
         'Prisvenligt malerrullesæt fra Anza\r\nIndeholder malerrulle, bakke og håndtag\r\nTil jævne flader såsom lofter og vægge\r\nRullesættet måler 25 cm',
         '69.95',
@@ -49,7 +49,7 @@ VALUES
         '3642'
     ),
     (
-        '456',
+        '4',
         'Malertape, 30 mm x 50 m',
         'Effektiv afdækningstape fra Work>It\r\nTaperullen måler B: 30 mm x L: 50 m\r\nTil beskyttelse af kanter m.m. ved malerarbejde\r\nLet at bruge og let at rive over',
         '43.95',

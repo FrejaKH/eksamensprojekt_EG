@@ -96,6 +96,9 @@ router.route("/kvitteringer_udvidet").get(indexController.kvitteringer_udvidet);
 /* PRODUKT */
 router.route("/produkt/:varenummer").get(indexController.produkt);
 
+/* PRODUKT REDIRECT */
+router.route("/produkt").get(indexController.produkt_redirect);
+
 
 
 module.exports = router;
