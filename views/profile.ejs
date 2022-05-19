@@ -1,12 +1,12 @@
 <html>
   <head>
-    <%- include head_includes %>
+    <%- include ('head_includes.ejs') -%>
   </head>
   <body>
-    <%- include header_bar %>
+    <%- include ('header_bar.ejs') -%>
     <main class="profile">
       <div class="profileHeader">
-        <a href="#"><i class="fas fa-arrow-left"></i></a>
+        <a href="/velkommen"><i class="fas fa-arrow-left"></i></a>
         <i class="fas fa-user-circle"></i>
         <h1><b><%= user.navn %></b></h1>
         <p><%= user.email %></p>
@@ -27,14 +27,14 @@
           ></a>
         </li>
         <li>
-          <a href="#">
+          <a href="/kvitteringer">
             <div class="profileInfo">
               <p>Kvitteringer</p>
               <i class="fas fa-arrow-right"></i></div
           ></a>
         </li>
         <li>
-          <a href="#">
+          <a href="/indstillinger">
             <div class="profileInfo">
               <p>Indstillinger</p>
               <i class="fas fa-arrow-right"></i></div
@@ -49,8 +49,6 @@
         </li>
       </section>
     </main>
-    <%- include footer_bar %>
-    </div>
-    <%- include('popup.ejs'); -%>
+    <%- include ('footer_bar.ejs') -%> <%- include('popup.ejs'); -%>
   </body>
 </html>

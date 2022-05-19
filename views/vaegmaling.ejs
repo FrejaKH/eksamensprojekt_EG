@@ -3,7 +3,7 @@
     <%- include('head_includes.ejs'); -%>
     <body>
         <%- include('header_bar.ejs'); -%>
-        <main id="main_kategorier">
+        <main id="main_vaegmaling">
             <div id="searchbar">
                 <div class="searchbar_text">
                     <p>Søg efter produkt</p>
@@ -13,11 +13,55 @@
                 </div>
             </div>
             <%- include('title_bar.ejs'); -%>
-            <div class="grid">
+            <div id="varer">
+                <div class="vare vare1">
+                    <a href="./produkt/1">
+                        <img src="data:<%= vare.contenttype %>;base64,<%= vare.billede.toString('base64') %>">
+                    </a>
+                    <p><%= vare.varenavn %></p>
+                    <div class="pris"><%= vare.pris %> Kr.</div>
+                </div>
+                <div class="vare vare2">
+                    <a href="./produkt/1">
+                        <img src="data:<%= vare.contenttype %>;base64,<%= vare.billede.toString('base64') %>">
+                    </a>
+                    <p><%= vare.varenavn %></p>
+                    <div class="pris"><%= vare.pris %> Kr.</div>
+                </div>
+                <div class="vare vare3">
+                    <a href="./produkt/1">
+                        <img src="data:<%= vare.contenttype %>;base64,<%= vare.billede.toString('base64') %>">
+                    </a>
+                    <p><%= vare.varenavn %></p>
+                    <div class="pris"><%= vare.pris %> Kr.</div>
+                </div>
+                <div class="vare vare4">
+                    <a href="./produkt/1">
+                        <img src="data:<%= vare.contenttype %>;base64,<%= vare.billede.toString('base64') %>">
+                    </a>
+                    <p><%= vare.varenavn %></p>
+                    <div class="pris"><%= vare.pris %> Kr.</div>
+                </div>
+                <div class="vare vare5">
+                    <a href="./produkt/1">
+                        <img src="data:<%= vare.contenttype %>;base64,<%= vare.billede.toString('base64') %>">
+                    </a>
+                    <p><%= vare.varenavn %></p>
+                    <div class="pris"><%= vare.pris %> Kr.</div>
+                </div>
+                <div class="vare vare6">
+                    <a href="./produkt/1">
+                        <img src="data:<%= vare.contenttype %>;base64,<%= vare.billede.toString('base64') %>">
+                    </a>
+                    <p><%= vare.varenavn %></p>
+                    <div class="pris"><%= vare.pris %> Kr.</div>
+                </div>
+            </div>
+            <!-- <div class="grid">
                 <div class="grid-item grid-item-1">
                     <a href="./produkt/1">
                         <img src="../public/images/vægmaling2.jpg" alt="vægmaling">
-                        <p><%= vare.varenavn %></p>
+                        <p>Vægmaling 1</p>
                     </a>
                 </div>
                 <div class="grid-item grid-item-2">
@@ -68,7 +112,7 @@
                         <p>Vægmaling 9</p>
                     </a>
                 </div>
-            </div>
+            </div> -->
             <%- include('popup.ejs'); -%>
         </main>
         <%- include('footer_bar.ejs'); -%>

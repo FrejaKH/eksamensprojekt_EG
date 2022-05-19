@@ -1,6 +1,5 @@
 const model = require("../models/products");
 
-
 // ====================== /* MISC. */ ====================== //
 
 /* CHECK IF LOGGED IN - Use indexController.isLoggedIn FIRST, on relevant routes, to force login */
@@ -16,10 +15,25 @@ exports.index = (req, res) => {
   });
 };
 
+/* GET INDSTILLINGER PAGE */
+exports.indstillinger = (req, res) => {
+  res.render("Indstillinger", {
+    title: "Indstillinger",
+    user: req.user,
+  });
+};
+
 /* GET VELKOMMEN PAGE */
 exports.velkommen = (req, res) => {
   res.render("velkommen", {
     title: "Velkommen",
+  });
+};
+
+/* GET SCAN PAGE */
+exports.scanvare = (req, res) => {
+  res.render("scanvare", {
+    title: "Scan en vare",
   });
 };
 
@@ -36,14 +50,14 @@ exports.kategorier = (req, res) => {
 exports.maling = (req, res) => {
   res.render("maling", {
     title: "Maling",
-    title_bar: "Kategorier",
+    title_bar: "Maling",
     arrrow_back: "href=" + "/Kategorier",
   });
 };
 
 /* GET VÆGMALING PAGE */
 exports.vaegmaling = async (req, res) => {
-  let vare = await model.getVare(req,res);
+  let vare = await model.getVare(req, res);
   console.log(vare);
   res.render("vaegmaling", {
     title: "Vægmaling",
@@ -97,16 +111,22 @@ exports.kvitteringer_udvidet = (req, res) => {
 // ====================== /* produkt indformationer  */ ====================== //
 exports.produkt = async (req, res) => {
   try {
-    let vare = await model.getproduct(req,res);
+    let vare = await model.getproduct(req, res);
+    let anbefalet = await model.getAssociatedProducts(req, res);
     res.render("produkt", {
       title: "Produktbeskrivelse",
       title_bar: "Produkt",
       arrrow_back: "href=" + "/vaegmaling",
       vare: vare[0][0],
+      anbefalet: anbefalet[0]
     });
   } catch (e) {
     console.log(e);
   }
+};
+
+exports.produkt_redirect = async (req, res) => {
+  res.redirect("kategorier");
 };
 
 // ====================== /* Navigering til produkt */ ====================== //

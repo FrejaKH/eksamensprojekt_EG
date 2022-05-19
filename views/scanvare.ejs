@@ -1,0 +1,25 @@
+<html>
+  <head>
+    <%- include ('head_includes.ejs') -%>
+  </head>
+  <body>
+    <%- include ('header_bar.ejs') -%>
+    <main class="main_scanning">
+      <div class="scan-border">
+        <!-- The Modal -->
+        <div id="myModal" class="modal">
+          <!-- Modal content -->
+          <div class="modal-content">
+            <span class="close">&times;</span>
+            <p>Some text in the Modal..</p>
+          </div>
+        </div>
+      </div>
+      
+      <%- include('popup.ejs'); -%>
+    </main>
+    
+    <%- include ('footer_bar.ejs') -%> 
+    <script src="../public/javascripts/scan.js"></script>
+  </body>
+</html>

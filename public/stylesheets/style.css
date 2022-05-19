@@ -24,14 +24,13 @@ h1 {
   margin: 1em 0;
 }
 
-h3{
+h3 {
   font-family: "Barlow", sans-serif;
-  font-size:18px;
+  font-size: 18px;
   font-weight: 700;
 }
 
 a {
-  color: #00b7ff;
   text-decoration: none;
 }
 
@@ -42,24 +41,24 @@ a:hover {
 main {
   width: 100%;
   min-height: 81vh;
-  /* overflow-y: scroll; */
 }
 /******************************************TITLE BAR**************************************************************************/
-.div_title_bar{
+.div_title_bar {
   display: flex;
   align-items: center;
   width: 100%;
   justify-content: space-between;
 }
-.div_title{
+.div_title {
   display: flex;
   justify-content: center;
   align-items: center;
   width: 33%;
 }
-.div_empty_div{
+.div_empty_div {
   display: flex;
-   align-items: center; width: 33%;
+  align-items: center;
+  width: 33%;
 }
 .arrow_left_img {
   display: flex;
@@ -67,8 +66,8 @@ main {
   width: 33%;
   justify-content: space-between;
 }
-.arrow_left_img a img{
-  width:1.5em;
+.arrow_left_img a img {
+  width: 1.5em;
 }
 .arrow_left_img a {
   margin-left: 25%;
@@ -117,6 +116,207 @@ main {
   }
 }
 
+/******************************************Menu**************************************************************************/
+
+#menuToggle
+{
+  display: block;
+  position: relative;
+
+  
+  z-index: 1;
+  
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+#menuToggle input
+{
+  display: block;
+  width: 3em;
+  height: 3em;
+  position: absolute;
+  top: -7px;
+  left: -5px;
+  
+  cursor: pointer;
+  
+  opacity: 0; /* hide this */
+  z-index: 2; /* and place it over the hamburger */
+  
+  -webkit-touch-callout: none;
+}
+
+/*
+ * Just a quick hamburger
+ */
+#menuToggle span
+{
+  display: block;
+  width: 3rem;
+  height: 0.3rem;
+  margin-bottom: 5px;
+  position: relative;
+  
+  background: var(--color-white);
+  border-radius: 3px;
+  
+  z-index: 1;
+  
+  transform-origin: 4px 0px;
+  
+  transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0), 
+              background 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
+              opacity 0.55s ease;
+}
+
+#menuToggle span:first-child
+{
+  transform-origin: 0% 0%;
+}
+
+#menuToggle span:nth-last-child(2)
+{
+  transform-origin: 0% 100%;
+}
+
+/* 
+ * Transform all the slices of hamburger
+ * into a crossmark.
+ */
+#menuToggle input:checked ~ span
+{
+  opacity: 1;
+  transform: rotate(45deg) translate(-2px, -1px);
+  background: var(--color-black);
+}
+
+/*
+ * But let's hide the middle one.
+ */
+#menuToggle input:checked ~ span:nth-last-child(3)
+{
+  opacity: 0;
+  transform: rotate(0deg) scale(0.2, 0.2);
+}
+
+/*
+ * Ohyeah and the last one should go the other direction
+ */
+#menuToggle input:checked ~ span:nth-last-child(2)
+{
+  transform: rotate(-45deg) translate(0, -1px);
+}
+
+
+/*
+ * Make this absolute positioned
+ * at the top left of the screen
+ */
+
+.menu-container
+{
+  position: absolute;
+  margin: -3em 0 0 -50px;
+  background-color: var(--color-light);
+  min-height: 300px;
+  width: 20em;
+  display:flex;
+  flex-direction: column;
+  align-items:center;
+
+  -webkit-font-smoothing: antialiased;
+  /* to stop flickering of text in safari */
+  
+  transform-origin: 0% 0%;
+  transform: translate(-100%, 0);
+  
+  transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0);
+}
+
+.menu-container h1
+{
+  padding-left: 1em;
+}
+
+.menu-container h3
+{
+  margin: 0 0;
+  position:relative;
+  text-transform: uppercase;
+}
+
+.menu-container div:first-child
+{
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  flex-direction: row;
+  border-bottom: 1px solid var(--color-black);
+}
+
+.menu-container ul 
+{
+  list-style-type: none;
+  width: 100%;
+}
+
+.menu-container a
+{
+  text-decoration: none;
+  color: var(--color-black);
+  transition: color 0.3s ease;
+  
+}
+/* Hover color */
+.menu-container li:hover
+{
+  background-color: var(--color-primary);
+  color:var(--color-white);
+}
+
+/* Menu items */
+.menu-container li
+{
+  display:flex;
+  flex-direction: row;
+  padding-left: 1em;
+  min-height: 4em;
+  border-bottom: 1px solid var(--color-grey);
+  align-items:center;
+  justify-content: space-between;
+}
+/* Black line under the 5th item */
+.menu-container ul a:nth-child(5) li
+{
+  border-bottom: 1px solid var(--color-black);
+}
+/* Make last item accent color (Logout) */
+.menu-container ul a:last-child li
+{
+  background-color: var(--color-accent);
+}
+
+.menu-container li::after
+{ 
+  content: '';
+  background-image: url(../images/arrow_right2.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  height: 1em;
+  position: relative;
+  padding-right:2em;
+}
+
+/*
+ * And let's slide it in from the left
+ */
+#menuToggle input:checked ~ .menu-container
+{
+  transform: none;
+}
+
+
 /**************************************************************************************************************************************/
 /******************************************************footer*******************************************************/
 
@@ -154,19 +354,19 @@ main {
 
 /**********************************************************************************************************************************/
 /******************************************************kvitteringer****************************************************************/
-.main_kvitteringer{
-  width:100%;
+.main_kvitteringer {
+  width: 100%;
   display: flex;
   align-items: center;
   flex-direction: column;
 }
-.div_kvitteringer{
+.div_kvitteringer {
   background-color: var(--color-light);
   width: 100%;
   height: 30%;
   display: flex;
 }
-.p_kvitteringer{
+.p_kvitteringer {
   margin-left: 5%;
 }
 .kvitteringer_item_arrow {
@@ -180,26 +380,26 @@ main {
 .kvitteringer_item_arrow img {
   width: 1em;
 }
-.div_kvitteringer_right{
+.div_kvitteringer_right {
   width: 70%;
   display: flex;
   justify-content: flex-end;
   align-items: center;
 }
-.div_kvitteringer_left{
+.div_kvitteringer_left {
   width: 30%;
 }
-.main_div_kvitteringer{
+.main_div_kvitteringer {
   width: 100%;
   display: flex;
   flex-direction: column;
 }
-.p_kvittering_date{
+.p_kvittering_date {
   margin-left: 1.5%;
 }
 /******************************************************kvitteringer udvidet****************************************************************/
-.main_kvitteringer_udvidet{
-  width:100%;
+.main_kvitteringer_udvidet {
+  width: 100%;
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -216,7 +416,7 @@ main {
   font-size: 0.8em;
   min-height: 111px;
 }
-.div_kvitteringer_udvidet{
+.div_kvitteringer_udvidet {
   background-color: var(--color-light);
   width: 100%;
   height: 30%;
@@ -257,34 +457,32 @@ main {
 }
 .produkt_oversigt img {
   width: 98%;
-  background-color: #ECF0F1;
+  background-color: #ecf0f1;
   padding: 1em;
   display: flex;
   justify-content: center;
   align-items: center;
 }
-.produkt_oversigt img{
+.produkt_oversigt img {
   width: 100%;
-
 }
 
-/******************************************************Produkt-informationer*******************************************************/
-.main_produkt_informationer{
-  width:100%;
+/******************************************************Produkt-informationer side*******************************************************/
+.main_produkt_informationer {
+  width: 100%;
   display: flex;
   align-items: center;
   flex-direction: column;
 }
-.produkt_item_img{
+.produkt_item_img {
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.produkt_item_img img{
+.produkt_item_img img {
   width: 10em;
-
 }
 .produkt_btn {
   width: 12em;
@@ -323,17 +521,17 @@ main {
   color: var(--color-white);
   margin-top: 2em;
 }
-.produkt_div_text{
+.produkt_div_text {
   width: 70%;
   justify-content: center;
   align-items: center;
   flex-direction: column;
 }
 
-.produkt_div_text p{
+.produkt_div_text p {
   margin: 0;
 }
-.div_button{
+.div_button {
   width: 100%;
   justify-content: space-around;
   align-items: center;
@@ -341,13 +539,13 @@ main {
   padding-bottom: 5%;
   border-bottom: 1px solid black;
 }
-.div_innerdiv_button{
+.div_innerdiv_button {
   width: 20%;
 }
-.div_information_text{
+.div_information_text {
   width: 70%;
 }
-.div_kort_button{
+.div_kort_button {
   width: 100%;
   justify-content: flex-end;
   align-items: center;
@@ -355,14 +553,104 @@ main {
   padding-bottom: 5%;
   border-bottom: 1px solid black;
 }
-.inner_div_kort__button{
-  width: 37%
+.inner_div_kort__button {
+  width: 37%;
 }
 
-
-
 /**********************************************************************************************************************************/
+/* ---------------------------- Scan vare --------------------------------------------*/
 
+.main_scanning {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color:var(--color-grey);
+  
+}
+
+.scan-border{
+  background-color: var(--color-grey);
+  width: 70%;
+  height: 40em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  /**Making a cornered border**/
+  --b:0.8em;   /* thickness of the border */
+  --c:var(--color-white);   /* color of the border */
+  --w:3em;  /* width of border */
+  
+
+  border:var(--b) solid transparent; /* space for the border */
+  --g:#0000 90deg,var(--c) 0;
+  background:
+    conic-gradient(from 90deg  at top    var(--b) left  var(--b),var(--g)) 0    0,
+    conic-gradient(from 180deg at top    var(--b) right var(--b),var(--g)) 100% 0,
+    conic-gradient(from 0deg   at bottom var(--b) left  var(--b),var(--g)) 0    100%,
+    conic-gradient(from -90deg at bottom var(--b) right var(--b),var(--g)) 100% 100%;
+  background-size:var(--w) var(--w);
+  background-origin:border-box;
+  background-repeat:no-repeat;
+}
+
+.scan-border::after{
+  content: '';
+  background-image: url('../images/scan.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  position: relative;
+  height: 4em;
+  width: 4em;
+}
+
+.scan-click {
+  background-image: url('../images/malerbøtte.png');
+  background-position: center;
+  background-size: contain;
+}
+
+/* ---------------------------- Scan og vælg vare --------------------------------------------*/
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+}
+
+/* The Close Button */
+.close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
 
 
 /* ---------------------------- VELKOMMEN OG VEJLEDNING --------------------------------------------*/
@@ -393,10 +681,9 @@ main {
   margin: 0;
 }
 
-
 /* --------------------------------------------------- Kategorier --------------------------------------------*/
 
-#main_kategorier {
+#main_kategorier, #main_vaegmaling {
   width: 100%;
   display: flex;
   justify-content: center;
@@ -410,6 +697,7 @@ main {
   border-radius: 10em;
   background-color: var(--color-grey);
   padding: 1em;
+  margin: 1em 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -465,18 +753,41 @@ main {
   text-align: center;
 }
 
-/* @media screen and (max-width:400px){
-  .grid-item img{
-    width:5em;
-    position: relative;
-  }
-  .grid{
-    grid-gap: 0.2em;
-  }
-  .grid-item p{
-    font-size: 12px;
-  }
-} */
+/* --------------------------------------------------- VÆGMALING --------------------------------------------*/
+
+#varer{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top:1em;
+  flex-wrap: wrap;
+}
+
+.vare{
+  width:40%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  margin: 1em;
+}
+.vare img{
+  width:8em;
+  text-align: center;
+}
+
+.vare p{
+  font-weight: 700;
+  text-align: center;
+  margin-bottom:1em;
+}
+
+.pris{
+  color: var(--color-dark);
+  font-weight: 700;
+}
+
 
 /********************************HAR DU HUSKET?***********************************************/
 
@@ -739,7 +1050,6 @@ body .login input {
   background-color: var(--color-primary);
   color: var(--color-white);
   border: none;
-  font-weight: 700;
   font-size: 16px;
 }
 
@@ -916,7 +1226,6 @@ body .signup .alert-danger {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-top: 1px solid var(--color-black);
 }
 
 .profileInfo p {
@@ -925,6 +1234,7 @@ body .signup .alert-danger {
 
 .profileContent li {
   list-style: none;
+  border-top: 1px solid var(--color-black);
 }
 
 .profileContent li:last-child {
@@ -955,6 +1265,47 @@ body .signup .alert-danger {
   }
 }
 
+/********************************INDSTILLINGER PAGE***********************************************/
+
+.indstillinger .profileHeader {
+  display: flex;
+  align-items: center;
+  position: relative;
+  justify-content: center;
+  align-content: center;
+  margin-bottom: 2em;
+}
+
+.indstillinger .profileInfo {
+  height: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.indstillinger .profileContent li:first-child {
+  border-top: none;
+}
+
+.indstillinger .profileHeader a {
+  display: contents;
+}
+
+.indstillingerbtn {
+  display: flex;
+  justify-content: center;
+  margin-top: 10%;
+}
+
+.indstillingerbtn button {
+  background-color: var(--color-accent);
+  color: var(--color-white);
+  border: none;
+  cursor: pointer;
+  font-weight: 700;
+  padding: 8px 20px;
+}
 /********************************FONT AWESOME STYLES***********************************************/
 
 .fa-user-circle {

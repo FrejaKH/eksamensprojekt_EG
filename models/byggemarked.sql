@@ -41,16 +41,22 @@ beskrivelse VARCHAR(300),
 PRIMARY KEY (varehovedgruppe)
 );
 
+INSERT INTO `varehovedgruppe` (`varehovedgruppe`, `beskrivelse`) VALUES ("2400", "Maling");
+
 CREATE TABLE vareundergruppe(
 vareundergruppe BIGINT UNSIGNED NOT NULL,
 beskrivelse VARCHAR(300),
-PRIMARY KEY (vareundergruppe)
+billede MEDIUMBLOB,
+contenttype VARCHAR(32),
+varehovedgruppe BIGINT UNSIGNED NOT NULL,
+PRIMARY KEY (vareundergruppe),
+foreign key(varehovedgruppe) references varehovedgruppe(varehovedgruppe)
 );
 
-INSERT INTO `vareundergruppe` (`vareundergruppe`, `beskrivelse`) VALUES ("3640", "Vægmaling");
-INSERT INTO `vareundergruppe` (`vareundergruppe`, `beskrivelse`) VALUES ("3641", "Pensler");
-INSERT INTO `vareundergruppe` (`vareundergruppe`, `beskrivelse`) VALUES ("3642", "Malerruler");
-INSERT INTO `vareundergruppe` (`vareundergruppe`, `beskrivelse`) VALUES ("3643", "Malertape");
+INSERT INTO `vareundergruppe` (`vareundergruppe`, `beskrivelse`, `varehovedgruppe`) VALUES ("3640", "Vægmaling", "2400");
+INSERT INTO `vareundergruppe` (`vareundergruppe`, `beskrivelse`, `varehovedgruppe`) VALUES ("3641", "Pensler", "2400");
+INSERT INTO `vareundergruppe` (`vareundergruppe`, `beskrivelse`, `varehovedgruppe`) VALUES ("3642", "Malerruler", "2400");
+INSERT INTO `vareundergruppe` (`vareundergruppe`, `beskrivelse`, `varehovedgruppe`) VALUES ("3643", "Malertape", "2400");
 
 CREATE TABLE vare(
 varenummer INT UNSIGNED NOT NULL,
