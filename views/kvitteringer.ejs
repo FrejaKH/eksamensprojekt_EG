@@ -6,12 +6,12 @@
    <main class="main_kvitteringer">
     <%- include('title_bar.ejs'); -%>
     <div class="main_div_kvitteringer">
-      <div>
-        <p class="p_kvittering_date">April 2022</p>
+      <div class="p_kvittering_date">
+        <p>April 2022</p>
       </div>
       <div class="div_kvitteringer">
         <div class="div_kvitteringer_left">
-          <p class="p_kvitteringer">5. April</p>
+          <u><p class="p_kvitteringer">5. April</p></u>
           <p class="p_kvitteringer">Silvan Kolding</p>
         </div>
         <div class="div_kvitteringer_right">
@@ -22,12 +22,12 @@
         </div>
       </div>
       <br>
-      <div>
-        <p class="p_kvittering_date">Marts 2022</p>
+      <div class="p_kvittering_date">
+        <p>Marts 2022</p>
       </div>
       <div class="div_kvitteringer">
         <div class="div_kvitteringer_left">
-          <p class="p_kvitteringer">5. Marts</p>
+          <u><p class="p_kvitteringer">5. Marts</p></u>
           <p class="p_kvitteringer">Silvan Vejle</p>
         </div>
         <div class="div_kvitteringer_right">
@@ -40,17 +40,19 @@
     </div>
     <br>
     </div>
-    <div class="div_kvitteringer">
-      <div class="div_kvitteringer_left">
-        <p class="p_kvitteringer">10. Marts</p>
-        <p class="p_kvitteringer">Silvan Vejle</p>
+    <a href="kvitteringer_udvidet">
+      <div class="div_kvitteringer">
+        <div class="div_kvitteringer_left">
+          <u><p class="p_kvitteringer">10. Marts</p></u>
+          <p class="p_kvitteringer">Silvan Vejle</p>
+        </div>
+        <div class="div_kvitteringer_right">
+          <p>1390,90 kr.</p>
+          <div class="kvitteringer_item_arrow">
+            <img src="../public/images/arrow_right2.png" alt="pil">
+        </div>
       </div>
-      <div class="div_kvitteringer_right">
-        <p>1390,90 kr.</p>
-        <div class="kvitteringer_item_arrow">
-          <img src="../public/images/arrow_right2.png" alt="pil">
-      </div>
-      </div>
+    </a>
       <%- include('popup.ejs'); -%>  
     </main>
     <footer>

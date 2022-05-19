@@ -32,6 +32,7 @@ h3 {
 
 a {
   text-decoration: none;
+  color: var(--color-black);
 }
 
 a:hover {
@@ -360,15 +361,19 @@ main {
   align-items: center;
   flex-direction: column;
 }
-.div_kvitteringer {
+.div_kvitteringer{
   background-color: var(--color-light);
   width: 100%;
   height: 30%;
   display: flex;
+  padding: 0.5em;
 }
-.p_kvitteringer {
-  margin-left: 5%;
+
+.div_kvitteringer a{
+  display: flex;
+  width: 100%;
 }
+
 .kvitteringer_item_arrow {
   width: 10%;
 }
@@ -378,13 +383,16 @@ main {
   align-items: center;
 }
 .kvitteringer_item_arrow img {
-  width: 1em;
+  width: 0.5em;
 }
 .div_kvitteringer_right {
   width: 70%;
   display: flex;
   justify-content: flex-end;
   align-items: center;
+}
+.div_kvitteringer_right p {
+  margin:0 1em 0 0;
 }
 .div_kvitteringer_left {
   width: 30%;
@@ -395,7 +403,8 @@ main {
   flex-direction: column;
 }
 .p_kvittering_date {
-  margin-left: 1.5%;
+  display: flex;
+  justify-content: center;
 }
 /******************************************************kvitteringer udvidet****************************************************************/
 .main_kvitteringer_udvidet {
@@ -411,17 +420,47 @@ main {
   display: flex;
   justify-content: space-around;
   align-items: center;
-  padding: 1em;
+  padding: 0.5em;
   margin: 0.5em 0;
-  font-size: 0.8em;
+  font-size:14px;
   min-height: 111px;
+}
+.kvitteringer_item_img{
+  width:40%;
+  display: flex;
+  justify-content:center;
+  align-items: center;
+}
+.kvitteringer_item_text{
+  width:60%;
+  display: flex;
+  justify-content:center;
+  align-items: flex-start;
+  flex-direction: column;
+
+}
+.kvitteringer_item_total{
+  width: 100%;
+  display: flex;
+  justify-content:space-between;
+  align-items: center;
+  margin-top: 1em;
 }
 .div_kvitteringer_udvidet {
   background-color: var(--color-light);
   width: 100%;
   height: 30%;
   display: flex;
-  font-size: 0.9em;
+  padding: 0.5em;
+}
+.kvitteringer_item_img img{
+  width:5em;
+}
+.p_kvitteringer{
+  margin:0;
+  display: flex;
+  justify-content:space-around;
+  align-items: center;
 }
 /******************************************************navigering til produkt******************************************************/
 
