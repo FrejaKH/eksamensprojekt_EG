@@ -46,6 +46,8 @@ INSERT INTO `varehovedgruppe` (`varehovedgruppe`, `beskrivelse`) VALUES ("2400",
 CREATE TABLE vareundergruppe(
 vareundergruppe BIGINT UNSIGNED NOT NULL,
 beskrivelse VARCHAR(300),
+billede MEDIUMBLOB,
+contenttype VARCHAR(32),
 varehovedgruppe BIGINT UNSIGNED NOT NULL,
 PRIMARY KEY (vareundergruppe),
 foreign key(varehovedgruppe) references varehovedgruppe(varehovedgruppe)
