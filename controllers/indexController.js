@@ -112,11 +112,13 @@ exports.kvitteringer_udvidet = (req, res) => {
 exports.produkt = async (req, res) => {
   try {
     let vare = await model.getproduct(req, res);
+    let anbefalet = await model.getAssociatedProducts(req, res);
     res.render("produkt", {
       title: "Produktbeskrivelse",
       title_bar: "Produkt",
       arrrow_back: "href=" + "/vaegmaling",
       vare: vare[0][0],
+      anbefalet: anbefalet[0]
     });
   } catch (e) {
     console.log(e);
