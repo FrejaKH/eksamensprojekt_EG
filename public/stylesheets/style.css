@@ -49,6 +49,7 @@ main {
   align-items: center;
   width: 100%;
   justify-content: space-between;
+  margin-top: 4em;
 }
 .div_title {
   display: flex;
@@ -83,6 +84,8 @@ main {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  position: fixed;
+  z-index: 100;
 }
 
 .burgermenu,
@@ -328,6 +331,10 @@ main {
   display: flex;
   justify-content: space-around;
   align-items: center;
+  z-index: 100;
+  position: fixed;
+  bottom: 0;
+
 }
 .footer_text {
   color: white;
@@ -360,6 +367,8 @@ main {
   display: flex;
   align-items: center;
   flex-direction: column;
+  padding-bottom: 3em;
+
 }
 .div_kvitteringer{
   background-color: var(--color-light);
@@ -401,6 +410,7 @@ main {
   width: 100%;
   display: flex;
   flex-direction: column;
+  
 }
 .p_kvittering_date {
   display: flex;
@@ -412,6 +422,8 @@ main {
   display: flex;
   align-items: center;
   flex-direction: column;
+  padding-bottom: 3em;
+
 }
 
 .kvitteringer_item {
@@ -521,6 +533,25 @@ main {
 .liste_item_img img {
   width: 8em;
 }
+#searchbar_liste {
+  width: 80%;
+  height: 3em;
+  border-radius: 10em;
+  background-color: var(--color-grey);
+  padding: 1em;
+  margin: 1em 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 5em;
+}
+.searchbar_text_liste p {
+  margin: 0;
+}
+
+.searchbar_img_liste img {
+  width: 20px;
+}
 /******************************************************navigering til produkt******************************************************/
 
 .main_produktnavigering {
@@ -528,6 +559,8 @@ main {
   display: flex;
   align-items: center;
   flex-direction: column;
+  padding-bottom: 3em;
+
 }
 .produkt_oversigt img {
   width: 98%;
@@ -547,6 +580,8 @@ main {
   display: flex;
   align-items: center;
   flex-direction: column;
+  padding-bottom: 3em;
+
 }
 .produkt_item_img {
   width: 100%;
@@ -641,13 +676,16 @@ main {
   align-items: center;
   flex-direction: column;
   background-color:var(--color-grey);
+  padding-bottom: 3em;
+  padding-top: 9.5em;
+
   
 }
 
 .scan-border{
   background-color: var(--color-grey);
   width: 70%;
-  height: 40em;
+  height: 30em;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -736,6 +774,8 @@ main {
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  padding-bottom: 3em;
+
 }
 
 .btn_stor {
@@ -763,6 +803,7 @@ main {
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  margin-bottom: 3em;
 }
 
 #searchbar {
@@ -836,6 +877,7 @@ main {
   align-items: center;
   margin-top:1em;
   flex-wrap: wrap;
+  padding-bottom: 3em;
 }
 
 .vare{
@@ -1095,6 +1137,8 @@ body .login #main_velkommen {
   display: flex;
   align-items: center;
   flex-direction: column;
+  padding-bottom: 3em;
+
 }
 
 body .login .heading {
@@ -1184,6 +1228,8 @@ body .signup #main_velkommen {
   display: flex;
   align-items: center;
   flex-direction: column;
+  padding-bottom: 3em;
+
 }
 
 body .signup .heading {
@@ -1271,8 +1317,8 @@ body .signup .alert-danger {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  width: 20em;
-  margin: 10% auto 10%;
+  /* width: 20em;
+  margin: 10% auto 10%; */
 }
 
 .profile h1 {
@@ -1288,6 +1334,7 @@ body .signup .alert-danger {
   align-items: center;
   flex-direction: column;
   position: relative;
+  margin-top: 5em;
 }
 
 .profileHeader .fa-arrow-left {
@@ -1348,6 +1395,7 @@ body .signup .alert-danger {
   justify-content: center;
   align-content: center;
   margin-bottom: 2em;
+  margin-top: 5em;
 }
 
 .indstillinger .profileInfo {
@@ -1369,7 +1417,8 @@ body .signup .alert-danger {
 .indstillingerbtn {
   display: flex;
   justify-content: center;
-  margin-top: 10%;
+  margin-top: 2%;
+  margin-bottom: 6%;
 }
 
 .indstillingerbtn button {
