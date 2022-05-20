@@ -937,10 +937,10 @@ main {
   border: 1px solid #000;
   z-index: 10;
   display: none;
-  position: absolute;
-  right: 0;
-  bottom: 5em;
+  right: 0.5em;
+  bottom: 6em;
   z-index: 9001;
+  overflow:scroll;
 }
 
 #popup_header_btn {
