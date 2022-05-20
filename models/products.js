@@ -128,7 +128,7 @@ module.exports = {
         row = await pool.query(sqlVarehovedgruppe, vareundergruppe);
 
         //Til sidst finder vi alle undergrupper relateret til hovedgruppen, minus den valgte undergruppe
-        let sqlAnbefalet = `SELECT * FROM vareundergruppe WHERE varehovedgruppe = ? AND vareundergruppe != ?`;
+        let sqlAnbefalet = `SELECT * FROM vareundergruppe WHERE varehovedgruppe = ? AND vareundergruppe != ? ORDER BY rand() LIMIT 2`;
         let vareParams = [row[0][0].varehovedgruppe, row[0][0].vareundergruppe];
         row = await pool.query(sqlAnbefalet, vareParams);
 
