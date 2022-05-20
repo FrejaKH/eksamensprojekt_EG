@@ -967,15 +967,19 @@ main {
 
 #popup_content {
   width: 100%;
-  height: 10em;
+  height: 5em;
   display: flex;
   justify-content: space-around;
   align-items: center;
   background-color: var(--color-light);
 }
 
+#popup_content .popup_img {
+  width: 40%;
+}
+
 #popup_content .pensel {
-  width: 8em;
+  width: min(100%, 8em);
 }
 
 #popup_content .arrow_right {

@@ -21,7 +21,10 @@
         <% anbefalet.forEach(function(anbefalet) { %> 
 
         <div id="popup_content">
-          <img class="pensel" src="data:<%= anbefalet.contenttype %>;base64,<%= anbefalet.billede.toString('base64') %>" alt="<%= anbefalet.beskrivelse %>">
+          
+          <div class="popup_img">
+            <img class="pensel" src="data:<%= anbefalet.contenttype %>;base64,<%= anbefalet.billede.toString('base64') %>" alt="<%= anbefalet.beskrivelse %>">
+          </div>
           <p><%= anbefalet.beskrivelse %></p>
           <img class="arrow_right" src="../public/images/arrow_right2.png" alt="pil">
         </div>
