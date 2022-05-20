@@ -37,6 +37,17 @@ exports.scanvare = (req, res) => {
   });
 };
 
+/* GET SCAN PAGE WITH PRODUCT */
+exports.scanvarenummer = async (req, res) => {
+  let vare = await model.getproduct(req, res);
+  let anbefalet = await model.getAssociatedProducts(req, res);
+  res.render("scanvare", {
+    title: "Scan en vare",
+    vare: vare[0][0],
+    anbefalet: anbefalet[0]
+  });
+};
+
 /* GET KATEGORIER PAGE */
 exports.kategorier = (req, res) => {
   res.render("kategorier", {
