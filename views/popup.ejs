@@ -2,8 +2,11 @@
 <html>
   <body>
     <div id="popup" class="popup">
-      <button id="popup_header_btn">&times;</button>
-        <div id="popup_header_text"><h2>Har du husket?</h2></div>
+      
+        <div id="popup_header">
+          <h2>Har du husket?</h2>
+          <button id="popup_header_btn">&times;</button>
+        </div>
       <div id="popup_text">“Har du husket?”  er en feature, som skal hjælpe dig med at huske alle materialer til dit projekt. På den måde sparer du evt. en tur i vores byggemarked igen.</div>
       
       <% if (!locals.anbefalet) { %>
