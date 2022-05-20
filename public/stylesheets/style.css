@@ -548,6 +548,10 @@ main {
   align-items: center;
   flex-direction: column;
 }
+.main_produkt_informationer a {
+  width: 100%;
+}
+
 .produkt_item_img {
   width: 100%;
   display: flex;
@@ -643,6 +647,21 @@ main {
   background-color:var(--color-grey);
   
 }
+.main_scanning h1{
+  text-align: center;
+  
+}
+
+
+.scan_buttons {
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+}
+.scan_buttons button {
+  width: min(20em, 100%);
+}
+
 
 .scan-border{
   background-color: var(--color-grey);
@@ -742,6 +761,7 @@ main {
   width: 20em;
   height: 4em;
   background-color: var(--color-primary);
+  color: var(--color-white);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -960,7 +980,7 @@ main {
 }
 
 .kurv_item_img img {
-  width: 8em;
+  width: min(15em, 100%);
 }
 
 .kurv_item_text {

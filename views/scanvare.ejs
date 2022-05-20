@@ -11,15 +11,46 @@
           <!-- Modal content -->
           <div class="modal-content">
             <span class="close">&times;</span>
-            <p>Some text in the Modal..</p>
+
+            
+              <% if (!locals.vare) { %>
+
+              <p>Scan en vare</p>
+
+              <% } else { %> 
+
+                <h1> Scannet vare </h1>
+
+                <div class="kurv_item_1">
+                  <div class="kurv_item_img">
+                      <img src="data:<%= vare.contenttype %>;base64,<%= vare.billede.toString('base64') %>" alt="<%= vare.varenavn %>">
+                  </div>
+                  <div class="kurv_item_text">
+                      <div class="kurv_item_heading"><strong><%= vare.varenavn %></strong></div>
+                      <div class="kurv_item_total">
+                          <div>Pris: </div>
+                          <div><%= vare.pris %> kr.</div>
+                      </div>
+                  </div>
+                </div>
+
+                <div class="scan_buttons">
+                  <a href="/kurv"><div class="btn_stor">Føj til indkøbskurv</div></a>
+                  <a href="/scanvare">
+                    <div class="btn_stor">Fortryd Scanning</div>
+                  </a>
+                </div>
+
+              <% } %>
+            
           </div>
         </div>
       </div>
-      
+
       <%- include('popup.ejs'); -%>
     </main>
-    
-    <%- include ('footer_bar.ejs') -%> 
+
+    <%- include ('footer_bar.ejs') -%>
     <script src="../public/javascripts/scan.js"></script>
   </body>
 </html>
