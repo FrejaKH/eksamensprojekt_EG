@@ -940,6 +940,7 @@ main {
   position: absolute;
   right: 0;
   bottom: 5em;
+  z-index: 9001;
 }
 
 #popup_header_btn {
