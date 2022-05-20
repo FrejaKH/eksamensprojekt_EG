@@ -677,7 +677,8 @@ main {
   flex-direction: column;
   background-color:var(--color-grey);
   padding-bottom: 3em;
-  padding-top: 9.5em;
+  /* padding-top: 9.5em; */
+  height: 100%;
 
   
 }
