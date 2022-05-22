@@ -4,7 +4,11 @@ let closeModal = document.getElementsByClassName("close")[0];
 let timeout; 
 
 function popup_timer_start() {
-    timeout = setTimeout(open_popup, 3000);
+
+    if (document.getElementsByClassName("kurv_item_1")[0]) {
+        timeout = setTimeout(open_popup, 3000);
+    }
+
 }
 function popup_timer_end() {
     clearTimeout(timeout);
@@ -23,7 +27,6 @@ function close_modal() {
     modal.style.display = "none";
     scanArea.classList.remove('scan-click');
     popup_timer_end();
-    
 }
 
 function close_modal_window(event){
