@@ -48,15 +48,15 @@ main {
   display: flex;
   align-items: center;
   width: 100%;
-  justify-content: space-between;
+  justify-content: center;
   margin-top: 4em;
 }
-.div_title {
+/* .div_title {
   display: flex;
   justify-content: center;
   align-items: center;
   width: 33%;
-}
+} */
 .div_empty_div {
   display: flex;
   align-items: center;
