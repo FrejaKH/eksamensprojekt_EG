@@ -85,6 +85,9 @@ router.route("/velkommen").get(indexController.velkommen);
 /* SCAN VARE */
 router.route("/scanvare").get(indexController.scanvare);
 
+/* SCAN VARE VARENUMMER*/
+router.route("/scanvare/:varenummer").get(indexController.scanvarenummer);
+
 /* KATEGORIER */
 router.route("/kategorier").get(indexController.kategorier);
 

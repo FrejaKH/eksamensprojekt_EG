@@ -48,15 +48,15 @@ main {
   display: flex;
   align-items: center;
   width: 100%;
-  justify-content: space-between;
+  justify-content: center;
   margin-top: 4em;
 }
-.div_title {
+/* .div_title {
   display: flex;
   justify-content: center;
   align-items: center;
   width: 33%;
-}
+} */
 .div_empty_div {
   display: flex;
   align-items: center;
@@ -583,6 +583,10 @@ main {
   padding-bottom: 3em;
 
 }
+.main_produkt_informationer a {
+  width: 100%;
+}
+
 .produkt_item_img {
   width: 100%;
   display: flex;
@@ -677,10 +681,26 @@ main {
   flex-direction: column;
   background-color:var(--color-grey);
   padding-bottom: 3em;
-  padding-top: 9.5em;
+  /* padding-top: 9.5em; */
+  height: 100%;
 
   
 }
+.main_scanning h1{
+  text-align: center;
+  
+}
+
+
+.scan_buttons {
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+}
+.scan_buttons button {
+  width: min(20em, 100%);
+}
+
 
 .scan-border{
   background-color: var(--color-grey);
@@ -782,6 +802,7 @@ main {
   width: 20em;
   height: 4em;
   background-color: var(--color-primary);
+  color: var(--color-white);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -909,22 +930,32 @@ main {
 
 #popup {
   width: 300px;
-  max-width: 80%;
   height: 400px;
   position: fixed;
   background-color: var(--color-white);
   border: 1px solid #000;
-  z-index: 10;
+  z-index: 10000;
   display: none;
-  position: absolute;
-  right: 0;
-  bottom: 5em;
+  right: 0.5em;
+  bottom: 6em;
+  z-index: 9001;
+  overflow:scroll;
 }
 
-#popup_header_btn {
-  width: 100%;
-  height: 1em;
+#popup .show {
+  display: block;
+}
+
+
+#popup_header {
   display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: row;
+  
+}
+
+#popup_header button {
   justify-content: flex-end;
   align-items: center;
   cursor: pointer;
@@ -934,27 +965,24 @@ main {
   margin: 0;
 }
 
-#popup_header_text {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
 #popup_text {
-  padding: 1em 2em;
+  padding: 1em;
 }
 
 #popup_content {
   width: 100%;
-  height: 10em;
   display: flex;
   justify-content: space-around;
   align-items: center;
   background-color: var(--color-light);
 }
 
+#popup_content .popup_img {
+  width: 40%;
+}
+
 #popup_content .pensel {
-  width: 8em;
+  width: min(100%, 8em);
 }
 
 #popup_content .arrow_right {
@@ -974,6 +1002,22 @@ main {
 
 #popup_btn {
   position: relative;
+}
+
+#popup_arrow{
+  /* background-color: var(--color-accent); */
+  width: 4rem;
+  height: 4rem;
+  border-right: 1px solid var(--color-black);
+  border-bottom: 1px solid var(--color-black);
+  background: linear-gradient(to top left, rgb(255, 255, 255), rgb(255, 255, 255) 50%, rgba(255, 255, 255, 0) 55%);
+  /* background-image: linear-gradient(to top left, #333, #333 50%, #eee 75%, #333 75%); */
+  
+  transform: translate(0px, -4.4rem) rotate(45deg);
+  position: absolute;
+  display:none;
+  z-index: 9001;
+
 }
 
 /********************************INDKØBSKURV***********************************************/
@@ -1002,7 +1046,7 @@ main {
 }
 
 .kurv_item_img img {
-  width: 8em;
+  width: min(15em, 100%);
 }
 
 .kurv_item_text {
