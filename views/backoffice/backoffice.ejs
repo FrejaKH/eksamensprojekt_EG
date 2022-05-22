@@ -1,0 +1,63 @@
+<%- include ('partials/backoffice_top.ejs') -%> <% if(deleted) { %>
+<div class="alert alert-danger alert-dismissible fade show" role="alert">
+  <%- deleted -%>
+  <button
+    type="button"
+    class="btn-close"
+    data-bs-dismiss="alert"
+    aria-label="Close"
+  ></button>
+</div>
+<% }; %>
+<table class="table table-bordered">
+  <thead class="">
+    <tr>
+      <th scope="col">Varenummer</th>
+      <th scope="col">Navn</th>
+      <th scope="col">Beskrivelse</th>
+      <th scope="col">Pris</th>
+      <th scope="col">Enhedsbetegnelse</th>
+      <th scope="col">Indkøbspris</th>
+      <th scope="col">Billede</th>
+      <th scope="col">EAN</th>
+      <th scope="col">Varegruppe</th>
+      <th scope="col" class="text-end">Rediger</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% vare.forEach(function(vare) { %>
+    <tr>
+      <th scope="row"><%= vare.varenummer%></th>
+      <td><%= vare.varenavn %></td>
+      <td><%= vare.varebeskrivelse %></td>
+      <td><%= vare.pris %></td>
+      <td><%= vare.enhedsbetegnelse %></td>
+      <td><%= vare.indkøbspris %></td>
+      <td>
+        <img
+          class="img-fluid"
+          src="data:<%= vare.contenttype %>;base64,<%= vare.billede.toString('base64') %>"
+          alt="<%= vare.beskrivelse %>"
+        />
+      </td>
+      <td><%= vare.EAN %></td>
+      <td><%= vare.vareundergruppe%></td>
+      <td class="text-end btn-block align-middle">
+        <a
+          href="backoffice/update/<%= vare.varenummer%>"
+          type="button"
+          class="btn btn-secondary btn-small rounded w-100"
+          >Opdater</a
+        >
+        <a
+          href="/<%= vare.varenummer%>"
+          type="button"
+          class="btn btn-danger btn-small rounded w-100 mt-2"
+          >Slet</a
+        >
+      </td>
+    </tr>
+    <% }); %>
+  </tbody>
+</table>
+<%- include ('partials/backoffice_bot.ejs') -%>

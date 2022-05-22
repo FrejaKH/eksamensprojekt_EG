@@ -91,7 +91,7 @@ exports.kurv = async (req, res) => {
     title: "Indkøbskurv",
     title_bar: "Indkøbskurv",
     arrrow_back: "href=" + "/produkt",
-    produkter: produkter[0]
+    produkter: produkter[0],
   });
 };
 /* GET INDKØBSLISTE PAGE */
@@ -102,7 +102,6 @@ exports.liste = (req, res) => {
     arrrow_back: "href=" + "/produkt",
   });
 };
-
 
 // ====================== /* kvitteringer  */ ====================== //
 exports.kvitteringer = (req, res) => {
@@ -130,7 +129,7 @@ exports.produkt = async (req, res) => {
       title_bar: "Produkt",
       arrrow_back: "href=" + "/vaegmaling",
       vare: vare[0][0],
-      anbefalet: anbefalet[0]
+      anbefalet: anbefalet[0],
     });
   } catch (e) {
     console.log(e);

@@ -1,0 +1,143 @@
+<%- include ('partials/backoffice_top.ejs') -%>
+<div class="container">
+  <h1 class="well"><%- title -%></h1>
+  <div class="col-lg-12 well mt-4">
+    <% if(alert) { %>
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+      <%- alert -%>
+      <button
+        type="button"
+        class="btn-close"
+        data-bs-dismiss="alert"
+        aria-label="Close"
+      ></button>
+    </div>
+    <% }; %>
+    <div class="row">
+      <form method="POST" action="/backoffice/create">
+        <div class="col-sm-12">
+          <div class="row">
+            <div class="col-6">
+              <div class="form-floating mb-3">
+                <input
+                  type="text"
+                  class="form-control"
+                  id="floatingInput"
+                  placeholder="Varenavn"
+                  name="varenavn"
+                  required
+                />
+                <label for="floatingInput">Varenavn</label>
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="form-floating mb-3">
+                <input
+                  type="text"
+                  class="form-control"
+                  id="floatingInput"
+                  placeholder="Varebeskrivelse"
+                  name="varebeskrivelse"
+                  required
+                />
+                <label for="floatingInput">Varebeskrivelse</label>
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="form-floating mb-3">
+                <input
+                  type="text"
+                  class="form-control"
+                  id="floatingInput"
+                  placeholder="Pris"
+                  name="pris"
+                  required
+                />
+                <label for="floatingInput">Pris</label>
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="form-floating mb-3">
+                <input
+                  type="text"
+                  class="form-control"
+                  id="floatingInput"
+                  placeholder="Enhedsbetegnelse"
+                  name="enhedsbetegnelse"
+                  required
+                />
+                <label for="floatingInput">Enhedsbetegnelse</label>
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="form-floating mb-3">
+                <input
+                  type="text"
+                  class="form-control"
+                  id="floatingInput"
+                  placeholder="Indkøbspris"
+                  name="indkøbspris"
+                  required
+                />
+                <label for="floatingInput">Indkøbspris</label>
+              </div>
+            </div>
+            <div class="col-6">
+              <input class="form-control" type="file" id="formFile" />
+            </div>
+            <div class="col-6">
+              <div class="form-floating mb-3">
+                <input
+                  type="text"
+                  class="form-control"
+                  id="floatingInput"
+                  placeholder="Contenttype"
+                  name="contenttype"
+                />
+                <label for="floatingInput">Contenttype</label>
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="form-floating mb-3">
+                <input
+                  type="text"
+                  class="form-control"
+                  id="floatingInput"
+                  placeholder="EAN"
+                  name="EAN"
+                  required
+                />
+                <label for="floatingInput">EAN</label>
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="form-floating mb-3">
+                <input
+                  type="text"
+                  class="form-control"
+                  id="floatingInput"
+                  placeholder="Vareundergruppe"
+                  name="vareundergruppe"
+                  required
+                />
+                <label for="floatingInput">Vareundergruppe</label>
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="form-floating mb-3">
+                <button
+                  type="submit"
+                  class="btn btn-success form-control"
+                  style="padding-top: 0; padding-bottom: 0"
+                >
+                  Opret
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+  <%- include ('partials/backoffice_bot.ejs') -%>
+</div>
