@@ -4,9 +4,8 @@ let closeModal = document.getElementsByClassName("close")[0];
 let timeout; 
 
 function popup_timer_start() {
-
     if (document.getElementsByClassName("kurv_item_1")[0]) {
-        timeout = setTimeout(open_popup, 3000);
+        timeout = setTimeout(toggle_popup, 3000);
     }
 
 }
@@ -32,7 +31,7 @@ function close_modal() {
 function close_modal_window(event){
     if (event.target == modal) {
         close_modal();
-      }
+    }
 }
 
 document.addEventListener("click", close_modal_window);
