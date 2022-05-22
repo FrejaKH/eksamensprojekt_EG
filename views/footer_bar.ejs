@@ -1,36 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
-<body>
-  <footer id="footer">
-    <%- include('popup.ejs'); -%>
-    <a href="/scanvare">
-      <div class="logo_scan_vare">
-        <img src="../public/images/scan.png" alt="scan vare">
-        <p class="footer_text">Scan vare</p>
-       
-      </div> </a>
+  <body>
+    <footer id="footer">
+      <!-- Indsæt popup, og overfør evt. anbefalede produkter -->
+      <% if (locals.anbefalet) { %> <%- include('popup.ejs', {anbefalet:
+      anbefalet}); -%> <% } else { %> <%- include('popup.ejs'); -%> <% } %>
+
+      <a href="/scanvare">
+        <div class="logo_scan_vare">
+          <img src="../public/images/scan.png" alt="scan vare" />
+          <p class="footer_text">Scan vare</p>
+        </div>
+      </a>
       <a href="/liste">
-      <div class="logo_indkøbsliste">
-        <img src="../public/images/liste.png" alt="indkøbsliste">
-        <p class="footer_text">Indkøbsliste</p>
-      </div>
-    </a>
+        <div class="logo_indkøbsliste">
+          <img src="../public/images/liste.png" alt="indkøbsliste" />
+          <p class="footer_text">Indkøbsliste</p>
+        </div>
+      </a>
       <a href="/vejledning">
-      <div class="logo_vejledning">
-          <img src="../public/images/raadgivning.png" alt="rådgivning">
+        <div class="logo_vejledning">
+          <img src="../public/images/raadgivning.png" alt="rådgivning" />
           <p class="footer_text">Vejledning</p>
-        
-      </div></a>
+        </div></a
+      >
       <div id="popup_btn" class="logo_husket">
-        <img src="../public/images/info.png" alt="Har du husket">
+        <img src="../public/images/info.png" alt="Har du husket" />
         <p class="footer_text">Har du husket?</p>
       </div>
-      
-
-      
-     
-  </footer>
-  <script src="../public/javascripts/popup.js"></script>
-
-</body>
+    </footer>
+    <script src="../public/javascripts/popup.js"></script>
+  </body>
 </html>
