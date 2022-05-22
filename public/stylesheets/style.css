@@ -930,18 +930,22 @@ main {
 
 #popup {
   width: 300px;
-  max-width: 80%;
   height: 400px;
   position: fixed;
   background-color: var(--color-white);
   border: 1px solid #000;
-  z-index: 10;
+  z-index: 10000;
   display: none;
   right: 0.5em;
   bottom: 6em;
   z-index: 9001;
   overflow:scroll;
 }
+
+#popup .show {
+  display: block;
+}
+
 
 #popup_header {
   display: flex;

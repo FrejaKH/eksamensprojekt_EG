@@ -1,20 +1,14 @@
-let popup_btn_open = document.getElementById("popup_btn");
+let popup_btn = document.getElementById("popup_btn");
 let popup_btn_close = document.getElementById("popup_header_btn");
+let popup = document.getElementById("popup");
 
-
-function open_popup() {
-    let popup = document.getElementById("popup");
-    popup.style.display = "block";
-    
+function toggle_popup() {
+    popup.classList.toggle("show");
 }
 
-function close_popup(){
-    let popup = document.getElementById("popup");
-    popup.style.display = "none";
+function close_popup(event){
+        popup.classList.remove("show");
 }
 
-
-popup_btn_open.addEventListener("click", open_popup);
-
+popup_btn.addEventListener("click", toggle_popup);
 popup_btn_close.addEventListener("click", close_popup);
-
