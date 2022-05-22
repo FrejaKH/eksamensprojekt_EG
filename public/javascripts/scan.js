@@ -5,7 +5,7 @@ let timeout;
 
 function popup_timer_start() {
     if (document.getElementsByClassName("kurv_item_1")[0]) {
-        timeout = setTimeout(toggle_popup, 3000);
+        timeout = setTimeout(open_popup, 3000);
     }
 
 }
