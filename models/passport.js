@@ -65,6 +65,7 @@ module.exports = function (passport) {
                   cvr: req.body.cvr,
                 };
 
+                //See if there is something in CVR and it is 8 numbers long
                 if(newUserMysql.cvr.length == 8) {
                   console.log(`CVR = ${newUserMysql.cvr}`);
                   newUserMysql.rolle = 'erhverv';
