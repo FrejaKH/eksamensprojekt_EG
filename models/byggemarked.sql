@@ -12,6 +12,7 @@ CREATE TABLE brugere(
   telefonnummer INT(20) NOT NULL,
   password VARCHAR(100) NOT NULL,
   rolle VARCHAR(10),
+  hjaelp BOOLEAN,
   PRIMARY KEY (kundenummer)
 );
 
@@ -23,8 +24,8 @@ PRIMARY KEY (kundenummer),
 foreign key(kundenummer) references brugere(kundenummer)
 );
 
-INSERT INTO `brugere` (`kundenummer`, `email`, `navn`, `adresse`, `postnummer`, `_by`, `telefonnummer`, `password`, `rolle`) VALUES
-(1, 'test@gmail.com', 'test', 'Lærkevej 3', 6200, 'kliplev', 20913871, '$2b$10$xrHb1jXOEwFMfXbbSUX8U.c1G6bPWUjMxpLayoXv2t76PFRGCAKiC', NULL);
+INSERT INTO `brugere` (`kundenummer`, `email`, `navn`, `adresse`, `postnummer`, `_by`, `telefonnummer`, `password`, `rolle`, hjaelp) VALUES
+(1, 'test@gmail.com', 'test', 'Lærkevej 3', 6200, 'kliplev', 20913871, '$2b$10$xrHb1jXOEwFMfXbbSUX8U.c1G6bPWUjMxpLayoXv2t76PFRGCAKiC', "privat", true);
 
 CREATE TABLE ordre(
 ordrenummer INT NOT NULL,

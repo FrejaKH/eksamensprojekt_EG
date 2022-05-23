@@ -1046,7 +1046,7 @@ main {
 }
 
 .kurv_item_img img {
-  width: min(15em, 100%);
+  width: min(10rem, 100%);
 }
 
 .kurv_item_text {
@@ -1092,7 +1092,7 @@ main {
   font-weight: 700;
   border: none;
   color: var(--color-white);
-  margin-top: 2em;
+  margin-top: 1em;
 }
 
 #harduhusket {
@@ -1493,4 +1493,15 @@ body .signup .alert-danger {
 .fa-toggle-on {
   font-size: 2rem;
   color: var(--color-black);
+}
+/********************************har du husket knapper***********************************************/
+.harduhusket_aktiveret{
+  background-color: lightgreen;
+  color: black;
+  border: none;
+}
+.harduhusket_deaktiveret{
+  background-color: red;
+  color: black;
+  border: none;
 }

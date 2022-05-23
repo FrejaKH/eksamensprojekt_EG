@@ -39,7 +39,10 @@
                     <div><%= (((produkter[0].pris)*2)+(produkter[1].pris)).toFixed(2)%> kr.</div>
                 </div>
             </div>
-            <button class="kurv_btn">Fortsæt til betaling</button>
+            <div>
+                <button class="kurv_btn">Fortsæt til betaling</button>
+            </div>
+            <% if (user.hjaelp == 1) { %>
             <div id="harduhusket">
                 <div class="harduhusket_heading">
                     <p>Har du husket?</p>
@@ -67,6 +70,7 @@
                     </div>
 
                 </div>
+                <% } %>
             </div>
         </main>
         <%- include('footer_bar.ejs', {anbefalet: [produkter[2], produkter[3]]}); -%>

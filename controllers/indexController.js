@@ -1,4 +1,6 @@
 const model = require("../models/products");
+const modelBrugere = require("../models/brugere");
+
 
 // ====================== /* MISC. */ ====================== //
 
@@ -35,6 +37,7 @@ exports.velkommen = (req, res) => {
 exports.scanvare = (req, res) => {
   res.render("scanvare", {
     title: "Scan en vare",
+    user: req.user,
   });
 };
 
@@ -46,6 +49,8 @@ exports.scanvarenummer = async (req, res) => {
     title: "Scan en vare",
     vare: vare[0][0],
     anbefalet: anbefalet[0],
+    user: req.user,
+
   });
 };
 
@@ -97,6 +102,7 @@ exports.kurv = async (req, res) => {
     title_bar: "Indkøbskurv",
     arrow_back: "href=" + "/produkt",
     produkter: produkter[0],
+    user: req.user,
   });
 };
 /* GET INDKØBSLISTE PAGE */
@@ -135,6 +141,8 @@ exports.produkt = async (req, res) => {
       arrow_back: "href=" + "/vaegmaling",
       vare: vare[0][0],
       anbefalet: anbefalet[0],
+      user: req.user,
+
     });
   } catch (e) {
     console.log(e);
@@ -223,6 +231,15 @@ exports.signup = (req, res) => {
 
 /* PROFILE */
 exports.profile = (req, res) => {
+  res.render("profile", {
+    user: req.user,
+    title: "Profil",
+  });
+};
+/* PROFILE */
+exports.hjaelp = async(req, res) => {
+  const bool = await modelBrugere.updatehjaelp(req,res);
+  req.user.hjaelp = bool;
   res.render("profile", {
     user: req.user,
     title: "Profil",

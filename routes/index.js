@@ -62,46 +62,48 @@ router
 router.route("/").get(indexController.index);
 
 /* VELKOMMEN */
-router.route("/velkommen").get(indexController.velkommen);
+router.route("/velkommen").get(indexController.isLoggedIn,indexController.velkommen);
 
 /* SCAN VARE */
-router.route("/scanvare").get(indexController.scanvare);
+router.route("/scanvare").get(indexController.isLoggedIn,indexController.scanvare);
 
 /* SCAN VARE VARENUMMER*/
-router.route("/scanvare/:varenummer").get(indexController.scanvarenummer);
+router.route("/scanvare/:varenummer").get(indexController.isLoggedIn,indexController.scanvarenummer);
 
 /* KATEGORIER */
-router.route("/kategorier").get(indexController.kategorier);
+router.route("/kategorier").get(indexController.isLoggedIn,indexController.kategorier);
 
 /* MALING */
-router.route("/maling").get(indexController.maling);
+router.route("/maling").get(indexController.isLoggedIn,indexController.maling);
 
 /* PENSLER */
-router.route("/vaegmaling").get(indexController.vaegmaling);
+router.route("/vaegmaling").get(indexController.isLoggedIn,indexController.vaegmaling);
 
 /* VEJLEDNING */
-router.route("/vejledning").get(indexController.vejledning);
+router.route("/vejledning").get(indexController.isLoggedIn,indexController.vejledning);
 
 /* INDKØBSKURV */
-router.route("/kurv").get(indexController.kurv);
+router.route("/kurv").get(indexController.isLoggedIn,indexController.kurv);
 
 /* NAVIGERING */
-router.route("/produkt_navigering").get(indexController.produkt_navigering);
+router.route("/produkt_navigering").get(indexController.isLoggedIn,indexController.produkt_navigering);
 
 /* KVITTERINGER */
-router.route("/kvitteringer").get(indexController.kvitteringer);
+router.route("/kvitteringer").get(indexController.isLoggedIn,indexController.kvitteringer);
 
 /* KVITTERINGER UDVIDET */
-router.route("/kvitteringer_udvidet").get(indexController.kvitteringer_udvidet);
+router.route("/kvitteringer_udvidet").get(indexController.isLoggedIn,indexController.kvitteringer_udvidet);
 
 /* PRODUKT */
-router.route("/produkt/:varenummer").get(indexController.produkt);
+router.route("/produkt/:varenummer").get(indexController.isLoggedIn,indexController.produkt);
 
 /* PRODUKT REDIRECT */
-router.route("/produkt").get(indexController.produkt_redirect);
+router.route("/produkt").get(indexController.isLoggedIn,indexController.produkt_redirect);
 
 /* INDKØBSLISTE REDIRECT */
-router.route("/liste").get(indexController.liste);
+router.route("/liste").get(indexController.isLoggedIn,indexController.liste);
+/* HJÆLÅ FUNTION */
+router.route("/hjaelp").post(indexController.hjaelp);
 
 /* BACKOFFICE ROUTES */
 router
@@ -119,6 +121,6 @@ router
   .get(backofficeController.update)
   .post(backofficeController.updateVare);
 
-router.route("/:id").get(backofficeController.deleteVare);
+// router.route("/:id").get(backofficeController.deleteVare);
 
 module.exports = router;

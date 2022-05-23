@@ -20,11 +20,17 @@
           ></a>
         </li>
         <li>
-          <a href="#">
+       
             <div class="profileInfo">
+              <form action="/hjaelp" method="post" style="display: contents;">
               <p>Slå "Har du husket" til/fra</p>
-              <i class="fa fa-toggle-on" aria-hidden="true"></i></div
-          ></a>
+                     <% if (user.hjaelp == 1) { %>
+                      <div><input name="harduhusket_aktiv" class="harduhusket_aktiveret" type="submit" value="Aktiveret"></div>
+                   <% }else{ %>
+                    <div><input name="harduhusket_deaktiveret" class="harduhusket_deaktiveret" type="submit" value="Deaktiveret"></div>
+                    <% } %>
+              </form>
+            </div>
         </li>
         <li>
           <a href="/kvitteringer">
