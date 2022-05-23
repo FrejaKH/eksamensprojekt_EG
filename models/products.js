@@ -92,6 +92,7 @@ module.exports = {
         vareundergruppe,
         billede,
       } = req.body;
+      console.log(billede);
       let sql = `INSERT INTO vare ( varenummer, varenavn, varebeskrivelse, pris, enhedsbetegnelse, indkøbspris, contenttype, EAN, vareundergruppe, billede) VALUES (?,?,?,?,?,?,?,?,?,?)`;
       let vare = [
         varenummer,

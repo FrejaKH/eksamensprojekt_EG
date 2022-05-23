@@ -31,7 +31,7 @@ exports.create = async (req, res) => {
 exports.createVare = async (req, res) => {
   let vareOprettet = await model.createAProduct(req,res);
   let vare = await model.getVareUnderGruppe(req,res);
-
+  // console.log(vareOprettet);
   if(vareOprettet){
     res.render("backoffice/create", {
       title: "Opret vare",
@@ -39,7 +39,8 @@ exports.createVare = async (req, res) => {
       vare: vare[0],
 
     });
-  }else{    res.render("backoffice/create", {
+  }else{
+    res.render("backoffice/create", {
     title: "Opret vare",
     alert: "Fejl i at oprettet en Vare!",
     vare: vare[0],
