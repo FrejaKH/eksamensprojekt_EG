@@ -19,7 +19,11 @@
 
         <!-- Loop start -->
         <% anbefalet.forEach(function(anbefalet) { %> 
-
+          <% if(anbefalet.vareundergruppe == '3640') { %>
+            <a href="/vaegmaling">
+            <% } else { %>
+            <a href="/maling">
+            <% } %>
         <div id="popup_content">
           
           <div class="popup_img">

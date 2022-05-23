@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <body>
+
+<!-- EJS Loop start -->
+        
+<% anbefalet.forEach(function(anbefalet) { %> 
+
+    <% if(anbefalet.vareundergruppe == '3640') { %>
+    <a href="/vaegmaling">
+    <% } else { %>
+    <a href="/maling">
+    <% } %>
+
+    <div class="harduhusket_item harduhusket_item1">
+            <div class="harduhusket_item_img">
+                <img src="data:<%= anbefalet.contenttype %>;base64,<%= anbefalet.billede.toString('base64') %>" alt="<%= anbefalet.beskrivelse %>">
+            </div>
+            <div class="harduhusket_item_text">
+                <p><%= anbefalet.beskrivelse %></p>
+            </div>
+            <div class="harduhusket_item_arrow">
+                <img src="../public/images/arrow_right2.png" alt="pil">
+            </div>
+        </div>
+    </a>
+    
+<% }); %>
+<!-- EJS Loop end -->
+
+</body>
+</html>
