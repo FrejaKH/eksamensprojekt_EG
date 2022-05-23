@@ -120,11 +120,10 @@
                 <label for="floatingInput">EAN</label>
               </div>
             </div>
-
             <div class="col-6">
               <label for="floatingInput">Vareundergruppe</label>
               <select name="vareundergruppe" class="dropdown_vareundergruppe">
-                <% vareundergruppe[0].forEach(function(vareundergruppe) { %>
+                <% vareundergruppe.forEach(function(vareundergruppe) { %>
                 <option><%= vareundergruppe.vareundergruppe %></option>
                 <% }); %>
               </select>

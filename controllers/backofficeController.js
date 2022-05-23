@@ -3,25 +3,25 @@ const pool = require("../models/db");
 /* GET BACKOFFICE PAGE */
 exports.backoffice = async (req, res) => {
   try {
-    const vare = await pool.query("SELECT * FROM vare");
+    let sql = `SELECT * FROM vare`;
+    let vare = await pool.query(sql);
     res.render("backoffice/backoffice", {
       vare: vare[0],
     });
-  } catch (err) {
-    console.error(err.message);
+  } catch (e) {
+    console.error(e.message);
   }
 };
 
 /* FIND A VARE */
 exports.backofficeSearch = async (req, res) => {
   try {
-    const search = req.body.search;
-    const vare = await pool.query(
-      `SELECT * FROM vare WHERE varenavn LIKE "%${search}%"`
-    );
-    res.render("backoffice/backoffice", { vare: vare[0]});
-  } catch (err) {
-    console.error(err.message);
+    let search = req.body.search;
+    let sql = `SELECT * FROM vare WHERE varenavn LIKE "%${search}%"`;
+    let vare = await pool.query(sql);
+    res.render("backoffice/backoffice", { vare: vare[0] });
+  } catch (e) {
+    console.error(e.message);
   }
 };
 
@@ -29,19 +29,21 @@ exports.backofficeSearch = async (req, res) => {
 exports.create = async (req, res) => {
   try {
     let sql = `SELECT vareundergruppe FROM vareundergruppe`;
-    let vareundergruppe = await pool.query(sql);
-    console.log(vareundergruppe);
-    res.render("backoffice/create", { title: "Opret vare", alert: "", vareundergruppe: vareundergruppe});
-  }catch (e) {
+    let vare = await pool.query(sql);
+    res.render("backoffice/create", {
+      title: "Opret vare",
+      alert: "",
+      vareundergruppe: vare[0],
+    });
+  } catch (e) {
     console.error(e.message);
-}
-
+  }
 };
 
 /* CREATE A VARE */
 exports.createVare = async (req, res) => {
   try {
-    const {
+    let {
       varenummer,
       varenavn,
       varebeskrivelse,
@@ -52,49 +54,48 @@ exports.createVare = async (req, res) => {
       EAN,
       vareundergruppe,
     } = req.body;
-    await pool.query(
-      "INSERT INTO vare SET varenummer = ?, varenavn = ?, varebeskrivelse= ?, pris= ?, enhedsbetegnelse= ?, indkøbspris= ?, contenttype= ?, EAN= ?, vareundergruppe= ?",
-      [
-        varenummer,
-        varenavn,
-        varebeskrivelse,
-        pris,
-        enhedsbetegnelse,
-        indkøbspris,
-        contenttype,
-        EAN,
-        vareundergruppe,
-      ]
-    );
+    let sql = `INSERT INTO vare ( varenummer, varenavn, varebeskrivelse, pris, enhedsbetegnelse, indkøbspris, contenttype, EAN, vareundergruppe) VALUES (?,?,?,?,?,?,?,?,?)`;
+    let vare = [
+      varenummer,
+      varenavn,
+      varebeskrivelse,
+      pris,
+      enhedsbetegnelse,
+      indkøbspris,
+      contenttype,
+      EAN,
+      vareundergruppe,
+    ];
+    await pool.query(sql, vare);
     res.render("backoffice/create", {
       title: "Opret vare",
       alert: "Vare oprettet!",
     });
-  } catch (err) {
-    console.error(err.message);
+    return true;
+  } catch (e) {
+    console.error(e.message);
   }
 };
 
 /* GET UPDATE PAGE */
 exports.update = async (req, res) => {
   try {
-    const vare = await pool.query("SELECT * FROM vare WHERE varenummer = ?", [
-      req.params.id,
-    ]);
+    let sql = "SELECT * FROM vare WHERE varenummer = ?";
+    let vare = await pool.query(sql, [req.params.id]);
     res.render("backoffice/update", {
       vare: vare[0][0],
       title: "Opdater vare",
       alert: "",
     });
-  } catch (err) {
-    console.error(err.message);
+  } catch (e) {
+    console.error(e.message);
   }
 };
 
 /* UPDATE A VARE */
 exports.updateVare = async (req, res) => {
   try {
-    const {
+    let {
       varenummer,
       varenavn,
       varebeskrivelse,
@@ -131,18 +132,19 @@ exports.updateVare = async (req, res) => {
       title: "Opdater vare",
       alert: "Vare opdateret!",
     });
-  } catch (err) {
-    console.error(err.message);
+  } catch (e) {
+    console.error(e.message);
   }
 };
 
 /* DELETE A VARE */
 exports.deleteVare = async (req, res) => {
   try {
-    const { id } = req.params;
-    await pool.query("DELETE FROM vare WHERE varenummer = ?", [id]);
+    let { id } = req.params;
+    let sql = "DELETE FROM vare WHERE varenummer = ?";
+    await pool.query(sql, [id]);
     res.redirect(`backoffice`);
-  } catch (err) {
-    console.error(err.message);
+  } catch (e) {
+    console.error(e.message);
   }
 };
