@@ -4,10 +4,8 @@ const pool = require("../models/db");
 exports.backoffice = async (req, res) => {
   try {
     const vare = await pool.query("SELECT * FROM vare");
-    const deleted = req.query.deleted; // custom parameter to display removed vare alert
     res.render("backoffice/backoffice", {
       vare: vare[0],
-      deleted,
     });
   } catch (err) {
     console.error(err.message);
@@ -21,7 +19,7 @@ exports.backofficeSearch = async (req, res) => {
     const vare = await pool.query(
       `SELECT * FROM vare WHERE varenavn LIKE "%${search}%"`
     );
-    res.render("backoffice/backoffice", { vare: vare[0], deleted: "" });
+    res.render("backoffice/backoffice", { vare: vare[0]});
   } catch (err) {
     console.error(err.message);
   }
@@ -41,20 +39,18 @@ exports.createVare = async (req, res) => {
       pris,
       enhedsbetegnelse,
       indkøbspris,
-      billede,
       contenttype,
       EAN,
       vareundergruppe,
     } = req.body;
     await pool.query(
-      "INSERT INTO vare SET varenavn = ?, varebeskrivelse= ?, pris= ?, enhedsbetegnelse= ?, indkøbspris= ?, billede= ?, contenttype= ?, EAN= ?, vareundergruppe= ?",
+      "INSERT INTO vare SET varenavn = ?, varebeskrivelse= ?, pris= ?, enhedsbetegnelse= ?, indkøbspris= ?, contenttype= ?, EAN= ?, vareundergruppe= ?",
       [
         varenavn,
         varebeskrivelse,
         pris,
         enhedsbetegnelse,
         indkøbspris,
-        billede,
         contenttype,
         EAN,
         vareundergruppe,
@@ -133,8 +129,7 @@ exports.deleteVare = async (req, res) => {
   try {
     const { id } = req.params;
     await pool.query("DELETE FROM vare WHERE varenummer = ?", [id]);
-    const deleted = encodeURIComponent("Vare slettet!");
-    res.redirect(`backoffice/?deleted=${deleted}`); // custom parameter to display removed vare alert
+    res.redirect(`backoffice`);
   } catch (err) {
     console.error(err.message);
   }
