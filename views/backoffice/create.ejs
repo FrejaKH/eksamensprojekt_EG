@@ -123,8 +123,9 @@
             <div class="col-6">
               <label for="floatingInput">Vareundergruppe</label>
               <select name="vareundergruppe" class="dropdown_vareundergruppe">
-                <% vareundergruppe.forEach(function(vareundergruppe) { %>
-                <option><%= vareundergruppe.vareundergruppe %></option>
+                <option>Vælg undergruppe</option>
+                <% vareundergruppe.forEach(function(vareundergrupper) { %>
+                <option value="<%= vareundergrupper.vareundergruppe%>"><%= vareundergrupper.vareundergruppe %></option>
                 <% }); %>
               </select>
 
