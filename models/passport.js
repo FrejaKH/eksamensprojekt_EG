@@ -65,10 +65,11 @@ module.exports = function (passport) {
                   cvr: req.body.cvr,
                 };
 
+                //See if there is something in CVR and it is 8 numbers long
                 if(newUserMysql.cvr.length == 8) {
                   console.log(`CVR = ${newUserMysql.cvr}`);
                   newUserMysql.rolle = 'erhverv';
-                  
+                                    
                   const insertQuery = 
                   `start TRANSACTION;
 
@@ -79,7 +80,6 @@ module.exports = function (passport) {
                   VALUES ((SELECT kundenummer FROM brugere WHERE email = ?), '123456789', ?);
                   
                   commit;`
-                  console.log("INSERTQUERY: " + insertQuery);
 
                   pool.query(
                     insertQuery,

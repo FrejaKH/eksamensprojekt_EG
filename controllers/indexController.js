@@ -89,13 +89,6 @@ exports.vejledning = (req, res) => {
   });
 };
 
-/* GET HAR DU HUSKET PAGE */
-exports.harduhusket = (req, res) => {
-  res.render("harduhusket", {
-    title: "Har du husket?",
-  });
-};
-
 /* GET INDKØBSKURV PAGE */
 exports.kurv = async (req, res) => {
   let produkter = await model.getAllproducts(req, res);
