@@ -68,7 +68,7 @@ indkøbspris FLOAT NOT NULL,
 billede MEDIUMBLOB NOT NULL,
 contenttype VARCHAR(32) NOT NULL,
 EAN VARCHAR(20) NOT NULL,
-vareundergruppe BIGINT UNSIGNED NOT NULL UNIQUE,
+vareundergruppe BIGINT UNSIGNED NOT NULL,
 PRIMARY KEY (varenummer)
 );
 
