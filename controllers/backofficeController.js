@@ -67,13 +67,9 @@ exports.updateVare = async (req, res) => {
 
 /* DELETE A VARE */
 exports.deleteVare = async (req, res) => {
-  //  let deletevare = await model.deleteAProduct(req,res);
-  try {
-    let { id } = req.params;
-    let sql = "DELETE FROM vare WHERE varenummer = ?";
-    await pool.query(sql, [id]);
-    res.redirect(`backoffice`);
-  } catch (e) {
-    console.error(e.message);
-  }
+    await model.deleteAProduct(req,res);
+    let vare = await model.getAllproducts();
+    res.render("backoffice/backoffice", {
+      vare: vare[0],
+    });
 };

@@ -121,6 +121,6 @@ router
   .get(backofficeController.update)
   .post(backofficeController.updateVare);
 
-// router.route("/:id").get(backofficeController.deleteVare);
+router.route("/backoffice/delete/:id").get(backofficeController.deleteVare);
 
 module.exports = router;
