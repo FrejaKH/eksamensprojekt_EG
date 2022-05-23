@@ -34,6 +34,7 @@ exports.create = async (req, res) => {
 exports.createVare = async (req, res) => {
   try {
     const {
+      varenummer,
       varenavn,
       varebeskrivelse,
       pris,
@@ -44,8 +45,9 @@ exports.createVare = async (req, res) => {
       vareundergruppe,
     } = req.body;
     await pool.query(
-      "INSERT INTO vare SET varenavn = ?, varebeskrivelse= ?, pris= ?, enhedsbetegnelse= ?, indkøbspris= ?, contenttype= ?, EAN= ?, vareundergruppe= ?",
+      "INSERT INTO vare SET varenummer = ?, varenavn = ?, varebeskrivelse= ?, pris= ?, enhedsbetegnelse= ?, indkøbspris= ?, contenttype= ?, EAN= ?, vareundergruppe= ?",
       [
+        varenummer,
         varenavn,
         varebeskrivelse,
         pris,
@@ -85,6 +87,7 @@ exports.update = async (req, res) => {
 exports.updateVare = async (req, res) => {
   try {
     const {
+      varenummer,
       varenavn,
       varebeskrivelse,
       pris,
@@ -96,8 +99,9 @@ exports.updateVare = async (req, res) => {
       vareundergruppe,
     } = req.body;
     await pool.query(
-      "UPDATE vare SET varenavn = ?, varebeskrivelse= ?, pris= ?, enhedsbetegnelse= ?, indkøbspris= ?, billede= ?, contenttype= ?, EAN= ?, vareundergruppe= ? WHERE varenummer = ?",
+      "UPDATE vare SET varenummer = ?, varenavn = ?, varebeskrivelse= ?, pris= ?, enhedsbetegnelse= ?, indkøbspris= ?, billede= ?, contenttype= ?, EAN= ?, vareundergruppe= ? WHERE varenummer = ?",
       [
+        varenummer,
         varenavn,
         varebeskrivelse,
         pris,
