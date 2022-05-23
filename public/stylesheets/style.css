@@ -48,14 +48,15 @@ main {
   display: flex;
   align-items: center;
   width: 100%;
-  justify-content: space-between;
+  justify-content: center;
+  margin-top: 4em;
 }
-.div_title {
+/* .div_title {
   display: flex;
   justify-content: center;
   align-items: center;
   width: 33%;
-}
+} */
 .div_empty_div {
   display: flex;
   align-items: center;
@@ -83,6 +84,8 @@ main {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  position: fixed;
+  z-index: 100;
 }
 
 .burgermenu,
@@ -328,6 +331,10 @@ main {
   display: flex;
   justify-content: space-around;
   align-items: center;
+  z-index: 100;
+  position: fixed;
+  bottom: 0;
+
 }
 .footer_text {
   color: white;
@@ -360,6 +367,8 @@ main {
   display: flex;
   align-items: center;
   flex-direction: column;
+  padding-bottom: 3em;
+
 }
 .div_kvitteringer{
   background-color: var(--color-light);
@@ -401,6 +410,7 @@ main {
   width: 100%;
   display: flex;
   flex-direction: column;
+  
 }
 .p_kvittering_date {
   display: flex;
@@ -412,6 +422,8 @@ main {
   display: flex;
   align-items: center;
   flex-direction: column;
+  padding-bottom: 3em;
+
 }
 
 .kvitteringer_item {
@@ -521,6 +533,25 @@ main {
 .liste_item_img img {
   width: 8em;
 }
+#searchbar_liste {
+  width: 80%;
+  height: 3em;
+  border-radius: 10em;
+  background-color: var(--color-grey);
+  padding: 1em;
+  margin: 1em 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 5em;
+}
+.searchbar_text_liste p {
+  margin: 0;
+}
+
+.searchbar_img_liste img {
+  width: 20px;
+}
 /******************************************************navigering til produkt******************************************************/
 
 .main_produktnavigering {
@@ -528,6 +559,8 @@ main {
   display: flex;
   align-items: center;
   flex-direction: column;
+  padding-bottom: 3em;
+
 }
 .produkt_oversigt img {
   width: 98%;
@@ -547,7 +580,13 @@ main {
   display: flex;
   align-items: center;
   flex-direction: column;
+  padding-bottom: 3em;
+
 }
+.main_produkt_informationer a {
+  width: 100%;
+}
+
 .produkt_item_img {
   width: 100%;
   display: flex;
@@ -641,13 +680,32 @@ main {
   align-items: center;
   flex-direction: column;
   background-color:var(--color-grey);
+  padding-bottom: 3em;
+  /* padding-top: 9.5em; */
+  height: 100%;
+
   
 }
+.main_scanning h1{
+  text-align: center;
+  
+}
+
+
+.scan_buttons {
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+}
+.scan_buttons button {
+  width: min(20em, 100%);
+}
+
 
 .scan-border{
   background-color: var(--color-grey);
   width: 70%;
-  height: 40em;
+  height: 30em;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -736,12 +794,15 @@ main {
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  padding-bottom: 3em;
+
 }
 
 .btn_stor {
   width: 20em;
   height: 4em;
   background-color: var(--color-primary);
+  color: var(--color-white);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -763,6 +824,7 @@ main {
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  margin-bottom: 3em;
 }
 
 #searchbar {
@@ -836,6 +898,7 @@ main {
   align-items: center;
   margin-top:1em;
   flex-wrap: wrap;
+  padding-bottom: 3em;
 }
 
 .vare{
@@ -867,22 +930,32 @@ main {
 
 #popup {
   width: 300px;
-  max-width: 80%;
   height: 400px;
   position: fixed;
   background-color: var(--color-white);
   border: 1px solid #000;
-  z-index: 10;
+  z-index: 10000;
   display: none;
-  position: absolute;
-  right: 0;
-  bottom: 5em;
+  right: 0.5em;
+  bottom: 6em;
+  z-index: 9001;
+  overflow:scroll;
 }
 
-#popup_header_btn {
-  width: 100%;
-  height: 1em;
+#popup .show {
+  display: block;
+}
+
+
+#popup_header {
   display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: row;
+  
+}
+
+#popup_header button {
   justify-content: flex-end;
   align-items: center;
   cursor: pointer;
@@ -892,27 +965,24 @@ main {
   margin: 0;
 }
 
-#popup_header_text {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
 #popup_text {
-  padding: 1em 2em;
+  padding: 1em;
 }
 
 #popup_content {
   width: 100%;
-  height: 10em;
   display: flex;
   justify-content: space-around;
   align-items: center;
   background-color: var(--color-light);
 }
 
+#popup_content .popup_img {
+  width: 40%;
+}
+
 #popup_content .pensel {
-  width: 8em;
+  width: min(100%, 8em);
 }
 
 #popup_content .arrow_right {
@@ -932,6 +1002,22 @@ main {
 
 #popup_btn {
   position: relative;
+}
+
+#popup_arrow{
+  /* background-color: var(--color-accent); */
+  width: 4rem;
+  height: 4rem;
+  border-right: 1px solid var(--color-black);
+  border-bottom: 1px solid var(--color-black);
+  background: linear-gradient(to top left, rgb(255, 255, 255), rgb(255, 255, 255) 50%, rgba(255, 255, 255, 0) 55%);
+  /* background-image: linear-gradient(to top left, #333, #333 50%, #eee 75%, #333 75%); */
+  
+  transform: translate(0px, -4.4rem) rotate(45deg);
+  position: absolute;
+  display:none;
+  z-index: 9001;
+
 }
 
 /********************************INDKØBSKURV***********************************************/
@@ -960,7 +1046,7 @@ main {
 }
 
 .kurv_item_img img {
-  width: 8em;
+  width: min(15em, 100%);
 }
 
 .kurv_item_text {
@@ -1095,6 +1181,8 @@ body .login #main_velkommen {
   display: flex;
   align-items: center;
   flex-direction: column;
+  padding-bottom: 3em;
+
 }
 
 body .login .heading {
@@ -1184,6 +1272,8 @@ body .signup #main_velkommen {
   display: flex;
   align-items: center;
   flex-direction: column;
+  padding-bottom: 3em;
+
 }
 
 body .signup .heading {
@@ -1271,8 +1361,8 @@ body .signup .alert-danger {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  width: 20em;
-  margin: 10% auto 10%;
+  /* width: 20em;
+  margin: 10% auto 10%; */
 }
 
 .profile h1 {
@@ -1288,6 +1378,7 @@ body .signup .alert-danger {
   align-items: center;
   flex-direction: column;
   position: relative;
+  margin-top: 5em;
 }
 
 .profileHeader .fa-arrow-left {
@@ -1348,6 +1439,7 @@ body .signup .alert-danger {
   justify-content: center;
   align-content: center;
   margin-bottom: 2em;
+  margin-top: 5em;
 }
 
 .indstillinger .profileInfo {
@@ -1369,7 +1461,8 @@ body .signup .alert-danger {
 .indstillingerbtn {
   display: flex;
   justify-content: center;
-  margin-top: 10%;
+  margin-top: 2%;
+  margin-bottom: 6%;
 }
 
 .indstillingerbtn button {

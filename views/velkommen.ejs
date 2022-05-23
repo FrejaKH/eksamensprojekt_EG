@@ -4,9 +4,7 @@
     <body>
       <%- include('header_bar.ejs'); -%>
         <main id="main_velkommen">
-            <div class="heading">
-                <h1><%= title %></h1>
-            </div>
+            <%- include('title_bar.ejs'); -%>
             <div class="content">
                 <a href="/scanvare">
                     <div class="btn_stor">
@@ -18,7 +16,7 @@
                         <p>Kategorier</p>
                     </div>
                 </a>
-                <a href="/kurv">
+                <a href="/liste">
                     <div class="btn_stor">
                         <p>Indkøbsliste</p>
                     </div>
@@ -29,7 +27,7 @@
                     </div>
                 </a>
             </div>
-            <%- include('popup.ejs'); -%>
+            
         </main>
         <%- include('footer_bar.ejs'); -%>
     </body>

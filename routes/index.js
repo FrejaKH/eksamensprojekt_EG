@@ -2,23 +2,21 @@ const express = require("express");
 const router = express.Router();
 const passport = require("passport");
 const indexController = require("../controllers/indexController");
+const backofficeController = require("../controllers/backofficeController");
 
 // Use indexController.isLoggedIn FIRST, on relevant routes, to force login
 
-/* GENERAL ROUTES */
-router.route("/").get(indexController.index);
-
 /* PRODUCT ROUTES */
-router
-  .route("/products")
-  .post(indexController.createProduct)
-  .get(indexController.getAllProducts);
+// router
+//   .route("/products")
+//   .post(indexController.createProduct)
+//   .get(indexController.getAllProducts);
 
-router
-  .route("/products/:id")
-  .get(indexController.getProduct)
-  .put(indexController.updateProduct)
-  .delete(indexController.deleteProduct);
+// router
+//   .route("/products/:id")
+//   .get(indexController.getProduct)
+//   .put(indexController.updateProduct)
+//   .delete(indexController.deleteProduct);
 
 /* LOGIN ROUTES */
 router
@@ -60,11 +58,17 @@ router
   .route("/indstillinger")
   .get(indexController.isLoggedIn, indexController.indstillinger);
 
+/* INDEX */
+router.route("/").get(indexController.index);
+
 /* VELKOMMEN */
 router.route("/velkommen").get(indexController.velkommen);
 
 /* SCAN VARE */
 router.route("/scanvare").get(indexController.scanvare);
+
+/* SCAN VARE VARENUMMER*/
+router.route("/scanvare/:varenummer").get(indexController.scanvarenummer);
 
 /* KATEGORIER */
 router.route("/kategorier").get(indexController.kategorier);
@@ -102,6 +106,22 @@ router.route("/produkt").get(indexController.produkt_redirect);
 /* INDKØBSLISTE REDIRECT */
 router.route("/liste").get(indexController.liste);
 
+/* BACKOFFICE ROUTES */
+router
+  .route("/backoffice")
+  .get(backofficeController.backoffice)
+  .post(backofficeController.backofficeSearch);
 
+router
+  .route("/backoffice/create")
+  .get(backofficeController.create)
+  .post(backofficeController.createVare);
+
+router
+  .route("/backoffice/update/:id")
+  .get(backofficeController.update)
+  .post(backofficeController.updateVare);
+
+router.route("/:id").get(backofficeController.deleteVare);
 
 module.exports = router;

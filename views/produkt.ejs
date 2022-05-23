@@ -6,7 +6,7 @@
    <main class="main_produkt_informationer">
     <%- include('title_bar.ejs'); -%>
        <div class="produkt_item_img">
-        <img src="data:<%= vare.contenttype %>;base64,<%= vare.billede.toString('base64') %>" alt="malerbøtte">
+            <img src="data:<%= vare.contenttype %>;base64,<%= vare.billede.toString('base64') %>" alt="malerbøtte">
         </div>
         <div class="produkt_div_text">
         <div>
@@ -15,7 +15,7 @@
         <div>
             <p><%= vare.varebeskrivelse %></p>
         </div>
-    </div>
+        </div>
 
         <div class="div_button">
             <div class="div_innerdiv_button">
@@ -47,23 +47,32 @@
         
         <% anbefalet.forEach(function(anbefalet) { %> 
 
+            <% if(anbefalet.vareundergruppe == '3640') { %>
+            <a href="/vaegmaling">
+            <% } else { %>
+            <a href="/maling">
+            <% } %>
+
             <div class="harduhusket_item harduhusket_item1">
-                <div class="harduhusket_item_img">
-                    <img src="data:<%= anbefalet.contenttype %>;base64,<%= anbefalet.billede.toString('base64') %>" alt="<%= anbefalet.beskrivelse %>">
+                    <div class="harduhusket_item_img">
+                        <img src="data:<%= anbefalet.contenttype %>;base64,<%= anbefalet.billede.toString('base64') %>" alt="<%= anbefalet.beskrivelse %>">
+                    </div>
+                    <div class="harduhusket_item_text">
+                        <p><%= anbefalet.beskrivelse %></p>
+                    </div>
+                    <div class="harduhusket_item_arrow">
+                        <img src="../public/images/arrow_right2.png" alt="pil">
+                    </div>
                 </div>
-                <div class="harduhusket_item_text">
-                    <p><%= anbefalet.beskrivelse %></p>
-                </div>
-                <div class="harduhusket_item_arrow">
-                    <img src="../public/images/arrow_right2.png" alt="pil">
-                </div>
-            </div>
+            </a>
             
         <% }); %>
         <!-- EJS Loop end -->
+
+        
     </main>
-    <footer>
-      <%- include('footer_bar.ejs'); -%>
-    </footer>
+
+      <%- include('footer_bar.ejs', {anbefalet: anbefalet}); -%>
+
   </body>
 </html>

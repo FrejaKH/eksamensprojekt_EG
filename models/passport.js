@@ -38,33 +38,97 @@ module.exports = function (passport) {
               );
             } else {
               // If there is no user with that username, create the user
-              const newUserMysql = {
-                username: username,
-                password: bcrypt.hashSync(password, 10),
-                email: req.body.email,
-                telefon: req.body.telefon,
-                adresse: req.body.adresse,
-                _by: req.body._by,
-                postnummer: req.body.postnummer,
-              };
-              const insertQuery =
-                "INSERT INTO brugere ( navn, password, email, telefonnummer, adresse, _by, postnummer ) values (?,?,?,?,?,?,?)";
-              pool.query(
-                insertQuery,
-                [
-                  newUserMysql.username,
-                  newUserMysql.password,
-                  newUserMysql.email,
-                  newUserMysql.telefon,
-                  newUserMysql.adresse,
-                  newUserMysql._by,
-                  newUserMysql.postnummer,
-                ],
-                function (err, rows) {
-                  // newUserMysql.id = rows.insertId;
-                  return done(null, newUserMysql);
+
+              // if (req.body.cvr != undefined) {
+              //   const newUserMysql = {
+              //     username: username,
+              //     password: bcrypt.hashSync(password, 10),
+              //     email: req.body.email,
+              //     telefon: req.body.telefon,
+              //     adresse: req.body.adresse,
+              //     _by: req.body._by,
+              //     postnummer: req.body.postnummer,
+              //     rolle: 'erhverv',
+              //     cvr: req.body.cvr,
+              //   };
+              // }
+              
+                let newUserMysql = {
+                  username: username,
+                  password: bcrypt.hashSync(password, 10),
+                  email: req.body.email,
+                  telefon: req.body.telefon,
+                  adresse: req.body.adresse,
+                  _by: req.body._by,
+                  postnummer: req.body.postnummer,
+                  rolle: 'privat',
+                  cvr: req.body.cvr,
+                };
+
+                if(newUserMysql.cvr.length == 8) {
+                  console.log(`CVR = ${newUserMysql.cvr}`);
+                  newUserMysql.rolle = 'erhverv';
+                  
+                  const insertQuery = 
+                  `start TRANSACTION;
+
+                  INSERT INTO brugere ( navn, password, email, telefonnummer, adresse, _by, postnummer, rolle ) VALUES
+                  (?,?,?,?,?,?,?,?);
+                  
+                  INSERT INTO brugere_erhverv (kundenummer, kontonummer, cvr) 
+                  VALUES ((SELECT kundenummer FROM brugere WHERE email = ?), '123456789', ?);
+                  
+                  commit;`
+                  console.log("INSERTQUERY: " + insertQuery);
+
+                  pool.query(
+                    insertQuery,
+                    [
+                      newUserMysql.username,
+                      newUserMysql.password,
+                      newUserMysql.email,
+                      newUserMysql.telefon,
+                      newUserMysql.adresse,
+                      newUserMysql._by,
+                      newUserMysql.postnummer,
+                      newUserMysql.rolle,
+                      newUserMysql.email,
+                      newUserMysql.cvr,
+                    ],
+                    function (err, rows) {
+                      // newUserMysql.id = rows.insertId;
+                      console.log("NEWUSERMYSQL: " + newUserMysql);
+                      return done(null, newUserMysql);
+                    }
+                  );
+
                 }
-              );
+                else {
+                  const insertQuery =
+                "INSERT INTO brugere ( navn, password, email, telefonnummer, adresse, _by, postnummer, rolle ) values (?,?,?,?,?,?,?,?)";
+              
+              
+                  pool.query(
+                  insertQuery,
+                  [
+                    newUserMysql.username,
+                    newUserMysql.password,
+                    newUserMysql.email,
+                    newUserMysql.telefon,
+                    newUserMysql.adresse,
+                    newUserMysql._by,
+                    newUserMysql.postnummer,
+                    newUserMysql.rolle,
+                  ],
+                  function (err, rows) {
+                    // newUserMysql.id = rows.insertId;
+                    return done(null, newUserMysql);
+                  }
+                );
+              }
+              
+              
+              
             }
           }
         );

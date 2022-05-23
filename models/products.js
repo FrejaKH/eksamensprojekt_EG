@@ -1,9 +1,3 @@
-"use strict";
-/*
- * models
- * handlers for data manipulation
- */
-
 const pool = require("./db.js");
 
 module.exports = {
@@ -111,32 +105,32 @@ module.exports = {
       console.error(e.message);
     }
   },
-    // get a list of associated products.
-    async getAssociatedProducts(req, res) {
-      try {
-        //Først henter vi undergruppe fra produktet
-        const { varenummer } = req.params;
-        let sqlVareundergruppe = `SELECT vareundergruppe FROM vare WHERE varenummer = ?`;
-        let varenummerId = [varenummer];
-        let row = await pool.query(sqlVareundergruppe, varenummerId);
+  // get a list of associated products.
+  async getAssociatedProducts(req, res) {
+    try {
+      //Først henter vi undergruppe fra produktet
+      const { varenummer } = req.params;
+      let sqlVareundergruppe = `SELECT vareundergruppe FROM vare WHERE varenummer = ?`;
+      let varenummerId = [varenummer];
+      let row = await pool.query(sqlVareundergruppe, varenummerId);
 
-        //Dernæst bruger vi undergruppen til at finde hovedgruppen
-        let sqlVarehovedgruppe = `SELECT vareundergruppe, varehovedgruppe 
+      //Dernæst bruger vi undergruppen til at finde hovedgruppen
+      let sqlVarehovedgruppe = `SELECT vareundergruppe, varehovedgruppe 
           FROM vareundergruppe 
           WHERE vareundergruppe = ?`;
-        let vareundergruppe = [row[0][0].vareundergruppe];
-        row = await pool.query(sqlVarehovedgruppe, vareundergruppe);
+      let vareundergruppe = [row[0][0].vareundergruppe];
+      row = await pool.query(sqlVarehovedgruppe, vareundergruppe);
 
         //Til sidst finder vi alle undergrupper relateret til hovedgruppen, minus den valgte undergruppe
-        let sqlAnbefalet = `SELECT * FROM vareundergruppe WHERE varehovedgruppe = ? AND vareundergruppe != ?`;
+        let sqlAnbefalet = `SELECT * FROM vareundergruppe WHERE varehovedgruppe = ? AND vareundergruppe != ? ORDER BY rand() LIMIT 2`;
         let vareParams = [row[0][0].varehovedgruppe, row[0][0].vareundergruppe];
         row = await pool.query(sqlAnbefalet, vareParams);
 
-        console.log(row[0]);
+      console.log(row[0]);
 
-        return row;
-      } catch (e) {
-        console.error(e.message);
-      }
-    },
+      return row;
+    } catch (e) {
+      console.error(e.message);
+    }
+  },
 };
