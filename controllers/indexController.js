@@ -31,6 +31,7 @@ exports.velkommen = (req, res) => {
     title: "Velkommen",
     title_bar: "Velkommen",
   });
+  console.log(req.url, req.method);
 };
 
 /* GET SCAN PAGE */
