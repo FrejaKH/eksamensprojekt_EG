@@ -19,24 +19,31 @@ exports.backofficeSearch = async (req, res) => {
 /* GET CREATE PAGE */
 exports.create = async (req, res) => {
   let vare = await model.getVareUnderGruppe(req,res);
+  // console.log(vare[0]);
     res.render("backoffice/create", {
       title: "Opret vare",
       alert: "",
-      vareundergruppe: vare[0],
+      vare: vare[0],
     });
 };
 
 /* CREATE A VARE */
 exports.createVare = async (req, res) => {
-  let vare = await model.createAProduct(req,res);
-  if(vare){
+  let vareOprettet = await model.createAProduct(req,res);
+  let vare = await model.getVareUnderGruppe(req,res);
+
+  if(vareOprettet){
     res.render("backoffice/create", {
       title: "Opret vare",
       alert: "Vare oprettet!",
+      vare: vare[0],
+
     });
   }else{    res.render("backoffice/create", {
     title: "Opret vare",
     alert: "Fejl i at oprettet en Vare!",
+    vare: vare[0],
+
   });
   }
 };
