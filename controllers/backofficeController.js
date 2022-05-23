@@ -27,7 +27,15 @@ exports.backofficeSearch = async (req, res) => {
 
 /* GET CREATE PAGE */
 exports.create = async (req, res) => {
-  res.render("backoffice/create", { title: "Opret vare", alert: "" });
+  try {
+    let sql = `SELECT vareundergruppe FROM vareundergruppe`;
+    let vareundergruppe = await pool.query(sql);
+    console.log(vareundergruppe);
+    res.render("backoffice/create", { title: "Opret vare", alert: "", vareundergruppe: vareundergruppe});
+  }catch (e) {
+    console.error(e.message);
+}
+
 };
 
 /* CREATE A VARE */
