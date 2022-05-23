@@ -28,6 +28,7 @@ exports.velkommen = (req, res) => {
   res.render("velkommen", {
     title: "Velkommen",
   });
+  console.log(req.url, req.method);
 };
 
 /* GET SCAN PAGE */
