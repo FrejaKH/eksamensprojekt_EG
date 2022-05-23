@@ -90,7 +90,12 @@
               </div>
             </div>
             <div class="col-6">
-              <input class="form-control" type="file" id="formFile" name="billede" />
+              <input
+                class="form-control"
+                type="file"
+                id="formFile"
+                name="billede"
+              />
             </div>
             <div class="col-6">
               <div class="form-floating mb-3">
@@ -115,14 +120,14 @@
                 <label for="floatingInput">EAN</label>
               </div>
             </div>
-            
+
             <div class="col-6">
-              <label>Vareundergruppe</label>
-                <select class="dropdown_vareundergruppe" name="vareundergruppe">
-                  <% vareundergruppe[0].forEach(function(vareundergruppe) { %> 
-                    <option><%= vareundergruppe.vareundergruppe %></option>
-                  <% }); %>
-                </select>
+              <label for="floatingInput">Vareundergruppe</label>
+              <select name="vareundergruppe" class="dropdown_vareundergruppe">
+                <% vareundergruppe[0].forEach(function(vareundergruppe) { %>
+                <option><%= vareundergruppe.vareundergruppe %></option>
+                <% }); %>
+              </select>
 
               <!-- <div class="form-floating mb-3">
                 <input
