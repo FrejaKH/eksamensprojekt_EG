@@ -112,6 +112,9 @@ exports.liste = (req, res) => {
     title: "indkøbsliste",
     title_bar: "indkøbsliste",
     arrow_back: "href=" + "/produkt",
+    user: req.user,
+
+
   });
 };
 
