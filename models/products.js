@@ -37,7 +37,7 @@ module.exports = {
   },
   async getVareUnderGruppe(req, res) {
     try {
-      let sql = `SELECT vareundergruppe FROM vareundergruppe`;
+      let sql = `SELECT vareundergruppe, beskrivelse FROM vareundergruppe`;
       let row = await pool.query(sql);
       console.log(row);
       return row;
