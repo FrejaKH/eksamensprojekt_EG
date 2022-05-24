@@ -3,6 +3,8 @@ const router = express.Router();
 const passport = require("passport");
 const indexController = require("../controllers/indexController");
 const backofficeController = require("../controllers/backofficeController");
+const multer = require("multer");
+const upload = multer({storage: multer.memoryStorage()});
 
 // Use indexController.isLoggedIn FIRST, on relevant routes, to force login
 
@@ -114,7 +116,7 @@ router
 router
   .route("/backoffice/create")
   .get(backofficeController.create)
-  .post(backofficeController.createVare);
+  .post(upload.single('billede'), backofficeController.createVare);
 
 router
   .route("/backoffice/update/:id")
