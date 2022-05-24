@@ -52,10 +52,13 @@ exports.createVare = async (req, res) => {
 /* GET UPDATE PAGE */
 exports.update = async (req, res) => {
   let vare = await model.getupdateAproduct(req,res);
+  let vareUndergruppe = await model.getVareUnderGruppe(req,res);
+
     res.render("backoffice/update", {
       vare: vare[0][0],
       title: "Opdater vare",
       alert: "",
+      vareUndergruppe: vareUndergruppe[0],
     });
 
 };
@@ -65,11 +68,14 @@ exports.updateVare = async (req, res) => {
  let newVarenummer = await model.updateAProduct(req,res);
     // Stay on page after submit
     let vare = await model.getNewupdateAproduct(req,res, newVarenummer);
+    let vareUndergruppe = await model.getVareUnderGruppe(req,res);
+
     console.log(vare);
     res.render("backoffice/update", {
       vare: vare[0][0],
       title: "Opdater vare",
       alert: "Vare opdateret!",
+      vareUndergruppe: vareUndergruppe[0],
     });
 
 };

@@ -183,46 +183,6 @@ exports.produkt_navigering = (req, res) => {
   });
 };
 
-// ====================== /* PRODUCTS */ ====================== //
-
-/* CREATE A PRODUCT */
-exports.createProduct = async (req, res) => {
-  const newProduct = await model.createAProduct(req, res);
-  res.json(newProduct);
-};
-
-/* GET ALL PRODUCTS */
-exports.getAllProducts = async (req, res) => {
-  const products = await model.getAllproducts(req, res);
-  console.log(products[0]);
-  res.json(products[0]);
-};
-
-// /* GET A PRODUCT */
-exports.getProduct = async (req, res) => {
-  const getproduct = await model.getproduct(req, res);
-  console.log(getproduct[0]);
-  res.json(getproduct[0]);
-};
-
-/* UPDATE A PRODUCT */
-exports.updateProduct = async (req, res) => {
-  const updateProduct = await model.updateAProduct(req, res);
-  res.json(updateProduct);
-};
-
-/* DELETE A PRODUCT */
-exports.deleteProduct = async (req, res) => {
-  const deleteproduct = await model.deleteAProduct(req, res);
-  if (deleteproduct) {
-    console.log("Product deleted!");
-    res.json("Product deleted!");
-  } else {
-    console.log("Product not deleted!");
-    res.json("product not deleted!");
-  }
-};
-
 // ====================== /* PASSPORT */ ====================== //
 
 /* LOGIN */
