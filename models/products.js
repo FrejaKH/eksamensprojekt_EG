@@ -69,14 +69,14 @@ module.exports = {
   // get all products.
   async officeSearch(req, res) {
     try {
-      let sql = `SELECT * FROM vare WHERE varenavn LIKE "%${req.body.search}%"`;
-      let row = await pool.query(sql);
+      let search = req.body.search;
+      let sql = "SELECT * FROM vare WHERE varenavn LIKE ?";
+      let row = await pool.query(sql, ["%" + search + "%"]);
       return row;
     } catch (e) {
       console.error(e.message);
     }
   },
-  // delete a product.
   async deleteAProduct(req, res) {
     try {
       const { id } = req.params;
@@ -176,10 +176,10 @@ module.exports = {
       let vareundergruppe = [row[0][0].vareundergruppe];
       row = await pool.query(sqlVarehovedgruppe, vareundergruppe);
 
-        //Til sidst finder vi alle undergrupper relateret til hovedgruppen, minus den valgte undergruppe
-        let sqlAnbefalet = `SELECT * FROM vareundergruppe WHERE varehovedgruppe = ? AND vareundergruppe != ? ORDER BY rand() LIMIT 2`;
-        let vareParams = [row[0][0].varehovedgruppe, row[0][0].vareundergruppe];
-        row = await pool.query(sqlAnbefalet, vareParams);
+      //Til sidst finder vi alle undergrupper relateret til hovedgruppen, minus den valgte undergruppe
+      let sqlAnbefalet = `SELECT * FROM vareundergruppe WHERE varehovedgruppe = ? AND vareundergruppe != ? ORDER BY rand() LIMIT 2`;
+      let vareParams = [row[0][0].varehovedgruppe, row[0][0].vareundergruppe];
+      row = await pool.query(sqlAnbefalet, vareParams);
 
       console.log(row[0]);
 
