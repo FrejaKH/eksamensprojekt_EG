@@ -121,7 +121,7 @@ router
 router
   .route("/backoffice/update/:id")
   .get(backofficeController.update)
-  .post(backofficeController.updateVare);
+  .post(upload.single('billede'), backofficeController.updateVare);
 
 router.route("/backoffice/delete/:id").get(backofficeController.deleteVare);
 
