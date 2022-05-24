@@ -108,7 +108,7 @@ module.exports = function (passport) {
                 else {
                   newUserMysql.hjaelp = false;
                   const insertQuery =
-                "INSERT INTO brugere ( navn, password, email, telefonnummer, adresse, _by, postnummer, rolle, hjaelp ) values (?,?,?,?,?,?,?,?;?)";
+                "INSERT INTO brugere ( navn, password, email, telefonnummer, adresse, _by, postnummer, rolle, hjaelp ) values (?,?,?,?,?,?,?,?,?)";
               
                   pool.query(
                   insertQuery,
