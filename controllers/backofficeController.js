@@ -44,7 +44,6 @@ exports.createVare = async (req, res) => {
     res.render("backoffice/create", {
     title: "Opret vare",
     alert_danger: "Fejl i at oprettet en Vare!",
-    alert: "",
     vare: vare[0],
   });
   }

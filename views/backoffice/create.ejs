@@ -2,9 +2,9 @@
 <div class="container">
   <h1 class="well"><%- title -%></h1>
   <div class="col-lg-12 well mt-4">
-    <% if(alert) { %>
+    <% if(locals.alert) { %>
     <div class="alert alert-success alert-dismissible fade show" role="alert">
-      <%- alert -%>
+      <%- locals.alert -%>
       <button
         type="button"
         class="btn-close"

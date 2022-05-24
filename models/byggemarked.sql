@@ -15,7 +15,7 @@ CREATE TABLE brugere(
      hjaelp BOOLEAN,
 
   PRIMARY KEY (kundenummer)
-);
+)AUTO_INCREMENT=1000000;
 
 CREATE TABLE brugere_erhverv(
 kundenummer BIGINT UNSIGNED NOT NULL,
@@ -25,8 +25,8 @@ PRIMARY KEY (kundenummer),
 foreign key(kundenummer) references brugere(kundenummer)
 );
 
-INSERT INTO `brugere` (`kundenummer`, `email`, `navn`, `adresse`, `postnummer`, `_by`, `telefonnummer`, `password`, `rolle`, hjaelp) VALUES
-(1, 'test@gmail.com', 'test', 'Lærkevej 3', 6200, 'kliplev', 20913871, '$2b$10$xrHb1jXOEwFMfXbbSUX8U.c1G6bPWUjMxpLayoXv2t76PFRGCAKiC', "privat", true);
+INSERT INTO `brugere` (`email`, `navn`, `adresse`, `postnummer`, `_by`, `telefonnummer`, `password`, `rolle`, hjaelp) VALUES
+('test@gmail.com', 'test', 'Lærkevej 3', 6200, 'kliplev', 20913871, '$2b$10$xrHb1jXOEwFMfXbbSUX8U.c1G6bPWUjMxpLayoXv2t76PFRGCAKiC', "privat", true);
 
 CREATE TABLE ordre(
 ordrenummer INT NOT NULL,
