@@ -18,12 +18,12 @@ exports.backofficeSearch = async (req, res) => {
 
 /* GET CREATE PAGE */
 exports.create = async (req, res) => {
-  let vare = await model.getVareUnderGruppe(req,res);
+  let vareundergruppe = await model.getVareUnderGruppe(req,res);
   // console.log(vare[0]);
     res.render("backoffice/create", {
       title: "Opret vare",
       alert: "",
-      vare: vare[0],
+      vare: vareundergruppe[0],
     });
 };
 
