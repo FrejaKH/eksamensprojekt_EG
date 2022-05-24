@@ -133,12 +133,10 @@
                       <option value="<%= vareUndergruppe.vareundergruppe %>"><%= vareUndergruppe.beskrivelse %></option>
                       <% }; %>
                     <% }); %>
-                  <!-- <option value="<%= vare.vareundergruppe %>"><%= vare.beskrivelse %></option> -->
                   <% vareUndergruppe.forEach(function(vareUndergruppe) { %>
                     <% if(vare.vareundergruppe != vareUndergruppe.vareundergruppe) { %>
                       <option value="<%= vareUndergruppe.vareundergruppe %>"><%= vareUndergruppe.beskrivelse %></option>
                       <% }; %>
-                  <!-- <option value="<%= vareUndergruppe.vareundergruppe %>"><%= vareUndergruppe.beskrivelse %></option> -->
                   <% }); %>
                 </select>
                 <label for="floatingInput">Vareundergruppe</label>
