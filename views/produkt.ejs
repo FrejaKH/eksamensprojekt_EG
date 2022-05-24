@@ -44,7 +44,10 @@
         </div>
 
 
+        <% if (user.hjaelp == 1) { %>
+
         <%- include('anbefalet_liste.ejs', {anbefalet: anbefalet}); -%>
+        <% } %>
         
     </main>
 

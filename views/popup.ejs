@@ -8,7 +8,7 @@
           <button id="popup_header_btn">&times;</button>
         </div>
       <div id="popup_text">“Har du husket?”  er en feature, som skal hjælpe dig med at huske alle materialer til dit projekt. På den måde sparer du evt. en tur i vores byggemarked igen.</div>
-      
+      <% if (user.hjaelp == 1) { %>
       <% if (!locals.anbefalet) { %>
       
         <div id="popup_content">
@@ -35,6 +35,10 @@
 
         <% }); %>
         <!-- Loop end -->  
+
+      <% } %> 
+      <% }else{ %> 
+        <div id="popup_text">“Har du husket?” features skal aktiveres i profilen for at få vist relaterede vare.</div>
 
       <% } %> 
 

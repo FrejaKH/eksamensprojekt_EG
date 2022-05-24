@@ -13,9 +13,42 @@ module.exports = {
       console.error(e.message);
     }
   },
+  async getupdateAproduct(req, res) {
+    try {
+      const { id } = req.params;
+      let sql = `SELECT * FROM vare WHERE varenummer = ?`;
+      let varenummerId = [id];
+      let row = await pool.query(sql, varenummerId);
+      return row;
+    } catch (e) {
+      console.error(e.message);
+    }
+  },
+  async getNewupdateAproduct(req, res, newVarenummer) {
+    try {
+      // const { id } = req.params;
+      let sql = `SELECT * FROM vare WHERE varenummer = ?`;
+      let varenummerId = [newVarenummer];
+      let row = await pool.query(sql, varenummerId);
+      return row;
+    } catch (e) {
+      console.error(e.message);
+    }
+  },
   async getVare(req, res) {
     try {
-      let sql = `SELECT * FROM vare WHERE varenummer = "1"`;
+      // const { id } = req.params;
+      let sql = `SELECT * FROM vare WHERE vareundergruppe = ?`;
+      let undergruppe = [3640];
+      let row = await pool.query(sql, undergruppe);
+      return row;
+    } catch (e) {
+      console.error(e.message);
+    }
+  },
+  async getVareUnderGruppe(req, res) {
+    try {
+      let sql = `SELECT vareundergruppe, beskrivelse FROM vareundergruppe`;
       let row = await pool.query(sql);
       console.log(row);
       return row;
@@ -27,6 +60,16 @@ module.exports = {
   async getAllproducts(req, res) {
     try {
       let sql = `SELECT * FROM vare`;
+      let row = await pool.query(sql);
+      return row;
+    } catch (e) {
+      console.error(e.message);
+    }
+  },
+  // get all products.
+  async officeSearch(req, res) {
+    try {
+      let sql = `SELECT * FROM vare WHERE varenavn LIKE "%${req.body.search}%"`;
       let row = await pool.query(sql);
       return row;
     } catch (e) {
@@ -48,59 +91,71 @@ module.exports = {
   // create a product.
   async createAProduct(req, res) {
     try {
-      const {
+      let {
         varenummer,
-        prisenhed,
-        beskrivelse,
+        varenavn,
+        varebeskrivelse,
+        pris,
         enhedsbetegnelse,
         indkøbspris,
-        billede,
+        contenttype,
         EAN,
         vareundergruppe,
       } = req.body;
-      let sql = `INSERT INTO vare (varenummer,prisenhed, beskrivelse, enhedsbetegnelse, indkøbspris, billede, EAN, vareundergruppe) VALUES (?,?,?,?,?,?,?,?)`;
+      let billede = req.file.buffer;
+
+      let sql = `INSERT INTO vare ( varenummer, varenavn, varebeskrivelse, pris, enhedsbetegnelse, indkøbspris, contenttype, EAN, vareundergruppe, billede) VALUES (?,?,?,?,?,?,?,?,?,?)`;
       let vare = [
         varenummer,
-        prisenhed,
-        beskrivelse,
+        varenavn,
+        varebeskrivelse,
+        pris,
         enhedsbetegnelse,
         indkøbspris,
-        billede,
+        contenttype,
         EAN,
         vareundergruppe,
+        billede,
       ];
       await pool.query(sql, vare);
       return true;
     } catch (e) {
       console.error(e.message);
+      return false;
     }
   },
   // create a product.
   async updateAProduct(req, res) {
     try {
-      const { id } = req.params;
-      const {
-        prisenhed,
-        beskrivelse,
+      let {
+        varenummer,
+        varenavn,
+        varebeskrivelse,
+        pris,
         enhedsbetegnelse,
         indkøbspris,
-        billede,
+        contenttype,
         EAN,
         vareundergruppe,
       } = req.body;
-      let sql = `update vare SET prisenhed=?, beskrivelse=?, enhedsbetegnelse=?, indkøbspris=?, billede=?, EAN=?, vareundergruppe=? WHERE varenummer = ?`;
-      let vare = [
-        prisenhed,
-        beskrivelse,
-        enhedsbetegnelse,
-        indkøbspris,
-        billede,
-        EAN,
-        vareundergruppe,
-        id,
-      ];
-      await pool.query(sql, vare);
-      return true;
+      let billede = req.file.buffer;
+      await pool.query(
+        "UPDATE vare SET varenummer = ?, varenavn = ?, varebeskrivelse= ?, pris= ?, enhedsbetegnelse= ?, indkøbspris= ?, contenttype= ?, EAN= ?, vareundergruppe= ?, billede = ? WHERE varenummer = ?",
+        [
+          varenummer,
+          varenavn,
+          varebeskrivelse,
+          pris,
+          enhedsbetegnelse,
+          indkøbspris,
+          contenttype,
+          EAN,
+          vareundergruppe,
+          billede,
+          req.params.id,
+        ]
+      );
+      return varenummer;
     } catch (e) {
       console.error(e.message);
     }

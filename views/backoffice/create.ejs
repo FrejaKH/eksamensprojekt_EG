@@ -13,8 +13,19 @@
       ></button>
     </div>
     <% }; %>
+    <% if(locals.alert_danger) { %>
+      <div class="alert alert-success alert-dismissible fade show" role="alert">
+        <%- locals.alertalert_danger -%>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="alert"
+          aria-label="Close"
+        ></button>
+      </div>
+      <% }; %>
     <div class="row">
-      <form method="POST" action="/backoffice/create">
+      <form method="POST" action="/backoffice/create" enctype="multipart/form-data">
         <div class="col-sm-12">
           <div class="row">
             <div class="col-6">
@@ -90,12 +101,15 @@
               </div>
             </div>
             <div class="col-6">
+              <div class="form-floating">
               <input
                 class="form-control"
                 type="file"
                 id="formFile"
                 name="billede"
+                required
               />
+            </div>
             </div>
             <div class="col-6">
               <div class="form-floating mb-3">
@@ -120,15 +134,15 @@
                 <label for="floatingInput">EAN</label>
               </div>
             </div>
-
             <div class="col-6">
-              <label for="floatingInput">Vareundergruppe</label>
-              <select name="vareundergruppe" class="dropdown_vareundergruppe">
-                <% vareundergruppe[0].forEach(function(vareundergruppe) { %>
-                <option><%= vareundergruppe.vareundergruppe %></option>
+              <div class="form-floating mb-3">
+              <select name="vareundergruppe" class="form-select">
+                <% vare.forEach(function(vare) { %>
+                <option value="<%= vare.vareundergruppe %>"><%= vare.beskrivelse %></option>
                 <% }); %>
               </select>
-
+              <label for="floatingInput">Vareundergruppe</label>
+              </div>
               <!-- <div class="form-floating mb-3">
                 <input
                   type="text"
@@ -156,5 +170,6 @@
       </form>
     </div>
   </div>
+  <script src="../../public/javascripts/file_helper.js"></script>
   <%- include ('partials/backoffice_bot.ejs') -%>
 </div>

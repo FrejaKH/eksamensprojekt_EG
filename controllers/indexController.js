@@ -1,4 +1,6 @@
 const model = require("../models/products");
+const modelBrugere = require("../models/brugere");
+
 
 // ====================== /* MISC. */ ====================== //
 
@@ -28,6 +30,8 @@ exports.velkommen = (req, res) => {
   res.render("velkommen", {
     title: "Velkommen",
     title_bar: "Velkommen",
+    user: req.user,
+
   });
   console.log(req.url, req.method);
 };
@@ -36,6 +40,7 @@ exports.velkommen = (req, res) => {
 exports.scanvare = (req, res) => {
   res.render("scanvare", {
     title: "Scan en vare",
+    user: req.user,
   });
 };
 
@@ -47,6 +52,8 @@ exports.scanvarenummer = async (req, res) => {
     title: "Scan en vare",
     vare: vare[0][0],
     anbefalet: anbefalet[0],
+    user: req.user,
+
   });
 };
 
@@ -56,6 +63,8 @@ exports.kategorier = (req, res) => {
     title: "Kategorier",
     title_bar: "Kategorier",
     arrow_back: "href=" + "/velkommen",
+    user: req.user,
+
   });
 };
 
@@ -65,6 +74,8 @@ exports.maling = (req, res) => {
     title: "Maling",
     title_bar: "Maling",
     arrow_back: "href=" + "/Kategorier",
+    user: req.user,
+
   });
 };
 
@@ -77,6 +88,8 @@ exports.vaegmaling = async (req, res) => {
     title_bar: "Vægmaling",
     arrow_back: "href=" + "/maling",
     vare: vare[0][0],
+    user: req.user,
+
   });
 };
 
@@ -86,6 +99,8 @@ exports.vejledning = (req, res) => {
     title: "Vejledning",
     title_bar: "Vægmaling",
     arrow_back: "href=" + "/velkommen",
+    user: req.user,
+
   });
 };
 
@@ -98,6 +113,7 @@ exports.kurv = async (req, res) => {
     title_bar: "Indkøbskurv",
     arrow_back: "href=" + "/produkt",
     produkter: produkter[0],
+    user: req.user,
   });
 };
 /* GET INDKØBSLISTE PAGE */
@@ -106,6 +122,9 @@ exports.liste = (req, res) => {
     title: "indkøbsliste",
     title_bar: "indkøbsliste",
     arrow_back: "href=" + "/produkt",
+    user: req.user,
+
+
   });
 };
 
@@ -115,6 +134,8 @@ exports.kvitteringer = (req, res) => {
     title: "Alle kvitteringer",
     title_bar: "Kvitteringer",
     arrow_back: "href=" + "/profile",
+    user: req.user,
+
   });
 };
 // ====================== /* kvitteringer udvidet */ ====================== //
@@ -123,6 +144,8 @@ exports.kvitteringer_udvidet = (req, res) => {
     title: "kvitteringer",
     title_bar: "Kvitteringer",
     arrow_back: "href=" + "/Kvitteringer",
+    user: req.user,
+
   });
 };
 // ====================== /* produkt indformationer  */ ====================== //
@@ -136,6 +159,8 @@ exports.produkt = async (req, res) => {
       arrow_back: "href=" + "/vaegmaling",
       vare: vare[0][0],
       anbefalet: anbefalet[0],
+      user: req.user,
+
     });
   } catch (e) {
     console.log(e);
@@ -153,6 +178,8 @@ exports.produkt_navigering = (req, res) => {
     title: "Navigering",
     title_bar: "Oversigt",
     arrow_back: "href=" + "/produkt",
+    user: req.user,
+
   });
 };
 
@@ -224,6 +251,15 @@ exports.signup = (req, res) => {
 
 /* PROFILE */
 exports.profile = (req, res) => {
+  res.render("profile", {
+    user: req.user,
+    title: "Profil",
+  });
+};
+/* PROFILE */
+exports.hjaelp = async(req, res) => {
+  const bool = await modelBrugere.updatehjaelp(req,res);
+  req.user.hjaelp = bool;
   res.render("profile", {
     user: req.user,
     title: "Profil",

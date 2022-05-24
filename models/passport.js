@@ -63,6 +63,7 @@ module.exports = function (passport) {
                   postnummer: req.body.postnummer,
                   rolle: 'privat',
                   cvr: req.body.cvr,
+                  hjaelp: true,
                 };
 
                 //See if there is something in CVR and it is 8 numbers long
@@ -73,8 +74,8 @@ module.exports = function (passport) {
                   const insertQuery = 
                   `start TRANSACTION;
 
-                  INSERT INTO brugere ( navn, password, email, telefonnummer, adresse, _by, postnummer, rolle ) VALUES
-                  (?,?,?,?,?,?,?,?);
+                  INSERT INTO brugere ( navn, password, email, telefonnummer, adresse, _by, postnummer, rolle, hjaelp ) VALUES
+                  (?,?,?,?,?,?,?,?,?);
                   
                   INSERT INTO brugere_erhverv (kundenummer, kontonummer, cvr) 
                   VALUES ((SELECT kundenummer FROM brugere WHERE email = ?), '123456789', ?);
@@ -92,6 +93,7 @@ module.exports = function (passport) {
                       newUserMysql._by,
                       newUserMysql.postnummer,
                       newUserMysql.rolle,
+                      newUserMysql.hjaelp,
                       newUserMysql.email,
                       newUserMysql.cvr,
                     ],
@@ -104,9 +106,9 @@ module.exports = function (passport) {
 
                 }
                 else {
+                  newUserMysql.hjaelp = false;
                   const insertQuery =
-                "INSERT INTO brugere ( navn, password, email, telefonnummer, adresse, _by, postnummer, rolle ) values (?,?,?,?,?,?,?,?)";
-              
+                "INSERT INTO brugere ( navn, password, email, telefonnummer, adresse, _by, postnummer, rolle, hjaelp ) values (?,?,?,?,?,?,?,?;?)";
               
                   pool.query(
                   insertQuery,
@@ -119,6 +121,7 @@ module.exports = function (passport) {
                     newUserMysql._by,
                     newUserMysql.postnummer,
                     newUserMysql.rolle,
+                    newUserMysql.hjaelp,
                   ],
                   function (err, rows) {
                     // newUserMysql.id = rows.insertId;
@@ -173,3 +176,4 @@ module.exports = function (passport) {
     )
   );
 };
+

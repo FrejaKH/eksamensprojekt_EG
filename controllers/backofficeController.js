@@ -1,148 +1,81 @@
+const model = require("../models/products");
 const pool = require("../models/db");
+const { produkt_redirect } = require("./indexController");
 
 /* GET BACKOFFICE PAGE */
 exports.backoffice = async (req, res) => {
-  try {
-    const vare = await pool.query("SELECT * FROM vare");
+  let vare = await model.getAllproducts();
     res.render("backoffice/backoffice", {
       vare: vare[0],
     });
-  } catch (err) {
-    console.error(err.message);
-  }
 };
 
 /* FIND A VARE */
 exports.backofficeSearch = async (req, res) => {
-  try {
-    const search = req.body.search;
-    const vare = await pool.query(
-      `SELECT * FROM vare WHERE varenavn LIKE "%${search}%"`
-    );
-    res.render("backoffice/backoffice", { vare: vare[0]});
-  } catch (err) {
-    console.error(err.message);
-  }
+  let vare = await model.officeSearch(req,res);
+  res.render("backoffice/backoffice", { vare: vare[0] });
+
 };
 
 /* GET CREATE PAGE */
 exports.create = async (req, res) => {
-  try {
-    let sql = `SELECT vareundergruppe FROM vareundergruppe`;
-    let vareundergruppe = await pool.query(sql);
-    console.log(vareundergruppe);
-    res.render("backoffice/create", { title: "Opret vare", alert: "", vareundergruppe: vareundergruppe});
-  }catch (e) {
-    console.error(e.message);
-}
-
+  let vareundergruppe = await model.getVareUnderGruppe(req,res);
+  // console.log(vare[0]);
+    res.render("backoffice/create", {
+      title: "Opret vare",
+      alert: "",
+      vare: vareundergruppe[0],
+    });
 };
 
 /* CREATE A VARE */
 exports.createVare = async (req, res) => {
-  try {
-    const {
-      varenummer,
-      varenavn,
-      varebeskrivelse,
-      pris,
-      enhedsbetegnelse,
-      indkøbspris,
-      contenttype,
-      EAN,
-      vareundergruppe,
-    } = req.body;
-    await pool.query(
-      "INSERT INTO vare SET varenummer = ?, varenavn = ?, varebeskrivelse= ?, pris= ?, enhedsbetegnelse= ?, indkøbspris= ?, contenttype= ?, EAN= ?, vareundergruppe= ?",
-      [
-        varenummer,
-        varenavn,
-        varebeskrivelse,
-        pris,
-        enhedsbetegnelse,
-        indkøbspris,
-        contenttype,
-        EAN,
-        vareundergruppe,
-      ]
-    );
+  let vareOprettet = await model.createAProduct(req,res);
+  let vare = await model.getVareUnderGruppe(req,res);
+  // console.log(vareOprettet);
+  if(vareOprettet){
     res.render("backoffice/create", {
       title: "Opret vare",
       alert: "Vare oprettet!",
+      vare: vare[0],
+
     });
-  } catch (err) {
-    console.error(err.message);
+  }else{
+    res.render("backoffice/create", {
+    title: "Opret vare",
+    alert_danger: "Fejl i at oprettet en Vare!",
+    vare: vare[0],
+  });
   }
 };
 
 /* GET UPDATE PAGE */
 exports.update = async (req, res) => {
-  try {
-    const vare = await pool.query("SELECT * FROM vare WHERE varenummer = ?", [
-      req.params.id,
-    ]);
+  let vare = await model.getupdateAproduct(req,res);
     res.render("backoffice/update", {
       vare: vare[0][0],
       title: "Opdater vare",
       alert: "",
     });
-  } catch (err) {
-    console.error(err.message);
-  }
+
 };
 
 /* UPDATE A VARE */
 exports.updateVare = async (req, res) => {
-  try {
-    const {
-      varenummer,
-      varenavn,
-      varebeskrivelse,
-      pris,
-      enhedsbetegnelse,
-      indkøbspris,
-      billede,
-      contenttype,
-      EAN,
-      vareundergruppe,
-    } = req.body;
-    await pool.query(
-      "UPDATE vare SET varenummer = ?, varenavn = ?, varebeskrivelse= ?, pris= ?, enhedsbetegnelse= ?, indkøbspris= ?, billede= ?, contenttype= ?, EAN= ?, vareundergruppe= ? WHERE varenummer = ?",
-      [
-        varenummer,
-        varenavn,
-        varebeskrivelse,
-        pris,
-        enhedsbetegnelse,
-        indkøbspris,
-        billede,
-        contenttype,
-        EAN,
-        vareundergruppe,
-        req.params.id,
-      ]
-    );
+ let newVarenummer = await model.updateAProduct(req,res);
     // Stay on page after submit
-    const vare = await pool.query("SELECT * FROM vare WHERE varenummer = ?", [
-      req.params.id,
-    ]);
+    let vare = await model.getNewupdateAproduct(req,res, newVarenummer);
+    console.log(vare);
     res.render("backoffice/update", {
       vare: vare[0][0],
       title: "Opdater vare",
       alert: "Vare opdateret!",
     });
-  } catch (err) {
-    console.error(err.message);
-  }
+
 };
 
 /* DELETE A VARE */
 exports.deleteVare = async (req, res) => {
-  try {
-    const { id } = req.params;
-    await pool.query("DELETE FROM vare WHERE varenummer = ?", [id]);
-    res.redirect(`backoffice`);
-  } catch (err) {
-    console.error(err.message);
-  }
+    await model.deleteAProduct(req,res);
+    res.redirect("/backoffice");
 };
