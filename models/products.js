@@ -138,9 +138,9 @@ module.exports = {
         EAN,
         vareundergruppe,
       } = req.body;
-      // let billede = req.file.buffer;
+      let billede = req.file.buffer;
       await pool.query(
-        "UPDATE vare SET varenummer = ?, varenavn = ?, varebeskrivelse= ?, pris= ?, enhedsbetegnelse= ?, indkøbspris= ?, contenttype= ?, EAN= ?, vareundergruppe= ? WHERE varenummer = ?",
+        "UPDATE vare SET varenummer = ?, varenavn = ?, varebeskrivelse= ?, pris= ?, enhedsbetegnelse= ?, indkøbspris= ?, contenttype= ?, EAN= ?, vareundergruppe= ?, billede = ? WHERE varenummer = ?",
         [
           varenummer,
           varenavn,
@@ -151,6 +151,7 @@ module.exports = {
           contenttype,
           EAN,
           vareundergruppe,
+          billede,
           req.params.id,
         ]
       );

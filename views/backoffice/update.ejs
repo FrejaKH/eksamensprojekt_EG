@@ -14,7 +14,7 @@
     </div>
     <% }; %>
     <div class="row">
-      <form method="POST" action="/backoffice/update/<%= vare.varenummer %>" enctype="multipart/form-data>
+      <form method="POST" action="/backoffice/update/<%= vare.varenummer %>" enctype="multipart/form-data">
         <div class="col-sm-12">
           <div class="row">
             <div class="col-6">
@@ -96,6 +96,7 @@
                   class="form-control"
                   placeholder="Billede"
                   name="billede"
+                  value="<%= vare.billede.toString('base64') %>"
                 />
                 <label for="floatingInput">Billede</label>
               </div>
