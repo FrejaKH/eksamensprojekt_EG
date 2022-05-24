@@ -8,18 +8,6 @@ const upload = multer({storage: multer.memoryStorage()});
 
 // Use indexController.isLoggedIn FIRST, on relevant routes, to force login
 
-/* PRODUCT ROUTES */
-// router
-//   .route("/products")
-//   .post(indexController.createProduct)
-//   .get(indexController.getAllProducts);
-
-// router
-//   .route("/products/:id")
-//   .get(indexController.getProduct)
-//   .put(indexController.updateProduct)
-//   .delete(indexController.deleteProduct);
-
 /* LOGIN ROUTES */
 router
   .route("/login")
