@@ -1,4 +1,6 @@
-const { serializeUser } = require("passport");
+// const { serializeUser } = require("passport");
+// import {serializeUser} from "./passport";
+
 
 let scanArea = document.getElementsByClassName("scan-border")[0];
 let modal = document.getElementById('myModal');
@@ -6,13 +8,16 @@ let closeModal = document.getElementsByClassName("close")[0];
 let timeout; 
 
 function popup_timer_start() {
-    if(user.hjaelp == 1){
+    // if(user.hjaelp == 1){
+    //     if (document.getElementsByClassName("kurv_item_1")[0]) {
+    //         timeout = setTimeout(open_popup, 3000);
+    //     }
+    // }
+    
         if (document.getElementsByClassName("kurv_item_1")[0]) {
             timeout = setTimeout(open_popup, 3000);
         }
-    }
-
-
+    
 }
 function popup_timer_end() {
     clearTimeout(timeout);
