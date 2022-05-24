@@ -1,5 +1,6 @@
 const model = require("../models/products");
 const pool = require("../models/db");
+const { produkt_redirect } = require("./indexController");
 
 /* GET BACKOFFICE PAGE */
 exports.backoffice = async (req, res) => {
@@ -42,9 +43,8 @@ exports.createVare = async (req, res) => {
   }else{
     res.render("backoffice/create", {
     title: "Opret vare",
-    alert: "Fejl i at oprettet en Vare!",
+    alert_danger: "Fejl i at oprettet en Vare!",
     vare: vare[0],
-
   });
   }
 };
@@ -76,8 +76,5 @@ exports.updateVare = async (req, res) => {
 /* DELETE A VARE */
 exports.deleteVare = async (req, res) => {
     await model.deleteAProduct(req,res);
-    let vare = await model.getAllproducts();
-    res.render("backoffice/backoffice", {
-      vare: vare[0],
-    });
+    res.redirect("/backoffice");
 };

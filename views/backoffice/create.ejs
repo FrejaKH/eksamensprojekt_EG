@@ -13,6 +13,17 @@
       ></button>
     </div>
     <% }; %>
+    <% if(locals.alert_danger) { %>
+      <div class="alert alert-success alert-dismissible fade show" role="alert">
+        <%- locals.alertalert_danger -%>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="alert"
+          aria-label="Close"
+        ></button>
+      </div>
+      <% }; %>
     <div class="row">
       <form method="POST" action="/backoffice/create" enctype="multipart/form-data">
         <div class="col-sm-12">
