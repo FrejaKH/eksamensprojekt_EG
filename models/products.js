@@ -27,9 +27,9 @@ module.exports = {
   async getVare(req, res) {
     try {
       // const { id } = req.params;
-      let sql = `SELECT * FROM vare WHERE varenummer = ?`;
-      let varenummerId = [1];
-      let row = await pool.query(sql, varenummerId);
+      let sql = `SELECT * FROM vare WHERE vareundergruppe = ?`;
+      let undergruppe = [3640];
+      let row = await pool.query(sql, undergruppe);
       return row;
     } catch (e) {
       console.error(e.message);
