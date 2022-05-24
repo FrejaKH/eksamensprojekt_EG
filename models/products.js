@@ -24,6 +24,17 @@ module.exports = {
       console.error(e.message);
     }
   },
+  async getNewupdateAproduct(req, res, newVarenummer) {
+    try {
+      // const { id } = req.params;
+      let sql = `SELECT * FROM vare WHERE varenummer = ?`;
+      let varenummerId = [newVarenummer];
+      let row = await pool.query(sql, varenummerId);
+      return row;
+    } catch (e) {
+      console.error(e.message);
+    }
+  },
   async getVare(req, res) {
     try {
       // const { id } = req.params;
@@ -143,6 +154,7 @@ module.exports = {
           req.params.id,
         ]
       );
+      return varenummer;
     } catch (e) {
       console.error(e.message);
     }

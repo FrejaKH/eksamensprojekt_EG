@@ -62,9 +62,10 @@ exports.update = async (req, res) => {
 
 /* UPDATE A VARE */
 exports.updateVare = async (req, res) => {
-  await model.updateAProduct(req,res);
+ let newVarenummer = await model.updateAProduct(req,res);
     // Stay on page after submit
-    let vare = await model.getupdateAproduct(req,res);
+    let vare = await model.getNewupdateAproduct(req,res, newVarenummer);
+    console.log(vare);
     res.render("backoffice/update", {
       vare: vare[0][0],
       title: "Opdater vare",
