@@ -15,7 +15,7 @@ router
   .post(
     // Passport settings
     passport.authenticate("local-login", {
-      successRedirect: "/profile", // Redirect on success
+      successRedirect: "/velkommen", // Redirect on success
       failureRedirect: "/login", // Redirect back to login if error
       failureFlash: true, // Allow flash messages
     }),
@@ -91,8 +91,10 @@ router.route("/produkt/:varenummer").get(indexController.isLoggedIn,indexControl
 router.route("/produkt").get(indexController.isLoggedIn,indexController.produkt_redirect);
 
 /* INDKØBSLISTE REDIRECT */
+
 router.route("/liste").get(indexController.isLoggedIn,indexController.liste);
-/* HJÆLÅ FUNTION */
+
+/* HJÆLP FUNKTION */
 router.route("/hjaelp").post(indexController.hjaelp);
 
 /* BACKOFFICE ROUTES */
