@@ -66,7 +66,7 @@ router.route("/kategorier").get(indexController.isLoggedIn,indexController.kateg
 /* MALING */
 router.route("/maling").get(indexController.isLoggedIn,indexController.maling);
 
-/* PENSLER */
+/* VÆGMALING */
 router.route("/vaegmaling").get(indexController.isLoggedIn,indexController.vaegmaling);
 
 /* VEJLEDNING */
