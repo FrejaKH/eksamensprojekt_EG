@@ -87,7 +87,7 @@ exports.vaegmaling = async (req, res) => {
     title: "Vægmaling",
     title_bar: "Vægmaling",
     arrow_back: "href=" + "/maling",
-    vare: vare[0][0],
+    vare: vare[0],
     user: req.user,
 
   });
